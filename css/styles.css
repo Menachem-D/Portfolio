@@ -1,13 +1,25 @@
 body {
-    background: linear-gradient(135deg, #001d26, #003d4d, #006064);
-    background-size: 600% 600%;
+    background: radial-gradient(circle, #001d26, #006064);
+    background-size: 100% 100%;
     animation: Gradient 60s ease infinite;
+}
+h3 {
+    color: #FFCC00; /* You can choose any color you prefer */
+    font-size: 1.5rem; /* Smaller font size for h3 */
 }
 
 @keyframes Gradient {
-    0% {background-position: 0% 50%}
-    50% {background-position: 100% 50%}
-    100% {background-position: 0% 50%}
+    0% {
+        background-position: 0% 0%
+    }
+
+    50% {
+        background-position: 100% 100%
+    }
+
+    100% {
+        background-position: 0% 0%
+    }
 }
 
 .glassmorphism {
@@ -28,6 +40,13 @@ body {
     margin-bottom: 50px;
 }
 
+@media screen and (max-width: 768px) {
+    .glassmorphism {
+        width: 80%;
+        margin: 30px auto;
+    }
+}
+
 button {
     margin-top: 20px;
     padding: 10px;
@@ -42,4 +61,105 @@ button {
 
 button:hover {
     background: rgba(255, 255, 255, 0.3);
+}
+
+.profile-pic {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin: 0 auto;
+    display: block;
+}
+
+.bubble-container {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.bubble {
+    position: absolute;
+    bottom: -75%;
+    display: block;
+    border-radius: 50%;
+    animation: float-up var(--bubble-float-duration) var(--bubble-float-delay) ease-in infinite;
+}
+
+.bubble::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(136, 246, 251, 0.3);
+    border-radius: inherit;
+    animation: var(--bubble-sway-type) var(--bubble-sway-duration) var(--bubble-sway-delay) ease-in-out alternate infinite;
+}
+
+.bubble1 {
+    --bubble-size: 100px;
+    --bubble-float-duration: 10s;
+    --bubble-float-delay: 1s;
+    --bubble-sway-type: sway-left-to-right;
+    --bubble-sway-duration: 5s;
+    --bubble-sway-delay: 1s;
+}
+
+.bubble2 {
+    --bubble-size: 150px;
+    --bubble-float-duration: 8s;
+    --bubble-float-delay: 3s;
+    --bubble-sway-type: sway-right-to-left;
+    --bubble-sway-duration: 6s;
+    --bubble-sway-delay: 2s;
+}
+
+.bubble3 {
+    --bubble-size: 80px;
+    --bubble-float-duration: 12s;
+    --bubble-float-delay: 2s;
+    --bubble-sway-type: sway-left-to-right;
+    --bubble-sway-duration: 7s;
+    --bubble-sway-delay: 3s;
+}
+
+@keyframes float-up {
+    0% {
+        bottom: -100%;
+    }
+
+    100% {
+        bottom: 100%;
+    }
+}
+
+@keyframes sway-left-to-right {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(20px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes sway-right-to-left {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(-20px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
 }
