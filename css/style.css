@@ -10,6 +10,7 @@ Variables
 
 :root {
     --main-color: #ffe7ff;
+    --secondary-color: #b59cd9;
     --blue: #0000ff;
     --blue-dark: #18293c;
     --orange: #ffa500;
@@ -67,6 +68,7 @@ button {
     overflow: hidden;
     vertical-align: middle;
     transition: background-color 0.3s ease, color 0.3s ease;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .btn::before {
@@ -101,6 +103,7 @@ Profile Pic
     object-fit: cover;
     margin: 0 auto;
     display: block;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 /* ------------------------------------
@@ -113,18 +116,27 @@ Glass Card
     padding: 20px;
     margin: 50px auto;
     background: rgba(255, 255, 255, 0.2);
-    /* Increased transparency */
     backdrop-filter: blur(10px);
     border-radius: 20px;
-    /* Changed the shape to rounded corners */
     box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
     color: #fff;
     text-align: center;
+    animation: fadeIn 1s;
 }
 
 .glass-card.resume {
     max-width: 80%;
     margin-bottom: 50px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -211,7 +223,7 @@ Typewriter
 
     7.9767%,
     19.3721% {
-        content: "develop";
+        content: "Develop";
     }
 
     9.1163%,
@@ -263,6 +275,7 @@ Typewriter
 
 }
 
+
 @keyframes blink {
 
     0%,
@@ -274,6 +287,7 @@ Typewriter
         opacity: 0;
     }
 }
+
 
 .typewriter {
     --caret: currentcolor;
@@ -291,198 +305,31 @@ Typewriter
 }
 
 .typewriter.thick::after {
-    border-right: 1ch solid var(--caret);
+    border-width: 2px;
 }
 
-.typewriter.nocaret::after {
-    border-right: 0;
+.typewriter.fade::after {
+    animation-name: fade;
 }
-
-
-@media (prefers-reduced-motion) {
-    .typewriter::after {
-        animation: none;
-    }
-
-    @keyframes sequencePopup {
-
-
-        30.7674%,
-        51.2791% {
-            content: "";
-        }
-
-        31.9070%,
-        50.1395% {
-            content: "D";
-        }
-
-        33.0465%,
-        49.0000% {
-            content: "De";
-        }
-
-        34.1860%,
-        47.8605% {
-            content: "Des";
-        }
-
-        35.3256%,
-        46.7209% {
-            content: "Desi";
-        }
-
-        36.4651%,
-        45.5814% {
-            content: "Design";
-        }
-
-        37.6047%,
-        44.4419% {
-            content: "Designer";
-        }
-
-        54.6977%,
-        75.2093% {
-            content: "";
-        }
-
-        55.8372%,
-        74.0698% {
-            content: "F";
-        }
-
-        56.9767%,
-        72.9302% {
-            content: "Fr";
-        }
-
-        58.1163%,
-        71.7907% {
-            content: "Free";
-        }
-
-        59.2558%,
-        70.6512% {
-            content: "Freela";
-        }
-
-        60.3953%,
-        69.5116% {
-            content: "Freelanc";
-        }
-
-        61.5349%,
-        68.3721% {
-            content: "Freelancer";
-        }
-
-    }
-
-    @keyframes blink {
-
-        0%,
-        100% {
-            opacity: 1;
-        }
-
-        50% {
-            opacity: 0;
-        }
-    }
-
-    .typewriter {
-        --caret: currentcolor;
-    }
-
-    .typewriter::before {
-        content: "";
-        animation: typing 13.5s infinite;
-    }
-
-    .typewriter::after {
-        content: "";
-        border-right: 1px solid var(--caret);
-        animation: blink 0.5s linear infinite;
-    }
-
-    .typewriter.thick::after {
-        border-right: 1ch solid var(--caret);
-    }
-
-    .typewriter.nocaret::after {
-        border-right: 0;
-    }
-
-
-    @media (prefers-reduced-motion) {
-        .typewriter::after {
-            animation: none;
-        }
-
-        @keyframes sequencePopup {
-
-            0%,
-            100% {
-                content: "Designer";
-            }
-
-            25% {
-                content: "developer";
-            }
-
-            50% {
-                content: "Freelancer";
-            }
-
-
-        }
-
-        .typewriter::before {
-            content: "developer";
-            animation: sequencePopup 12s linear infinite;
-        }
-    }
-
-}
-
-75% {
-    content: "Freelancer";
-}
-}
-
-.typewriter::before {
-    content: "developer";
-    animation: sequencePopup 12s linear infinite;
-}
-}
-
 
 /* ------------------------------------
-Buttons - Updated
+Media Queries
 ----------------------------*/
 
-.button {
-    margin-top: 20px;
-    padding: 1rem;
-    font-size: 1.125rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, outline 0.3s ease;
-    color: #fff;
-    background-color: rgba(255, 255, 255, 0.2);
-}
+@media screen and (max-width: 600px) {
 
-.button:hover,
-.button:focus {
-    background-color: rgba(255, 255, 255, 0.3);
-    outline: 2px solid #fff;
-}
 
-.button:disabled {
-    cursor: not-allowed;
-    opacity: 0.6;
+    body {
+        padding: 25px 10px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+    }
+
+    .glass-card {
+        padding: 20px 10px;
+    }
 }
 
 /* ------------------------------------
@@ -537,78 +384,4 @@ Bubble
     animation-duration: 30s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
-}
-
-/* ------------------------------------
-Responsive
-----------------------------*/
-
-@media (max-width: 991px) {
-    body {
-        font-size: 14px;
-        /* Reduced font size for smaller screens */
-    }
-
-    .container {
-        padding: 0;
-    }
-
-    .home-text,
-    .home-img {
-        width: 100%;
-    }
-
-    .home-text {
-        text-align: center;
-    }
-
-    .home-img {
-        order: -1;
-    }
-
-    .home-img .img-box {
-        max-width: 300px;
-    }
-
-    .home-text .btn {
-        margin: 0 7px 15px;
-    }
-
-    .portfolio-item {
-        width: calc(50% - 30px);
-    }
-}
-
-@media (max-width: 767px) {
-    body {
-        font-size: 12px;
-        /* Further reduced font size for smaller screens */
-    }
-
-    .contact-info,
-    .about-img,
-    .about-text {
-        width: 100%;
-    }
-
-    .about-text {
-        margin-top: 30px;
-    }
-
-    .portfolio-item {
-        width: calc(100% - 30px);
-    }
-
-    .pp-inner {
-        padding: 30px 15px;
-    }
-
-    .contact-info {
-        order: -1;
-        margin-bottom: 15px;
-    }
-
-    .contact-info-item {
-        padding: 0;
-    }
 }
