@@ -56,7 +56,6 @@ Mobile navigation
     left: 50%;
     transform: translateX(-50%);
     background-color: rgba(238, 238, 238, 0.6);
-    /* Use rgba to set transparency */
     backdrop-filter: blur(10px);
     display: flex;
     justify-content: space-evenly;
@@ -64,7 +63,6 @@ Mobile navigation
     cursor: pointer;
     overflow: hidden;
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-    /* Adjust the box shadow */
 }
 
 .icons {
@@ -89,13 +87,13 @@ Mobile navigation
 
 .active {}
 
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 769px) {
     .iconbar {
         display: none;
     }
 }
 
-@media only screen and (max-device-width: 480px) {
+@media only screen and (max-device-width: 768px) {
     .iconbar {
         height: 80px;
         width: 90%;
