@@ -29,12 +29,11 @@ Variables
 Base Styles
 ----------------------------*/
 html {
-    font-size: 16px;
-    /* Use relative font size for better responsiveness */
+    height: 100%;
 }
 
 body {
-    min-height: 100vh;
+    min-height: 80vh;
     background: radial-gradient(circle, #001d26, #006064);
     background-attachment: fixed;
     font-size: 16px;
@@ -189,10 +188,10 @@ Glass Card
 ----------------------------*/
 
 .glass-card {
-    width: 60%;
-    max-width: 800px;
-    padding: 20px;
-    margin: 5rem auto;
+    width: 100%;
+    max-width: 850px;
+    padding: 2.5%;
+    margin: 1rem auto;
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
     border-radius: 20px;
@@ -206,6 +205,8 @@ Glass Card
     max-width: 80%;
     margin-bottom: 5rem;
 }
+
+
 
 @keyframes fadeIn {
     from {
@@ -397,17 +398,14 @@ Media Queries
 @media screen and (max-width: 600px) {
     body {
         padding: 1.5625rem 0.625rem;
-        /* Use relative units for padding */
     }
 
     .btn {
         padding: 1rem 2rem;
-        /* Use relative units for padding */
     }
 
     .glass-card {
         padding: 1.5625rem 0.625rem;
-        /* Use relative units for padding */
     }
 }
 
