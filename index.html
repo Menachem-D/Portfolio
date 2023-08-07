@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <link rel="manifest" href="/manifest.json">
+<script src="js/darkmode.js"></script>
+<script src="js/lazyload.js"></script>
+<script src="js/pushnotifications.js"></script>
+<script src="js/serviceworker.js"></script>
+<script src="js/mobilenav.js"></script>
 
 
 <head>
@@ -26,14 +31,46 @@
     <a href="#" class="btn">Portfolio</a>
   </div>
 
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function () {
-        navigator.serviceWorker.register('/sw.js');
-      });
-    }
-  </script>
+  <div class="menu-toggle">
+    <div class="menu-bar"></div>
+  </div>
 
+  <nav class="nav">
+    <div class="iconbar">
+      <div class="icons">
+        <i class="icon ion-md-apps"></i>
+        <span>Home</span>
+      </div>
+      <div class="icons">
+        <i class="icon ion-md-time"></i>
+        <span>Recent</span>
+      </div>
+      <div class="icons">
+        <i class="icon ion-md-folder-open"></i>
+        <span>Documents</span>
+      </div>
+      <div class="icons">
+        <i class="icon ion-md-list"></i>
+        <span>Settings</span>
+      </div>
+    </div>
+  </nav>
 </body>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('/sw.js');
+    });
+  }
+</script>
+
+<script>
+  var mobileMenu = document.querySelector('.menu-toggle');
+  var nav = document.querySelector('.nav');
+
+  mobileMenu.addEventListener('click', function () {
+    nav.style.transform = nav.style.transform === 'translateX(-100%)' ? 'translateX(0%)' : 'translateX(-100%)';
+  });
+</script>
 
 </html>
