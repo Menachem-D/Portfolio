@@ -1,21 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel="manifest" href="/manifest.json">
-<script src="js/darkmode.js"></script>
-<script src="js/lazyload.js"></script>
-<script src="js/pushnotifications.js"></script>
-<script src="js/serviceworker.js"></script>
-<script src="js/mobilenav.js"></script>
-
-
 <head>
-  <title>Menachem Drelich. Portfolio</title>
-  <meta charset="utf8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Menachem Drelich. Portfolio</title>
+
+  <link rel="manifest" href="/manifest.json">
   <link rel="stylesheet" href="css/font-awesome.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <!-- Place JavaScript files here if they must be loaded in the head -->
 </head>
-
 <body>
 
   <div class="bg-circles">
@@ -37,6 +31,11 @@
 
 
 </body>
+<script src="js/darkmode.js"></script>
+<script src="js/lazyload.js"></script>
+<script src="js/pushnotifications.js"></script>
+<script src="js/serviceworker.js"></script>
+<script src="js/mobilenav.js"></script>
 <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', function () {
