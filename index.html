@@ -1,56 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Menachem Drelich. Portfolio</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 
-  <link rel="manifest" href="/manifest.json">
-  <link rel="stylesheet" href="css/font-awesome.css">
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-  <!-- Place JavaScript files here if they must be loaded in the head -->
+    <title>Document</title>
 </head>
 <body>
-
-  <div class="bg-circles">
-    <div class="circle-2"></div>
-  </div>
-
-  <div class="glass-card">
-    <img src="img/Profile Picture.png" alt="Profile Picture of Menachem Drelich" class="profile-pic">
-    <h1>Welcome To My Portfolio</h1>
-    <div class="static-txt">I'm a</div>
-    <div class="typewriter"></div>
-    <a href="Pages/About.html" class="btn">About Me</a>
-    <a href="#" class="btn">Portfolio</a>
-  </div>
-
-  <div class="menu-toggle">
-    <div class="menu-bar"></div>
-  </div>
-
-
+    <section class="main" style="--dark-color:#000;--light-color:#fff;background-color:rgb(209 213 219 / 1);--text-color:#fcfcfc;--link-color:51, 51, 51;--link-background:239, 239, 239;--link-shadow:102, 102, 102;--link-border:51, 51, 51;color:51, 51, 51;">
+        <div class="background">
+          <div class="background_image"></div>
+        </div>
+        <div class="bg_container">
+          <div class="container"></div>
+        </div>
+        <div class="container">
+          <div class="container_component">
+            <div class="profile">
+              <div class="profile_image"></div>
+              <div class="text text_center text_large">
+                <span style="font-weight:bold">Menachem Drelich</span>
+              </div>
+              <div class="text text_center">
+                <h4> Full Stack Developer | Passionate about Simple Solutions.</h4>
+              </div>
+              <div class="container_social"></div>
+              <div class="social">
+      
+                <a href="https://www.linkedin.com/in/menachem-drelich/" target="_blank" rel="noopener noreferrer" class="social_link social_link_circle" style="background-color:#efefef;">
+                  <img class="social_icon" src="https://sea-static.cdn.phobos.id/assets/svg/email.svg">
+                </a>
+                <a href="https://www.instagram.com/menachemdesign/" target="_blank" rel="noopener noreferrer" class="social_link social_link_circle" style="background-color:#efefef;">
+                  <img class="social_icon" src="https://sea-static.cdn.phobos.id/assets/svg/instagram.svg">
+                </a>
+                <a href="https://github.com/Menachem-D" target="_blank" rel="noopener noreferrer" class="social_link social_link_circle" style="background-color:#efefef;">
+                  <img class="social_icon" src="https://sea-static.cdn.phobos.id/assets/svg/github.svg">
+                </a>
+            
+              
+              </div>
+              <div class="container_link">
+                <div class="link_outer">
+                  <a href="javascript:void(0);" target="_blank" rel="noopener noreferrer" class="link link_circle link_circle_shadow">
+                    <div class="link_icon">
+                      <img class="link_image" src="https://sea-static.cdn.phobos.id/assets/svg/git.svg">
+                    </div>
+                    <div class="link_outer_text">
+                      <div class="text text_center">
+                        <strong>My Projects</strong>
+                      </div>
+                    </div>
+                    <div class="link_end"></div>
+                  </a>
+                </div>
+              </div>
+              <div class="container_link">
+                <div class="link_outer">
+                  <a href="https://github.com/Menachem-D" target="_blank" rel="noopener noreferrer" class="link link_circle link_circle_shadow">
+                    <div class="link_icon">
+                      <img class="link_image" src="https://sea-static.cdn.phobos.id/assets/svg/github.svg">
+                    </div>
+                    <div class="link_outer_text">
+                      <div class="text text_center">
+                        <strong>My GitHub</strong>
+                      </div>
+                    </div>
+                    <div class="link_end"></div>
+                  </a>
+                </div>
+              </div>
+              <div class="container_link">
+                <div class="link_outer">
+                  <a href="./assets/Resume-Menachem-Drelich 2024.pdf" target="_blank" class="link link_circle link_circle_shadow">
+                    <div class="link_icon">
+                      <img class="link_image" src="https://sea-static.cdn.phobos.id/assets/svg/codepen.svg">
+                    </div>
+                    <div class="link_outer_text">
+                      <div class="text text_center">
+                        <strong>CV</strong>
+                      </div>
+                    </div>
+                    <div class="link_end"></div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 </body>
-<script src="js/darkmode.js"></script>
-<script src="js/lazyload.js"></script>
-<script src="js/pushnotifications.js"></script>
-<script src="js/serviceworker.js"></script>
-<script src="js/mobilenav.js"></script>
-<script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function () {
-      navigator.serviceWorker.register('/sw.js');
-    });
-  }
-</script>
-
-<script>
-  var mobileMenu = document.querySelector('.menu-toggle');
-  var nav = document.querySelector('.nav');
-
-  mobileMenu.addEventListener('click', function () {
-    nav.style.transform = nav.style.transform === 'translateX(-100%)' ? 'translateX(0%)' : 'translateX(-100%)';
-  });
-</script>
-
 </html>
