@@ -65,7 +65,7 @@
 }
 
 .background_image {
-  background-image: url(https://sea-static.cdn.phobos.id/assets/svg/black_wallpaper.svg);
+  background-image: url("../assets/img/Backround.png");
   background-position: center;
   background-repeat: repeat;
   background-size: cover;
