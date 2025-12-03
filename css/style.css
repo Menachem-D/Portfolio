@@ -1,565 +1,381 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Menachem Drelich – Developer</title>
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
-
-  <style>
-    :root {
-      --page-bg: #e5e7eb;
-      --card-bg: rgba(255, 255, 255, 0.92);
-      --card-border: rgba(15, 23, 42, 0.08);
-      --card-shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.18);
-      --card-radius: 24px;
-
-      --text-main: #111827;
-      --text-subtle: #4b5563;
-      --accent: #111827;
-      --accent-soft: #1118270f;
-
-      --chip-bg: #f3f4f6;
-      --chip-border: #e5e7eb;
-
-      --link-pill-bg: #111827;
-      --link-pill-bg-hover: #020617;
-      --link-pill-text: #f9fafb;
-
-      --social-bg: #f3f4f6;
-      --social-bg-hover: #e5e7eb;
-
-      --focus-ring: 0 0 0 2px #1118271f, 0 0 0 4px #11182740;
-
-      --spacing-page: 1.75rem;
-      --spacing-card: 1.75rem;
-      --spacing-card-lg: 2.25rem;
-
-      --transition-fast: 150ms ease-out;
-      --transition-normal: 200ms ease;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-      min-height: 100%;
-    }
-
-    body {
-      font-family: "Work Sans", system-ui, -apple-system, BlinkMacSystemFont,
-        "Segoe UI", sans-serif;
-      background: var(--page-bg);
-      color: var(--text-main);
-      -webkit-font-smoothing: antialiased;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    a:focus-visible,
-    button:focus-visible {
-      outline: none;
-      box-shadow: var(--focus-ring);
-      border-radius: 999px;
-    }
-
-    /* ===== Page Layout ===== */
-
-    .profile-page {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: var(--spacing-page);
-      overflow: hidden;
-      isolation: isolate;
-    }
-
-    .profile-page__background {
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-      background: radial-gradient(circle at top left, #f9fafb 0, #e5e7eb 40%, #d1d5db 100%);
-    }
-
-    .profile-page__pattern {
-      position: fixed;
-      inset: -40px;
-      z-index: -1;
-      opacity: 0.24;
-      background-image: url("../assets/img/Backround.png");
-      background-repeat: repeat;
-      background-size: cover;
-      filter: blur(1px);
-      transform: translateZ(0);
-    }
-
-    .profile-card {
-      width: 100%;
-      max-width: 420px;
-      background: var(--card-bg);
-      border-radius: var(--card-radius);
-      border: 1px solid var(--card-border);
-      box-shadow: var(--card-shadow-soft);
-      padding: var(--spacing-card);
-      backdrop-filter: blur(18px);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    @media (min-width: 640px) {
-      .profile-card {
-        padding: var(--spacing-card-lg);
-      }
-    }
-
-    /* ===== Header / Avatar ===== */
-
-    .profile-card__avatar-wrapper {
-      position: relative;
-      margin-bottom: 1.25rem;
-    }
-
-    .profile-card__avatar-ring {
-      position: absolute;
-      inset: -6px;
-      border-radius: 999px;
-      background: conic-gradient(
-        from 210deg,
-        #6366f1,
-        #22c55e,
-        #f97316,
-        #ec4899,
-        #6366f1
-      );
-      opacity: 0.8;
-      filter: blur(6px);
-      z-index: -1;
-    }
-
-    .profile-card__avatar {
-      width: 6rem;
-      height: 6rem;
-      border-radius: 999px;
-      overflow: hidden;
-      border: 3px solid #f9fafb;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-image: url("https://avatars.githubusercontent.com/u/62916802?v=4");
-    }
-
-    @media (min-width: 640px) {
-      .profile-card__avatar {
-        width: 7rem;
-        height: 7rem;
-      }
-    }
-
-    /* ===== Text Blocks ===== */
-
-    .profile-card__headline {
-      text-align: center;
-      margin-bottom: 0.25rem;
-    }
-
-    .profile-card__name {
-      font-size: 1.5rem;
-      line-height: 2rem;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-    }
-
-    @media (min-width: 640px) {
-      .profile-card__name {
-        font-size: 1.875rem;
-        line-height: 2.25rem;
-      }
-    }
-
-    .profile-card__tagline {
-      text-align: center;
-      font-size: 0.95rem;
-      color: var(--text-subtle);
-      margin-bottom: 0.9rem;
-    }
-
-    .profile-card__tags {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.4rem;
-      margin-bottom: 1.25rem;
-    }
-
-    .profile-card__tag {
-      padding: 0.22rem 0.6rem;
-      border-radius: 999px;
-      font-size: 0.75rem;
-      border: 1px solid var(--chip-border);
-      background: var(--chip-bg);
-      color: var(--text-subtle);
-      white-space: nowrap;
-    }
-
-    /* ===== Social Icons ===== */
-
-    .profile-card__social {
-      display: flex;
-      justify-content: center;
-      gap: 0.35rem;
-      margin-bottom: 1.25rem;
-    }
-
-    .social-pill {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 2.6rem;
-      height: 2.6rem;
-      border-radius: 999px;
-      background: var(--social-bg);
-      border: 1px solid #e5e7eb;
-      transition: transform var(--transition-fast),
-        box-shadow var(--transition-fast),
-        background-color var(--transition-fast),
-        border-color var(--transition-fast),
-        filter var(--transition-fast);
-    }
-
-    .social-pill img {
-      width: 60%;
-      height: auto;
-      filter: invert(16%) sepia(1%) saturate(35%) hue-rotate(314deg)
-        brightness(97%) contrast(87%);
-    }
-
-    .social-pill:hover {
-      background: var(--social-bg-hover);
-      border-color: #d1d5db;
-      transform: translateY(-1px);
-      box-shadow: 0 8px 16px rgba(15, 23, 42, 0.18);
-      filter: brightness(1.03);
-    }
-
-    /* ===== Primary Link Buttons ===== */
-
-    .profile-card__links {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 0.65rem;
-      margin-top: 0.25rem;
-    }
-
-    .link-button {
-      position: relative;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      padding: 0.6rem 0.85rem;
-      border-radius: 999px;
-      background: var(--link-pill-bg);
-      color: var(--link-pill-text);
-      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.45);
-      border: 1px solid rgba(15, 23, 42, 0.8);
-      font-size: 0.95rem;
-      font-weight: 500;
-      overflow: hidden;
-      transition: transform var(--transition-normal),
-        box-shadow var(--transition-normal),
-        background-color var(--transition-normal),
-        border-color var(--transition-normal);
-    }
-
-    .link-button--secondary {
-      background: #f9fafb;
-      color: var(--accent);
-      border-color: #e5e7eb;
-      box-shadow: 0 10px 22px rgba(15, 23, 42, 0.2);
-    }
-
-    .link-button--ghost {
-      background: #ffffff;
-      color: var(--accent);
-      border-style: dashed;
-      border-color: #e5e7eb;
-      box-shadow: 0 6px 14px rgba(15, 23, 42, 0.12);
-    }
-
-    .link-button:hover {
-      transform: translateY(2px);
-      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.4);
-      background: var(--link-pill-bg-hover);
-    }
-
-    .link-button--secondary:hover {
-      background: #f3f4f6;
-      box-shadow: 0 5px 18px rgba(15, 23, 42, 0.22);
-    }
-
-    .link-button--ghost:hover {
-      background: #f9fafb;
-      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.18);
-    }
-
-    .link-button__icon {
-      flex-shrink: 0;
-      width: 2.25rem;
-      height: 2.25rem;
-      border-radius: 999px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(0, 0, 0, 0.12);
-      overflow: hidden;
-    }
-
-    .link-button--secondary .link-button__icon,
-    .link-button--ghost .link-button__icon {
-      background: var(--accent-soft);
-    }
-
-    .link-button__icon img {
-      width: 70%;
-      height: auto;
-      filter: invert(16%) sepia(1%) saturate(35%) hue-rotate(314deg)
-        brightness(97%) contrast(87%);
-    }
-
-    .link-button__label {
-      flex: 1;
-      text-align: left;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      line-height: 1.2;
-    }
-
-    .link-button__label-main {
-      font-weight: 600;
-    }
-
-    .link-button__label-sub {
-      font-size: 0.78rem;
-      opacity: 0.9;
-      margin-top: 0.1rem;
-    }
-
-    .link-button__chevron {
-      flex-shrink: 0;
-      width: 1.2rem;
-      height: 1.2rem;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0.9;
-    }
-
-    .link-button__chevron svg {
-      width: 100%;
-      height: 100%;
-    }
-
-    /* Tiny svg fa-normalizer */
-    svg.svg-inline--fa {
-      overflow: visible;
-      box-sizing: content-box;
-    }
-
-    @media (max-width: 380px) {
-      .profile-card {
-        padding: 1.4rem 1.25rem 1.6rem;
-      }
-    }
-  </style>
-</head>
-<body>
-  <section class="profile-page">
-    <div class="profile-page__background"></div>
-    <div class="profile-page__pattern" aria-hidden="true"></div>
-
-    <main class="profile-card" aria-label="Profile card for Menachem Drelich">
-      <header class="profile-card__header">
-        <div class="profile-card__avatar-wrapper">
-          <div class="profile-card__avatar-ring" aria-hidden="true"></div>
-          <div class="profile-card__avatar" role="img" aria-label="Photo of Menachem Drelich"></div>
-        </div>
-
-        <div class="profile-card__headline">
-          <div class="profile-card__name">Menachem Drelich</div>
-        </div>
-
-        <p class="profile-card__tagline">
-          Arduino • Software • Web Developer
-        </p>
-
-        <div class="profile-card__tags" aria-hidden="true">
-          <span class="profile-card__tag">C# / .NET</span>
-          <span class="profile-card__tag">Embedded &amp; Arduino</span>
-          <span class="profile-card__tag">UI &amp; Frontend</span>
-        </div>
-      </header>
-
-      <nav class="profile-card__social" aria-label="Social links">
-        <a
-          class="social-pill"
-          href="mailto:menachemdesign.tech@gmail.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Email Menachem"
-        >
-          <img
-            src="https://sea-static.cdn.phobos.id/assets/svg/email.svg"
-            alt="Email icon"
-          />
-        </a>
-
-        <a
-          class="social-pill"
-          href="https://www.instagram.com/menachemdesign/"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Instagram profile"
-        >
-          <img
-            src="https://sea-static.cdn.phobos.id/assets/svg/instagram.svg"
-            alt="Instagram icon"
-          />
-        </a>
-
-        <a
-          class="social-pill"
-          href="https://github.com/Menachem-D"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="GitHub profile"
-        >
-          <img
-            src="https://sea-static.cdn.phobos.id/assets/svg/github.svg"
-            alt="GitHub icon"
-          />
-        </a>
-      </nav>
-
-      <section class="profile-card__links" aria-label="Primary links">
-        <a
-          href="javascript:void(0);"
-          class="link-button"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span class="link-button__icon">
-            <img
-              src="https://sea-static.cdn.phobos.id/assets/svg/git.svg"
-              alt=""
-              aria-hidden="true"
-            />
-          </span>
-          <span class="link-button__label">
-            <span class="link-button__label-main">My Projects</span>
-            <span class="link-button__label-sub">Selected work &amp; experiments</span>
-          </span>
-          <span class="link-button__chevron" aria-hidden="true">
-            <svg
-              class="svg-inline--fa"
-              viewBox="0 0 320 512"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill="currentColor"
-                d="M96 96l128 160L96 416"
-              />
-            </svg>
-          </span>
-        </a>
-
-        <a
-          href="https://github.com/Menachem-D"
-          class="link-button link-button--secondary"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span class="link-button__icon">
-            <img
-              src="https://sea-static.cdn.phobos.id/assets/svg/github.svg"
-              alt=""
-              aria-hidden="true"
-            />
-          </span>
-          <span class="link-button__label">
-            <span class="link-button__label-main">My GitHub</span>
-            <span class="link-button__label-sub">Code, toys &amp; contributions</span>
-          </span>
-          <span class="link-button__chevron" aria-hidden="true">
-            <svg
-              class="svg-inline--fa"
-              viewBox="0 0 320 512"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill="currentColor"
-                d="M96 96l128 160L96 416"
-              />
-            </svg>
-          </span>
-        </a>
-
-        <a
-          href="./assets/Resume-Menachem-Drelich 2024.pdf"
-          class="link-button link-button--ghost"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span class="link-button__icon">
-            <img
-              src="https://sea-static.cdn.phobos.id/assets/svg/codepen.svg"
-              alt=""
-              aria-hidden="true"
-            />
-          </span>
-          <span class="link-button__label">
-            <span class="link-button__label-main">CV</span>
-            <span class="link-button__label-sub">Download latest resume (PDF)</span>
-          </span>
-          <span class="link-button__chevron" aria-hidden="true">
-            <svg
-              class="svg-inline--fa"
-              viewBox="0 0 320 512"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill="currentColor"
-                d="M96 96l128 160L96 416"
-              />
-            </svg>
-          </span>
-        </a>
-      </section>
-    </main>
-  </section>
-</body>
-</html>
+:root {
+  --page-bg: #e5e7eb;
+  --card-bg: rgba(255, 255, 255, 0.92);
+  --card-border: rgba(15, 23, 42, 0.08);
+  --card-shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.18);
+  --card-radius: 24px;
+
+  --text-main: #111827;
+  --text-subtle: #4b5563;
+  --accent: #111827;
+  --accent-soft: #1118270f;
+
+  --chip-bg: #f3f4f6;
+  --chip-border: #e5e7eb;
+
+  --link-pill-bg: #111827;
+  --link-pill-bg-hover: #020617;
+  --link-pill-text: #f9fafb;
+
+  --social-bg: #f3f4f6;
+  --social-bg-hover: #e5e7eb;
+
+  --focus-ring: 0 0 0 2px #1118271f, 0 0 0 4px #11182740;
+
+  --spacing-page: 1.75rem;
+  --spacing-card: 1.75rem;
+  --spacing-card-lg: 2.25rem;
+
+  --transition-fast: 150ms ease-out;
+  --transition-normal: 200ms ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Work Sans", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  background: var(--page-bg);
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+  border-radius: 999px;
+}
+
+/* ===== Page Layout ===== */
+
+.profile-page {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-page);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.profile-page__background {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background: radial-gradient(circle at top left, #f9fafb 0, #e5e7eb 40%, #d1d5db 100%);
+}
+
+.profile-page__pattern {
+  position: fixed;
+  inset: -40px;
+  z-index: -1;
+  opacity: 0.24;
+  background-image: url("../assets/img/Backround.png");
+  background-repeat: repeat;
+  background-size: cover;
+  filter: blur(1px);
+  transform: translateZ(0);
+}
+
+/* ===== Card ===== */
+
+.profile-card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--card-bg);
+  border-radius: var(--card-radius);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow-soft);
+  padding: var(--spacing-card);
+  backdrop-filter: blur(18px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: 640px) {
+  .profile-card {
+    padding: var(--spacing-card-lg);
+  }
+}
+
+/* ===== Avatar ===== */
+
+.profile-card__avatar-wrapper {
+  position: relative;
+  margin-bottom: 1.25rem;
+}
+
+.profile-card__avatar-ring {
+  position: absolute;
+  inset: -6px;
+  border-radius: 999px;
+  background: conic-gradient(
+    from 210deg,
+    #6366f1,
+    #22c55e,
+    #f97316,
+    #ec4899,
+    #6366f1
+  );
+  opacity: 0.8;
+  filter: blur(6px);
+  z-index: -1;
+}
+
+.profile-card__avatar {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 999px;
+  overflow: hidden;
+  border: 3px solid #f9fafb;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("https://avatars.githubusercontent.com/u/62916802?v=4");
+}
+
+@media (min-width: 640px) {
+  .profile-card__avatar {
+    width: 7rem;
+    height: 7rem;
+  }
+}
+
+/* ===== Text ===== */
+
+.profile-card__headline {
+  text-align: center;
+  margin-bottom: 0.25rem;
+}
+
+.profile-card__name {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+@media (min-width: 640px) {
+  .profile-card__name {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+}
+
+.profile-card__tagline {
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--text-subtle);
+  margin-bottom: 0.9rem;
+}
+
+.profile-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+}
+
+.profile-card__tag {
+  padding: 0.22rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  border: 1px solid var(--chip-border);
+  background: var(--chip-bg);
+  color: var(--text-subtle);
+  white-space: nowrap;
+}
+
+/* ===== Social ===== */
+
+.profile-card__social {
+  display: flex;
+  justify-content: center;
+  gap: 0.35rem;
+  margin-bottom: 1.25rem;
+}
+
+.social-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 999px;
+  background: var(--social-bg);
+  border: 1px solid #e5e7eb;
+  transition: transform var(--transition-fast),
+    box-shadow var(--transition-fast),
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    filter var(--transition-fast);
+}
+
+.social-pill img {
+  width: 60%;
+  height: auto;
+  filter: invert(16%) sepia(1%) saturate(35%) hue-rotate(314deg)
+    brightness(97%) contrast(87%);
+}
+
+.social-pill:hover {
+  background: var(--social-bg-hover);
+  border-color: #d1d5db;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 16px rgba(15, 23, 42, 0.18);
+  filter: brightness(1.03);
+}
+
+/* ===== Link Buttons ===== */
+
+.profile-card__links {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-top: 0.25rem;
+}
+
+.link-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0.85rem;
+  border-radius: 999px;
+  background: var(--link-pill-bg);
+  color: var(--link-pill-text);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.45);
+  border: 1px solid rgba(15, 23, 42, 0.8);
+  font-size: 0.95rem;
+  font-weight: 500;
+  overflow: hidden;
+  transition: transform var(--transition-normal),
+    box-shadow var(--transition-normal),
+    background-color var(--transition-normal),
+    border-color var(--transition-normal);
+}
+
+.link-button--secondary {
+  background: #f9fafb;
+  color: var(--accent);
+  border-color: #e5e7eb;
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.2);
+}
+
+.link-button--ghost {
+  background: #ffffff;
+  color: var(--accent);
+  border-style: dashed;
+  border-color: #e5e7eb;
+  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.12);
+}
+
+.link-button:hover {
+  transform: translateY(2px);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.4);
+  background: var(--link-pill-bg-hover);
+}
+
+.link-button--secondary:hover {
+  background: #f3f4f6;
+  box-shadow: 0 5px 18px rgba(15, 23, 42, 0.22);
+}
+
+.link-button--ghost:hover {
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.18);
+}
+
+.link-button__icon {
+  flex-shrink: 0;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+}
+
+.link-button--secondary .link-button__icon,
+.link-button--ghost .link-button__icon {
+  background: var(--accent-soft);
+}
+
+.link-button__icon img {
+  width: 70%;
+  height: auto;
+  filter: invert(16%) sepia(1%) saturate(35%) hue-rotate(314deg)
+    brightness(97%) contrast(87%);
+}
+
+.link-button__label {
+  flex: 1;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.2;
+}
+
+.link-button__label-main {
+  font-weight: 600;
+}
+
+.link-button__label-sub {
+  font-size: 0.78rem;
+  opacity: 0.9;
+  margin-top: 0.1rem;
+}
+
+.link-button__chevron {
+  flex-shrink: 0;
+  width: 1.2rem;
+  height: 1.2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.9;
+}
+
+.link-button__chevron svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Tiny fa-normalizer */
+svg.svg-inline--fa {
+  overflow: visible;
+  box-sizing: content-box;
+}
+
+@media (max-width: 380px) {
+  .profile-card {
+    padding: 1.4rem 1.25rem 1.6rem;
+  }
+}
