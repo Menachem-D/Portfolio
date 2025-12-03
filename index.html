@@ -1,94 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Document</title>
+  <title>Menachem Drelich – Developer</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Your stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-    <section class="main" style="--dark-color:#000;--light-color:#fff;background-color:rgb(209 213 219 / 1);--text-color:#fcfcfc;--link-color:51, 51, 51;--link-background:239, 239, 239;--link-shadow:102, 102, 102;--link-border:51, 51, 51;color:51, 51, 51;">
-        <div class="background">
-          <div class="background_image"></div>
+  <section class="profile-page">
+    <div class="profile-page__background"></div>
+    <div class="profile-page__pattern" aria-hidden="true"></div>
+
+    <main class="profile-card" aria-label="Profile card for Menachem Drelich">
+      <header class="profile-card__header">
+        <div class="profile-card__avatar-wrapper">
+          <div class="profile-card__avatar-ring" aria-hidden="true"></div>
+          <div
+            class="profile-card__avatar"
+            role="img"
+            aria-label="Photo of Menachem Drelich"
+          ></div>
         </div>
-        <div class="bg_container">
-          <div class="container"></div>
+
+        <div class="profile-card__headline">
+          <div class="profile-card__name">Menachem Drelich</div>
         </div>
-        <div class="container">
-          <div class="container_component">
-            <div class="profile">
-              <div class="profile_image"></div>
-              <div class="text text_center text_large">
-                <span style="font-weight:bold">Menachem Drelich</span>
-              </div>
-              <div class="text text_center">
-                <h4>  Arduino | Software | Web Developer </h4>
-              </div>
-              <div class="container_social"></div>
-              <div class="social">
-      
-                <a href="mailto:menachemdesign.tech@gmail.com" target="_blank" rel="noopener noreferrer" class="social_link social_link_circle" style="background-color:#efefef;">
-                  <img class="social_icon" src="https://sea-static.cdn.phobos.id/assets/svg/email.svg">
-                </a>
-                <a href="https://www.instagram.com/menachemdesign/" target="_blank" rel="noopener noreferrer" class="social_link social_link_circle" style="background-color:#efefef;">
-                  <img class="social_icon" src="https://sea-static.cdn.phobos.id/assets/svg/instagram.svg">
-                </a>
-                <a href="https://github.com/Menachem-D" target="_blank" rel="noopener noreferrer" class="social_link social_link_circle" style="background-color:#efefef;">
-                  <img class="social_icon" src="https://sea-static.cdn.phobos.id/assets/svg/github.svg">
-                </a>
-            
-              
-              </div>
-              <div class="container_link">
-                <div class="link_outer">
-                  <a href="javascript:void(0);" target="_blank" rel="noopener noreferrer" class="link link_circle link_circle_shadow">
-                    <div class="link_icon">
-                      <img class="link_image" src="https://sea-static.cdn.phobos.id/assets/svg/git.svg">
-                    </div>
-                    <div class="link_outer_text">
-                      <div class="text text_center">
-                        <strong>My Projects</strong>
-                      </div>
-                    </div>
-                    <div class="link_end"></div>
-                  </a>
-                </div>
-              </div>
-              <div class="container_link">
-                <div class="link_outer">
-                  <a href="https://github.com/Menachem-D" target="_blank" rel="noopener noreferrer" class="link link_circle link_circle_shadow">
-                    <div class="link_icon">
-                      <img class="link_image" src="https://sea-static.cdn.phobos.id/assets/svg/github.svg">
-                    </div>
-                    <div class="link_outer_text">
-                      <div class="text text_center">
-                        <strong>My GitHub</strong>
-                      </div>
-                    </div>
-                    <div class="link_end"></div>
-                  </a>
-                </div>
-              </div>
-              <div class="container_link">
-                <div class="link_outer">
-                  <a href="./assets/Resume-Menachem-Drelich 2024.pdf" target="_blank" class="link link_circle link_circle_shadow">
-                    <div class="link_icon">
-                      <img class="link_image" src="https://sea-static.cdn.phobos.id/assets/svg/codepen.svg">
-                    </div>
-                    <div class="link_outer_text">
-                      <div class="text text_center">
-                        <strong>CV</strong>
-                      </div>
-                    </div>
-                    <div class="link_end"></div>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+
+        <p class="profile-card__tagline">
+          Arduino • Software • Web Developer
+        </p>
+
+        <div class="profile-card__tags" aria-hidden="true">
+          <span class="profile-card__tag">C# / .NET</span>
+          <span class="profile-card__tag">Embedded &amp; Arduino</span>
+          <span class="profile-card__tag">UI &amp; Frontend</span>
         </div>
+      </header>
+
+      <nav class="profile-card__social" aria-label="Social links">
+        <a
+          class="social-pill"
+          href="mailto:menachemdesign.tech@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Email Menachem"
+        >
+          <img
+            src="https://sea-static.cdn.phobos.id/assets/svg/email.svg"
+            alt="Email icon"
+          />
+        </a>
+
+        <a
+          class="social-pill"
+          href="https://www.instagram.com/menachemdesign/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram profile"
+        >
+          <img
+            src="https://sea-static.cdn.phobos.id/assets/svg/instagram.svg"
+            alt="Instagram icon"
+          />
+        </a>
+
+        <a
+          class="social-pill"
+          href="https://github.com/Menachem-D"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub profile"
+        >
+          <img
+            src="https://sea-static.cdn.phobos.id/assets/svg/github.svg"
+            alt="GitHub icon"
+          />
+        </a>
+      </nav>
+
+      <section class="profile-card__links" aria-label="Primary links">
+        <a
+          href="javascript:void(0);"
+          class="link-button"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span class="link-button__icon">
+            <img
+              src="https://sea-static.cdn.phobos.id/assets/svg/git.svg"
+              alt=""
+              aria-hidden="true"
+            />
+          </span>
+          <span class="link-button__label">
+            <span class="link-button__label-main">My Projects</span>
+            <span class="link-button__label-sub">Selected work &amp; experiments</span>
+          </span>
+          <span class="link-button__chevron" aria-hidden="true">
+            <svg
+              class="svg-inline--fa"
+              viewBox="0 0 320 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path fill="currentColor" d="M96 96l128 160L96 416" />
+            </svg>
+          </span>
+        </a>
+
+        <a
+          href="https://github.com/Menachem-D"
+          class="link-button link-button--secondary"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span class="link-button__icon">
+            <img
+              src="https://sea-static.cdn.phobos.id/assets/svg/github.svg"
+              alt=""
+              aria-hidden="true"
+            />
+          </span>
+          <span class="link-button__label">
+            <span class="link-button__label-main">My GitHub</span>
+            <span class="link-button__label-sub">Code, toys &amp; contributions</span>
+          </span>
+          <span class="link-button__chevron" aria-hidden="true">
+            <svg
+              class="svg-inline--fa"
+              viewBox="0 0 320 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path fill="currentColor" d="M96 96l128 160L96 416" />
+            </svg>
+          </span>
+        </a>
+
+        <a
+          href="./assets/Resume-Menachem-Drelich 2024.pdf"
+          class="link-button link-button--ghost"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span class="link-button__icon">
+            <img
+              src="https://sea-static.cdn.phobos.id/assets/svg/codepen.svg"
+              alt=""
+              aria-hidden="true"
+            />
+          </span>
+          <span class="link-button__label">
+            <span class="link-button__label-main">CV</span>
+            <span class="link-button__label-sub">Download latest resume (PDF)</span>
+          </span>
+          <span class="link-button__chevron" aria-hidden="true">
+            <svg
+              class="svg-inline--fa"
+              viewBox="0 0 320 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path fill="currentColor" d="M96 96l128 160L96 416" />
+            </svg>
+          </span>
+        </a>
       </section>
+    </main>
+  </section>
 </body>
 </html>
