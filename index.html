@@ -2,180 +2,68 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Menachem Drelich – Developer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Menachem Drelich – Software Developer</title>
 
   <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-  <!-- Your stylesheet -->
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <section class="profile-page">
-    <div class="profile-page__background"></div>
-    <div class="profile-page__pattern" aria-hidden="true"></div>
 
-    <main class="profile-card" aria-label="Profile card for Menachem Drelich">
-      <header class="profile-card__header">
-        <div class="profile-card__avatar-wrapper">
-          <div class="profile-card__avatar-ring" aria-hidden="true"></div>
-          <div
-            class="profile-card__avatar"
-            role="img"
-            aria-label="Photo of Menachem Drelich"
-          ></div>
-        </div>
+  <section class="page">
+    <div class="bg-blur"></div>
 
-        <div class="profile-card__headline">
-          <div class="profile-card__name">Menachem Drelich</div>
-        </div>
+    <main class="card">
 
-        <p class="profile-card__tagline">
-          Arduino • Software • Web Developer
-        </p>
+      <!-- Avatar -->
+      <div class="avatar-wrapper">
+        <div class="avatar-ring"></div>
+        <img src="https://avatars.githubusercontent.com/u/62916802?v=4" class="avatar" alt="Menachem Drelich" />
+      </div>
 
-        <div class="profile-card__tags" aria-hidden="true">
-          <span class="profile-card__tag">C# / .NET</span>
-          <span class="profile-card__tag">Embedded &amp; Arduino</span>
-          <span class="profile-card__tag">UI &amp; Frontend</span>
-        </div>
-      </header>
+      <!-- Name -->
+      <h1 class="name">Menachem Drelich</h1>
 
-      <nav class="profile-card__social" aria-label="Social links">
-        <a
-          class="social-pill"
-          href="mailto:menachemdesign.tech@gmail.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Email Menachem"
-        >
-          <img
-            src="https://sea-static.cdn.phobos.id/assets/svg/email.svg"
-            alt="Email icon"
-          />
+      <!-- Tagline -->
+      <p class="title">Full-Stack Developer • Embedded Systems • UI Engineer</p>
+
+      <!-- Bio -->
+      <p class="bio">
+        I build fast, thoughtful, maintainable software — from embedded systems and Arduino integrations 
+        to modern web applications and polished user interfaces. I focus on clarity, simplicity, and engineering craftsmanship.
+      </p>
+
+      <!-- Social icons -->
+      <div class="social">
+        <a href="mailto:menachemdesign.tech@gmail.com" class="icon-btn">
+          <img src="https://sea-static.cdn.phobos.id/assets/svg/email.svg">
+        </a>
+        <a href="https://www.instagram.com/menachemdesign/" target="_blank" class="icon-btn">
+          <img src="https://sea-static.cdn.phobos.id/assets/svg/instagram.svg">
+        </a>
+        <a href="https://github.com/Menachem-D" target="_blank" class="icon-btn">
+          <img src="https://sea-static.cdn.phobos.id/assets/svg/github.svg">
+        </a>
+      </div>
+
+      <!-- Buttons -->
+      <div class="links">
+        <a href="javascript:void(0)" class="btn primary">
+          <span>View My Work</span>
         </a>
 
-        <a
-          class="social-pill"
-          href="https://www.instagram.com/menachemdesign/"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Instagram profile"
-        >
-          <img
-            src="https://sea-static.cdn.phobos.id/assets/svg/instagram.svg"
-            alt="Instagram icon"
-          />
+        <a href="https://github.com/Menachem-D" target="_blank" class="btn secondary">
+          <span>Visit My GitHub</span>
         </a>
 
-        <a
-          class="social-pill"
-          href="https://github.com/Menachem-D"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="GitHub profile"
-        >
-          <img
-            src="https://sea-static.cdn.phobos.id/assets/svg/github.svg"
-            alt="GitHub icon"
-          />
+        <a href="assets/Resume-Menachem-Drelich 2024.pdf" target="_blank" class="btn ghost">
+          <span>Download CV</span>
         </a>
-      </nav>
-
-      <section class="profile-card__links" aria-label="Primary links">
-        <a
-          href="javascript:void(0);"
-          class="link-button"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span class="link-button__icon">
-            <img
-              src="https://sea-static.cdn.phobos.id/assets/svg/git.svg"
-              alt=""
-              aria-hidden="true"
-            />
-          </span>
-          <span class="link-button__label">
-            <span class="link-button__label-main">My Projects</span>
-            <span class="link-button__label-sub">Selected work &amp; experiments</span>
-          </span>
-          <span class="link-button__chevron" aria-hidden="true">
-            <svg
-              class="svg-inline--fa"
-              viewBox="0 0 320 512"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path fill="currentColor" d="M96 96l128 160L96 416" />
-            </svg>
-          </span>
-        </a>
-
-        <a
-          href="https://github.com/Menachem-D"
-          class="link-button link-button--secondary"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span class="link-button__icon">
-            <img
-              src="https://sea-static.cdn.phobos.id/assets/svg/github.svg"
-              alt=""
-              aria-hidden="true"
-            />
-          </span>
-          <span class="link-button__label">
-            <span class="link-button__label-main">My GitHub</span>
-            <span class="link-button__label-sub">Code, toys &amp; contributions</span>
-          </span>
-          <span class="link-button__chevron" aria-hidden="true">
-            <svg
-              class="svg-inline--fa"
-              viewBox="0 0 320 512"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path fill="currentColor" d="M96 96l128 160L96 416" />
-            </svg>
-          </span>
-        </a>
-
-        <a
-          href="./assets/Resume-Menachem-Drelich 2024.pdf"
-          class="link-button link-button--ghost"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span class="link-button__icon">
-            <img
-              src="https://sea-static.cdn.phobos.id/assets/svg/codepen.svg"
-              alt=""
-              aria-hidden="true"
-            />
-          </span>
-          <span class="link-button__label">
-            <span class="link-button__label-main">CV</span>
-            <span class="link-button__label-sub">Download latest resume (PDF)</span>
-          </span>
-          <span class="link-button__chevron" aria-hidden="true">
-            <svg
-              class="svg-inline--fa"
-              viewBox="0 0 320 512"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path fill="currentColor" d="M96 96l128 160L96 416" />
-            </svg>
-          </span>
-        </a>
-      </section>
+      </div>
     </main>
   </section>
+
 </body>
 </html>
