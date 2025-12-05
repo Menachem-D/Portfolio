@@ -1,198 +1,319 @@
-/* ---------- ROOT VARIABLES ---------- */
-:root {
-  --bg: #f0f2f5;
-  --card-bg: rgba(255, 255, 255, 0.8);
-  --card-border: rgba(0, 0, 0, 0.06);
-
-  --text-main: #0f172a;
-  --text-sub: #475569;
-
-  --accent: #111827;
-  --accent-light: #1e293b;
-
-  --radius: 24px;
-
-  --shadow-soft: 0 30px 60px rgba(0, 0, 0, 0.15);
-  --shadow-hover: 0 26px 48px rgba(0, 0, 0, 0.22);
-
-  --transition: 200ms ease;
+/* BASIC TYPOGRAPHY & COLORS */
+body.bg-body {
+    font-family: "Assistant", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #2a2342;
 }
 
-/* ---------- GLOBAL ---------- */
-body {
-  margin: 0;
-  font-family: "Inter", sans-serif;
-  background: var(--bg);
-  color: var(--text-main);
-  -webkit-font-smoothing: antialiased;
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Rubik", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-.page {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  padding: 2rem;
-  position: relative;
+/* NAVBAR */
+.navbar .brand-logo {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #7642ff, #4259ff);
+    color: #fff;
+    font-size: 18px;
 }
 
-.bg-blur {
-  position: fixed;
-  inset: 0;
-  background: radial-gradient(
-      circle at top left,
-      #ffffff,
-      #e2e8f0,
-      #cbd5e1
-  );
-  z-index: -1;
+.brand-logo-inner {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
 }
 
-/* ---------- CARD ---------- */
-.card {
-  max-width: 440px;
-  width: 100%;
-  padding: 2.5rem;
-  background: var(--card-bg);
-  backdrop-filter: blur(25px);
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-soft);
-  animation: fadeIn 0.6s ease;
-  text-align: center;
+.brand-title {
+    font-size: 1.2rem;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
+/* HERO & SHAPES */
+.header-hero {
+    padding-top: 4.25rem; /* for fixed navbar */
 }
 
-/* ---------- AVATAR ---------- */
-.avatar-wrapper {
-  position: relative;
-  margin-bottom: 1.5rem;
+.hero {
+    position: relative;
+    background: #f8faff;
 }
 
-.avatar-ring {
-  position: absolute;
-  inset: -8px;
-  border-radius: 999px;
-  background: conic-gradient(
-      from 180deg,
-      #6366f1,
-      #22c55e,
-      #f97316,
-      #ec4899,
-      #6366f1
-  );
-  filter: blur(8px);
-  opacity: 0.7;
+.pt-7 {
+    padding-top: 6rem !important;
 }
 
-.avatar {
-  width: 7rem;
-  height: 7rem;
-  border-radius: 50%;
-  border: 3px solid #fff;
-  object-fit: cover;
-  position: relative;
-  z-index: 10;
+/* Gradient text */
+.gradient-mask {
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-image: linear-gradient(90deg, #7642ff, #4259ff);
 }
 
-/* ---------- TEXT ---------- */
-.name {
-  font-size: 1.9rem;
-  font-weight: 700;
-  color: var(--text-main);
-  margin: 0.3rem 0;
+/* Background shapes similar vibe to example */
+.bg-shape {
+    position: absolute;
+    background-image: linear-gradient(100deg, #7642ff, #4259ff);
+    top: -280px;
+    right: -120px;
+    border-radius: 8%;
+    width: 50%;
+    height: 700px;
+    transform: skew(3deg, 30deg);
+    opacity: 0.9;
+    z-index: -2;
 }
 
-.title {
-  font-size: 1rem;
-  color: var(--text-sub);
-  margin-bottom: 1.4rem;
+.bg-circle {
+    position: absolute;
+    background-image: linear-gradient(100deg, #7642ff, #4259ff);
+    top: -350px;
+    left: -350px;
+    border-radius: 50%;
+    height: 700px;
+    width: 700px;
+    opacity: 0.1;
+    z-index: -3;
 }
 
-.bio {
-  color: var(--text-sub);
-  line-height: 1.55;
-  margin-bottom: 1.7rem;
+.bg-circle-two {
+    position: absolute;
+    background-image: linear-gradient(100deg, #7642ff, #4259ff);
+    top: 160px;
+    left: 280px;
+    border-radius: 50%;
+    height: 90px;
+    width: 90px;
+    opacity: 0.7;
+    z-index: -1;
 }
 
-/* ---------- SOCIAL ICONS ---------- */
-.social {
-  display: flex;
-  justify-content: center;
-  gap: 0.6rem;
-  margin-bottom: 1.8rem;
+@media (max-width: 991px) {
+    .bg-shape {
+        top: -150px;
+        right: -40px;
+        width: 38%;
+        height: 480px;
+    }
+    .bg-circle {
+        top: -180px;
+        left: -200px;
+        height: 360px;
+        width: 360px;
+    }
+    .bg-circle-two {
+        top: 180px;
+        left: 60px;
+        height: 50px;
+        width: 50px;
+    }
 }
 
-.icon-btn {
-  width: 2.7rem;
-  height: 2.7rem;
-  background: #ffffff;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  transition: var(--transition);
+@media (max-width: 767px) {
+    .bg-shape,
+    .bg-circle,
+    .bg-circle-two {
+        display: none;
+    }
 }
 
-.icon-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-hover);
+/* HERO MOCKUP */
+.hero-mockup {
+    max-width: 520px;
 }
 
-.icon-btn img {
-  width: 60%;
-  opacity: 0.8;
+.mockup-frame {
+    background: #fff;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(10, 10, 40, 0.06);
 }
 
-/* ---------- LINK BUTTONS ---------- */
-.links {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
+.mockup-header {
+    padding: 0.5rem 0.75rem;
+    background: linear-gradient(90deg, #f8f9ff, #ecefff);
+    font-size: 0.8rem;
+    color: #8882b0;
 }
 
-.btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.9rem 1.2rem;
-  border-radius: 14px;
-  font-weight: 600;
-  font-size: 1rem;
-  text-decoration: none;
-  transition: var(--transition);
+.circle {
+    height: 11px;
+    width: 11px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
 }
 
-.btn.primary {
-  background: var(--accent);
-  color: white;
+.circle-red { background: #ff6b6b; }
+.circle-yellow { background: #ffd166; }
+.circle-green { background: #4ecb71; }
+
+.mockup-title {
+    font-family: "Rubik", sans-serif;
 }
 
-.btn.primary:hover {
-  background: var(--accent-light);
-  transform: translateY(2px);
+.mockup-body {
+    background: #111118;
 }
 
-.btn.secondary {
-  background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.12);
+/* SECTION BASE */
+.section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    position: relative;
 }
 
-.btn.secondary:hover {
-  background: #f8fafc;
-  transform: translateY(2px);
+.section-title {
+    font-size: 1.8rem;
 }
 
-.btn.ghost {
-  background: transparent;
-  border: 2px dashed rgba(0, 0, 0, 0.15);
+/* STACK STRIP */
+.stack-logos .stack-pill {
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid rgba(118, 66, 255, 0.2);
+    background: rgba(118, 66, 255, 0.04);
+    color: #4b3b90;
+    font-size: 0.85rem;
 }
 
-.btn.ghost:hover {
-  background: #ffffffaa;
-  transform: translateY(2px);
+/* FEATURE LIST & ICONS */
+.feature-list li {
+    margin-bottom: 0.35rem;
+    font-size: 0.95rem;
+}
+
+.icon-circle {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: rgba(118, 66, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    color: #7642ff;
+    font-size: 1.3rem;
+}
+
+/* BROWSER WINDOW MOCKUP (code snippet card) */
+.browser-window {
+    display: inline-block;
+    text-align: left;
+    min-height: 160px;
+    max-width: 100%;
+    border-radius: 10px;
+    background-color: #f1f3f5;
+    box-shadow: 0 19px 38px rgba(137, 149, 199, 0.15),
+                0 15px 12px rgba(137, 149, 199, 0.08);
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+
+.browser-window.limit-height {
+    max-height: 360px;
+}
+
+.browser-window .top-bar {
+    height: 40px;
+    border-radius: 10px 10px 0 0;
+    background: #f8faff;
+    padding: 0 0.8rem;
+    display: flex;
+    align-items: center;
+}
+
+.browser-window .circle-blue {
+    background: #79CFD5;
+}
+
+.browser-window .content {
+    background-color: #fafafa;
+}
+
+/* MACBOOK MOCKUP */
+.macbook-hero {
+    max-width: 900px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.macbook-hero .macbook-screen {
+    position: absolute;
+    left: 12.4%;
+    top: 5.4%;
+    right: 11.8%;
+    bottom: 30.6%;
+    max-width: 835px;
+    max-height: 522px;
+    overflow: hidden;
+}
+
+.macbook-hero .macbook-screen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* CODE BLOCKS */
+.code-snippet {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 0.85rem;
+    background: #111118;
+    color: #e5e5ff;
+    border-radius: 8px;
+    padding: 0.75rem 0.9rem;
+    overflow-x: auto;
+}
+
+.code-snippet code {
+    white-space: pre;
+}
+
+/* BUTTONS */
+.btn-primary {
+    background-image: linear-gradient(90deg, #7642ff, #4259ff);
+    border: 0;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-image: linear-gradient(90deg, #5c30df, #3848cf);
+}
+
+.btn-outline-primary {
+    border-radius: 999px;
+}
+
+/* CAST SHADOW (screenshots) */
+.cast-shadow {
+    border-radius: 10px;
+    box-shadow: 0px 9px 60px 0px rgba(62, 57, 107, 0.25);
+}
+
+/* SCREENSHOT CARDS */
+.screenshot-card img {
+    border-radius: 12px;
+}
+
+/* FOOTER */
+#footer {
+    font-size: 0.9rem;
+}
+
+.link-muted {
+    color: #6c6c8a;
+}
+
+.link-muted:hover {
+    color: #7642ff;
+}
+
+/* SMALL UTILITIES */
+.badge.bg-soft-primary {
+    background: rgba(118, 66, 255, 0.12);
+}
+
+.letter-spacing-sm {
+    letter-spacing: 0.08em;
 }
