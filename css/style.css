@@ -1,319 +1,404 @@
-/* BASIC TYPOGRAPHY & COLORS */
-body.bg-body {
-    font-family: "Assistant", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    color: #2a2342;
-}
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TaryagNotes – Offline Torah Learning & Search</title>
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: "Rubik", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-}
+    <!-- META -->
+    <meta name="description" content="TaryagNotes is an offline, local-first Torah learning workbench with Bar-Ilan-style full-text search over a JSON seforim corpus, powered by .NET and SQLite FTS.">
+    <meta name="keywords" content="Taryag, mitzvot, Torah, seforim, responsa, offline, local first, .NET, Avalonia, SQLite">
+    <meta property="og:title" content="TaryagNotes – Offline Torah Learning & Search">
+    <meta property="og:description" content="A local-first Torah learning app combining Taryag mitzvos with fast seforim search. Currently in active development.">
+    <meta property="og:type" content="website">
+    <!-- TODO: replace with real image -->
+    <meta property="og:image" content="images/taryagnotes-hero-dark.png">
 
-/* NAVBAR */
-.navbar .brand-logo {
-    width: 34px;
-    height: 34px;
-    border-radius: 10px;
-    background: linear-gradient(135deg, #7642ff, #4259ff);
-    color: #fff;
-    font-size: 18px;
-}
+    <link rel="icon" type="image/png" href="images/favicon.png">
 
-.brand-logo-inner {
-    display: inline-block;
-    width: 100%;
-    text-align: center;
-}
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-.brand-title {
-    font-size: 1.2rem;
-}
+    <!-- Bootstrap (CDN) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-/* HERO & SHAPES */
-.header-hero {
-    padding-top: 4.25rem; /* for fixed navbar */
-}
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-.hero {
-    position: relative;
-    background: #f8faff;
-}
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
 
-.pt-7 {
-    padding-top: 6rem !important;
-}
+<body class="bg-body text-light">
 
-/* Gradient text */
-.gradient-mask {
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-    background-image: linear-gradient(90deg, #7642ff, #4259ff);
-}
+<!-- ================= NAVBAR ================= -->
+<header id="home" class="header-hero position-relative overflow-hidden">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-navbar fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#home">
+                <span class="brand-logo d-inline-flex align-items-center justify-content-center ms-2">
+                    <span class="brand-logo-inner">🕮</span>
+                </span>
+                <span class="fw-bold brand-title">TaryagNotes</span>
+            </a>
 
-/* Background shapes similar vibe to example */
-.bg-shape {
-    position: absolute;
-    background-image: linear-gradient(100deg, #7642ff, #4259ff);
-    top: -280px;
-    right: -120px;
-    border-radius: 8%;
-    width: 50%;
-    height: 700px;
-    transform: skew(3deg, 30deg);
-    opacity: 0.9;
-    z-index: -2;
-}
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#siteNav" aria-controls="siteNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-.bg-circle {
-    position: absolute;
-    background-image: linear-gradient(100deg, #7642ff, #4259ff);
-    top: -350px;
-    left: -350px;
-    border-radius: 50%;
-    height: 700px;
-    width: 700px;
-    opacity: 0.1;
-    z-index: -3;
-}
+            <div class="collapse navbar-collapse justify-content-end" id="siteNav">
+                <ul class="navbar-nav align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link" href="#features">תכונות</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#how-it-works">איך זה עובד</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#screenshots">צילומי מסך</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#status">סטטוס הפרויקט</a></li>
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                        <!-- If repo is public, keep this. If private, you can remove. -->
+                        <a href="https://github.com/YOUR-USERNAME/TaryagNotes"
+                           target="_blank" class="btn btn-sm btn-outline-light">
+                            <i class="fa-brands fa-github ms-1"></i> GitHub
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-.bg-circle-two {
-    position: absolute;
-    background-image: linear-gradient(100deg, #7642ff, #4259ff);
-    top: 160px;
-    left: 280px;
-    border-radius: 50%;
-    height: 90px;
-    width: 90px;
-    opacity: 0.7;
-    z-index: -1;
-}
+    <!-- ================= HERO ================= -->
+    <section class="hero pt-7 pb-5">
+        <div class="container">
+            <div class="row align-items-center gy-4">
+                <div class="col-12 col-lg-6 order-2 order-lg-1">
+                    <p class="badge rounded-pill bg-soft-primary text-accent fw-semibold mb-3">
+                        📴 Offline • Local-first • Seforim in JSON
+                    </p>
+                    <h1 class="display-5 fw-bold mb-3 gradient-mask">
+                        בית מדרש מקומי, עם חיפוש סופר-מהיר
+                    </h1>
+                    <p class="lead text-muted mb-4">
+                        <strong>TaryagNotes</strong> היא אפליקציית שולחן עבודה (Windows / Linux / macOS בתכנון)
+                        המשלבת מאגר מצוות תרייג עם ספריה של ספרים בקבצי JSON,
+                        ומנוע חיפוש בסגנון בר-אילן – הכל מותקן מקומית, בלי ענן, בלי חשבון, בלי תלות בחיבור.
+                    </p>
 
-@media (max-width: 991px) {
-    .bg-shape {
-        top: -150px;
-        right: -40px;
-        width: 38%;
-        height: 480px;
-    }
-    .bg-circle {
-        top: -180px;
-        left: -200px;
-        height: 360px;
-        width: 360px;
-    }
-    .bg-circle-two {
-        top: 180px;
-        left: 60px;
-        height: 50px;
-        width: 50px;
-    }
-}
+                    <div class="dev-status-pill mb-3">
+                        <span class="dot"></span>
+                        <span class="small fw-semibold">בפיתוח פעיל – גרסת Pre-Launch (לא זמינה עדיין להורדה לציבור)</span>
+                    </div>
 
-@media (max-width: 767px) {
-    .bg-shape,
-    .bg-circle,
-    .bg-circle-two {
-        display: none;
-    }
-}
+                    <p class="text-muted small mb-1">
+                        מעוניין/ת להתעדכן כשיהיה בטא ציבורית?
+                    </p>
+                    <p class="small">
+                        <!-- TODO: change email / link -->
+                        כתוב לי: <a href="mailto:you@example.com" class="link-accent">you@example.com</a>
+                        או עקוב אחרי הפרויקט ב-<a href="https://github.com/YOUR-USERNAME/TaryagNotes" class="link-accent" target="_blank">GitHub</a>.
+                    </p>
+                </div>
 
-/* HERO MOCKUP */
-.hero-mockup {
-    max-width: 520px;
-}
+                <div class="col-12 col-lg-6 order-1 order-lg-2">
+                    <div class="hero-mockup mx-auto">
+                        <div class="mockup-frame shadow-lg">
+                            <div class="mockup-header d-flex align-items-center">
+                                <span class="circle circle-red"></span>
+                                <span class="circle circle-yellow"></span>
+                                <span class="circle circle-green"></span>
+                                <span class="mockup-title me-2">TaryagNotes – E-Reader + Search</span>
+                            </div>
+                            <div class="mockup-body">
+                                <!-- TODO: replace with real screenshot -->
+                                <img src="images/taryagnotes-main-dark.png" alt="TaryagNotes screenshot" class="img-fluid">
+                            </div>
+                        </div>
+                        <p class="text-center text-muted small mt-3">
+                            ממשק קריאה כהה, תצוגת סוגיות ולימוד מצוות – הכל בחלון אחד.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-.mockup-frame {
-    background: #fff;
-    border-radius: 18px;
-    overflow: hidden;
-    border: 1px solid rgba(10, 10, 40, 0.06);
-}
+        <div class="bg-shape"></div>
+        <div class="bg-circle"></div>
+        <div class="bg-circle-two"></div>
+    </section>
+</header>
 
-.mockup-header {
-    padding: 0.5rem 0.75rem;
-    background: linear-gradient(90deg, #f8f9ff, #ecefff);
-    font-size: 0.8rem;
-    color: #8882b0;
-}
+<!-- ================= STACK / OFFLINE STRIP ================= -->
+<section class="section bg-section-dark border-top">
+    <div class="container">
+        <div class="text-center mb-3">
+            <p class="text-muted text-uppercase small fw-semibold mb-2">תחת המכסה</p>
+            <div class="stack-logos d-flex flex-wrap justify-content-center align-items-center gap-3">
+                <span class="stack-pill">
+                    <i class="fa-solid fa-laptop-code ms-1"></i>.NET + Avalonia
+                </span>
+                <span class="stack-pill">
+                    <i class="fa-solid fa-database ms-1"></i>SQLite FTS (Full Text Search)
+                </span>
+                <span class="stack-pill">
+                    <i class="fa-solid fa-scroll ms-1"></i>ספרים בקבצי JSON
+                </span>
+                <span class="stack-pill">
+                    <i class="fa-solid fa-shield-halved ms-1"></i>Offline • Local-first • Private
+                </span>
+            </div>
+        </div>
+    </div>
+</section>
 
-.circle {
-    height: 11px;
-    width: 11px;
-    border-radius: 50%;
-    display: inline-block;
-    margin-right: 5px;
-}
+<!-- ================= FEATURES ================= -->
+<section id="features" class="section">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title mb-2">מה TaryagNotes מנסה לפתור?</h2>
+            <p class="text-muted">
+                לחבר בין “עולם התרייג” – מיפוי מצוות וסיווגים – לבין “עולם הספרים” – גמרא, רמב&quot;ם, שו&quot;ע וספרים,
+                בממשק אחד, מהיר, מקומי.
+            </p>
+        </div>
 
-.circle-red { background: #ff6b6b; }
-.circle-yellow { background: #ffd166; }
-.circle-green { background: #4ecb71; }
+        <div class="row align-items-center gy-4 mb-5">
+            <div class="col-md-6 order-2 order-md-1">
+                <h3 class="h3">חיפוש בסגנון בר-אילן, על ספרים משלך</h3>
+                <p class="text-muted">
+                    הספרים נשמרים כקבצי <code>.json</code> ברורים, והאפליקציה בונה מהם אינדקס SQLite FTS.
+                    כך אפשר לחפש תוך מילי־שניות בדפים, פרקים וסעיפים – אבל בלי שרת, בלי רישיון, ובלי ענן.
+                </p>
+                <ul class="list-unstyled feature-list">
+                    <li><i class="fa-solid fa-check text-accent ms-1"></i> חיפוש טקסט מלא על פני ספריה שלמה</li>
+                    <li><i class="fa-solid fa-check text-accent ms-1"></i> אינדוקס לפי דף / סימן כדי לקפוץ מיידית למקור</li>
+                    <li><i class="fa-solid fa-check text-accent ms-1"></i> הכל נשאר על המחשב האישי שלך</li>
+                </ul>
+            </div>
+            <div class="col-md-6 order-1 order-md-2 text-center">
+                <div class="macbook-hero">
+                    <!-- TODO: replace device frame if you like -->
+                    <img src="images/macbook-dark.png" class="img-fluid" alt="Mockup">
+                    <div class="macbook-screen">
+                        <img src="images/taryagnotes-search-dark.png" class="img-fluid" alt="Search screenshot">
+                    </div>
+                </div>
+            </div>
+        </div>
 
-.mockup-title {
-    font-family: "Rubik", sans-serif;
-}
+        <div class="row align-items-center gy-4 mb-5">
+            <div class="col-md-6 text-center">
+                <div class="macbook-hero">
+                    <img src="images/macbook-dark.png" class="img-fluid" alt="Mockup">
+                    <div class="macbook-screen">
+                        <img src="images/taryagnotes-mitzvos-dark.png" class="img-fluid" alt="Mitzvos view">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h3 class="h3">תרייג מצוות – לא רק רשימה, אלא מפת ניווט</h3>
+                <p class="text-muted">
+                    רשימת המצוות משמשת כנקודת מוצא: כל מצווה מחוברת לסוגיות, לרמב&quot;ם, לשו&quot;ע ולספרים נוספים,
+                    כדי לאפשר לימוד ממוקד ומעמיק בלי ללכת לאיבוד.
+                </p>
+                <ul class="list-unstyled feature-list">
+                    <li><i class="fa-solid fa-check text-accent ms-1"></i> שני &quot;עולמות&quot; עם אותו Toolbar – מצוות וספרים</li>
+                    <li><i class="fa-solid fa-check text-accent ms-1"></i> סימניות, סינון ותיוג נפרדים לכל עולם</li>
+                    <li><i class="fa-solid fa-check text-accent ms-1"></i> מאפשר לראות &quot;היכן המצווה חיה&quot; במקורות</li>
+                </ul>
+            </div>
+        </div>
 
-.mockup-body {
-    background: #111118;
-}
+        <div class="row align-items-center gy-4">
+            <div class="col-md-6 order-2 order-md-1">
+                <h3 class="h3">כלי עבודה ללומדים – אבל ידידותי למפתחים</h3>
+                <p class="text-muted">
+                    הקבצים, הקוד והחיפוש בנויים כך שמי שרוצה &quot;לשחק&quot; יכול:
+                    להוסיף ספרים בקבצי JSON, להתאים את האינדקס, ולשפר את חוויית הלימוד.
+                </p>
+                <ul class="list-unstyled feature-list">
+                    <li><i class="fa-solid fa-check text-accent ms-1"></i> קוד נקי ב-C#/.NET עם Avalonia UI</li>
+                    <li><i class="fa-solid fa-check text-accent ms-1"></i> תמיכה בקורפוס ספרים הניתן להרחבה</li>
+                    <li><i class="fa-solid fa-check text-accent ms-1"></i> כוונה בטווח הארוך: תוספים / התאמות קהילה</li>
+                </ul>
+            </div>
+            <div class="col-md-6 order-1 order-md-2 text-center">
+                <div class="browser-window limit-height">
+                    <div class="top-bar d-flex align-items-center">
+                        <span class="circle circle-red"></span>
+                        <span class="circle circle-yellow"></span>
+                        <span class="circle circle-blue"></span>
+                    </div>
+                    <div class="content p-3">
+                        <pre class="code-snippet mb-0"><code>// Example (conceptual): indexing a sefer page into FTS
 
-/* SECTION BASE */
-.section {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-    position: relative;
-}
+var page = new PageDocument
+{
+    SeferId = "Niddah",
+    Ref     = "נדה דף ב:",
+    Text    = normalizedText
+};
 
-.section-title {
-    font-size: 1.8rem;
-}
+ftsIndex.Insert(page);
+// Local, offline, queryable in milliseconds.</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-/* STACK STRIP */
-.stack-logos .stack-pill {
-    padding: 0.35rem 0.9rem;
-    border-radius: 999px;
-    border: 1px solid rgba(118, 66, 255, 0.2);
-    background: rgba(118, 66, 255, 0.04);
-    color: #4b3b90;
-    font-size: 0.85rem;
-}
+<!-- ================= HOW IT WORKS ================= -->
+<section id="how-it-works" class="section bg-section-dark">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title mb-2">איך זה עובד בפנים?</h2>
+            <p class="text-muted">
+                בקצרה: JSON → SQLite FTS → ממשק Avalonia. הכל על הדיסק המקומי שלך.
+            </p>
+        </div>
 
-/* FEATURE LIST & ICONS */
-.feature-list li {
-    margin-bottom: 0.35rem;
-    font-size: 0.95rem;
-}
+        <div class="row g-4 justify-content-center text-center">
+            <div class="col-md-4">
+                <div class="card h-100 border-0 card-dark shadow-sm">
+                    <div class="card-body">
+                        <div class="icon-circle mb-3">
+                            <i class="fa-solid fa-file-code"></i>
+                        </div>
+                        <h3 class="h5">קורפוס ספרים בקבצי JSON</h3>
+                        <p class="text-muted mb-0">
+                            כל ספר נשמר כקובץ JSON ברור: קל לבדוק, לגבות ולנהל ב-Git.
+                            האפליקציה חותכת לדפים / סימנים ומכינה אותם לאינדוקס.
+                        </p>
+                    </div>
+                </div>
+            </div>
 
-.icon-circle {
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    background: rgba(118, 66, 255, 0.08);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-    color: #7642ff;
-    font-size: 1.3rem;
-}
+            <div class="col-md-4">
+                <div class="card h-100 border-0 card-dark shadow-sm">
+                    <div class="card-body">
+                        <div class="icon-circle mb-3">
+                            <i class="fa-solid fa-database"></i>
+                        </div>
+                        <h3 class="h5">אינדקס SQLite FTS</h3>
+                        <p class="text-muted mb-0">
+                            מנוע FTS (Full Text Search) של SQLite בונה אינדקס הפוך לטקסט,
+                            כך ששאילתות טקסטואליות מחזירות תוצאות כמעט מיידית.
+                        </p>
+                    </div>
+                </div>
+            </div>
 
-/* BROWSER WINDOW MOCKUP (code snippet card) */
-.browser-window {
-    display: inline-block;
-    text-align: left;
-    min-height: 160px;
-    max-width: 100%;
-    border-radius: 10px;
-    background-color: #f1f3f5;
-    box-shadow: 0 19px 38px rgba(137, 149, 199, 0.15),
-                0 15px 12px rgba(137, 149, 199, 0.08);
-    margin-bottom: 1.5rem;
-    overflow: hidden;
-}
+            <div class="col-md-4">
+                <div class="card h-100 border-0 card-dark shadow-sm">
+                    <div class="card-body">
+                        <div class="icon-circle mb-3">
+                            <i class="fa-solid fa-display"></i>
+                        </div>
+                        <h3 class="h5">ממשק Avalonia</h3>
+                        <p class="text-muted mb-0">
+                            Avalonia מספקת UI מודרני ו-Cross-Platform: קורא טקסטים,
+                            Toolbar משותף, חיפוש וסימניות – במצב כהה נעים לעיניים.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-.browser-window.limit-height {
-    max-height: 360px;
-}
+<!-- ================= SCREENSHOTS ================= -->
+<section id="screenshots" class="section">
+    <div class="container">
+        <div class="text-center mb-4">
+            <h2 class="section-title mb-2">צילומי מסך (בפיתוח)</h2>
+            <p class="text-muted">מבט מוקדם לממשק. חלק מהפרטים עשויים להשתנות עד לגרסה לציבור.</p>
+        </div>
 
-.browser-window .top-bar {
-    height: 40px;
-    border-radius: 10px 10px 0 0;
-    background: #f8faff;
-    padding: 0 0.8rem;
-    display: flex;
-    align-items: center;
-}
+        <div class="row g-4">
+            <div class="col-md-4">
+                <figure class="screenshot-card">
+                    <img src="images/taryagnotes-main-dark.png" class="img-fluid cast-shadow" alt="Main view">
+                    <figcaption class="small text-muted mt-2 text-center">
+                        תצוגת לימוד ראשית – רשימת מצוות, טקסט הספר והערות.
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="col-md-4">
+                <figure class="screenshot-card">
+                    <img src="images/taryagnotes-search-dark.png" class="img-fluid cast-shadow" alt="Search results">
+                    <figcaption class="small text-muted mt-2 text-center">
+                        חיפוש טקסט מלא בקורפוס, מרוכז לפי ספר ודף / סימן.
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="col-md-4">
+                <figure class="screenshot-card">
+                    <img src="images/taryagnotes-mitzvos-dark.png" class="img-fluid cast-shadow" alt="Mitzvos browser">
+                    <figcaption class="small text-muted mt-2 text-center">
+                        ניווט במצוות תרייג עם קישורים למקורות העיקריים.
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+    </div>
+</section>
 
-.browser-window .circle-blue {
-    background: #79CFD5;
-}
+<!-- ================= STATUS / ABOUT ================= -->
+<section id="status" class="section bg-section-dark">
+    <div class="container">
+        <div class="row gy-4">
+            <div class="col-md-6">
+                <h2 class="section-title mb-3">סטטוס הפרויקט</h2>
+                <p class="text-muted">
+                    כרגע TaryagNotes היא אפליקציה בפיתוח פעיל, בשימוש אישי ובטסטים.
+                    המטרה היא להגיע בעתיד לגרסה שניתן לשחרר לציבור – תוך שמירה על איכות,
+                    דיוק טקסטים וחוויית לימוד מכבדת.
+                </p>
+                <ul class="list-unstyled feature-list">
+                    <li><i class="fa-solid fa-circle-dot text-accent ms-1"></i> UI ראשוני ל-E-Reader וחיפוש – קיים</li>
+                    <li><i class="fa-solid fa-circle-dot text-accent ms-1"></i> אינטגרציה מלאה עם מאגר מצוות – בעבודה</li>
+                    <li><i class="fa-solid fa-circle-dot text-accent ms-1"></i> חבילת התקנה + בטא ציבורית – בהמשך אי&quot;ה</li>
+                </ul>
+            </div>
 
-.browser-window .content {
-    background-color: #fafafa;
-}
+            <div class="col-md-6">
+                <h2 class="section-title mb-3">למה בניתי את זה?</h2>
+                <p class="text-muted">
+                    רציתי כלי לימוד שמכבד גם את העומק של התורה וגם את הדיוק של עולם התוכנה:
+                    חיפוש מהיר, טקסט מסודר, וכל זה בלי מנוי ובלי תלות באינטרנט.
+                </p>
+                <p class="text-muted">
+                    אם אתה/את:
+                    <br>• לומד/ת שרוצה כלי עבודה אישי למחשב,
+                    <br>• או מפתח/ת שרוצה להרים פרויקט שקשור לתורה וטקסט,
+                    <br>אשמח לשמוע ממך ולהבין מה היה עוזר לך.
+                </p>
+                <!-- TODO: adjust contact -->
+                <a href="mailto:you@example.com" class="btn btn-outline-light">
+                    <i class="fa-regular fa-envelope ms-1"></i> צור קשר
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
 
-/* MACBOOK MOCKUP */
-.macbook-hero {
-    max-width: 900px;
-    position: relative;
-    margin: 0 auto;
-}
+<!-- ================= FOOTER ================= -->
+<footer id="footer" class="section bg-footer border-top py-3">
+    <div class="container">
+        <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2">
+            <small class="text-muted">
+                © <span id="year"></span> TaryagNotes. Offline Torah, built בזהירות.
+            </small>
+            <div class="d-flex gap-3 small">
+                <a href="https://github.com/YOUR-USERNAME/TaryagNotes" class="link-muted" target="_blank">
+                    <i class="fa-brands fa-github ms-1"></i> GitHub
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
 
-.macbook-hero .macbook-screen {
-    position: absolute;
-    left: 12.4%;
-    top: 5.4%;
-    right: 11.8%;
-    bottom: 30.6%;
-    max-width: 835px;
-    max-height: 522px;
-    overflow: hidden;
-}
-
-.macbook-hero .macbook-screen img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* CODE BLOCKS */
-.code-snippet {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    font-size: 0.85rem;
-    background: #111118;
-    color: #e5e5ff;
-    border-radius: 8px;
-    padding: 0.75rem 0.9rem;
-    overflow-x: auto;
-}
-
-.code-snippet code {
-    white-space: pre;
-}
-
-/* BUTTONS */
-.btn-primary {
-    background-image: linear-gradient(90deg, #7642ff, #4259ff);
-    border: 0;
-}
-
-.btn-primary:hover,
-.btn-primary:focus {
-    background-image: linear-gradient(90deg, #5c30df, #3848cf);
-}
-
-.btn-outline-primary {
-    border-radius: 999px;
-}
-
-/* CAST SHADOW (screenshots) */
-.cast-shadow {
-    border-radius: 10px;
-    box-shadow: 0px 9px 60px 0px rgba(62, 57, 107, 0.25);
-}
-
-/* SCREENSHOT CARDS */
-.screenshot-card img {
-    border-radius: 12px;
-}
-
-/* FOOTER */
-#footer {
-    font-size: 0.9rem;
-}
-
-.link-muted {
-    color: #6c6c8a;
-}
-
-.link-muted:hover {
-    color: #7642ff;
-}
-
-/* SMALL UTILITIES */
-.badge.bg-soft-primary {
-    background: rgba(118, 66, 255, 0.12);
-}
-
-.letter-spacing-sm {
-    letter-spacing: 0.08em;
-}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
