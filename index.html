@@ -1,69 +1,442 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Menachem Drelich – Software Developer</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TaryagNotes – Torah Learning & Responsa-Style Search</title>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- META -->
+    <meta name="description" content="TaryagNotes is a cross-platform Torah learning app with Bar-Ilan-style full-text search over seforim stored in JSON, powered by .NET, SQLite FTS, and a rich study UI.">
+    <meta name="keywords" content="Taryag, mitzvot, mitzvos, Torah, seforim, responsa, search, .NET, Avalonia, SQLite">
+    <meta property="og:title" content="TaryagNotes – Torah Learning & Responsa-Style Search">
+    <meta property="og:description" content="Lightning-fast Torah search over JSON seforim, with a modern, cross-platform learning interface.">
+    <!-- TODO: point to a real image in your repo -->
+    <meta property="og:image" content="images/taryagnotes-hero.png">
+    <meta property="og:type" content="website">
 
-  <link rel="stylesheet" href="css/style.css" />
+    <!-- Favicon (optional – update paths or remove) -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap (via CDN for simplicity) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Icon font (optional, for simple icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
 
-  <section class="page">
-    <div class="bg-blur"></div>
+<body class="bg-body">
 
-    <main class="card">
+<!-- ================= HEADER / NAVBAR ================= -->
+<header id="home" class="header-hero position-relative overflow-hidden">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-2 fixed-top">
+        <div class="container">
+            <!-- Logo / Brand -->
+            <a class="navbar-brand d-flex align-items-center" href="#home">
+                <!-- TODO: replace with logo image if you have one -->
+                <span class="brand-logo d-inline-flex align-items-center justify-content-center me-2">
+                    <span class="brand-logo-inner">🕮</span>
+                </span>
+                <span class="fw-bold brand-title">TaryagNotes</span>
+            </a>
 
-      <!-- Avatar -->
-      <div class="avatar-wrapper">
-        <div class="avatar-ring"></div>
-        <img src="https://avatars.githubusercontent.com/u/62916802?v=4" class="avatar" alt="Menachem Drelich" />
-      </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#siteNav"
+                    aria-controls="siteNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-      <!-- Name -->
-      <h1 class="name">Menachem Drelich</h1>
+            <div class="collapse navbar-collapse justify-content-end" id="siteNav">
+                <ul class="navbar-nav align-items-lg-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#how-it-works">How it works</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#screenshots">Screenshots</a>
+                    </li>
+                    <li class="nav-item">
+                        <!-- TODO: update docs link when you have it -->
+                        <a class="nav-link" href="#install">Install</a>
+                    </li>
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                        <!-- TODO: update href with your repo -->
+                        <a href="https://github.com/YOUR-USERNAME/TaryagNotes" target="_blank"
+                           class="btn btn-sm btn-outline-primary">
+                            <i class="fa-brands fa-github me-1"></i> GitHub
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-      <!-- Tagline -->
-      <p class="title">Full-Stack Developer • Embedded Systems • UI Engineer</p>
+    <!-- ================= HERO ================= -->
+    <section class="hero pt-7 pb-5">
+        <div class="container">
+            <div class="row align-items-center gy-4">
+                <div class="col-12 col-lg-6 order-2 order-lg-1">
+                    <p class="badge rounded-pill bg-soft-primary text-primary fw-semibold mb-3">
+                        ⚡ Torah search engine • JSON seforim • SQLite FTS
+                    </p>
+                    <h1 class="display-5 fw-bold mb-3 gradient-mask">
+                        Torah Learning with Responsa-Style Search
+                    </h1>
+                    <p class="lead text-muted mb-4">
+                        <strong>TaryagNotes</strong> is a cross-platform .NET app for learning Torah, exploring
+                        the 613 mitzvot, and searching thousands of pages of seforim stored in JSON —
+                        with Bar-Ilan-inspired, lightning-fast full-text search over a local SQLite index.
+                    </p>
 
-      <!-- Bio -->
-      <p class="bio">
-        I build fast, thoughtful, maintainable software — from embedded systems and Arduino integrations 
-        to modern web applications and polished user interfaces. I focus on clarity, simplicity, and engineering craftsmanship.
-      </p>
+                    <div class="d-flex flex-column flex-sm-row gap-2 mb-4">
+                        <!-- TODO: link to latest release -->
+                        <a href="https://github.com/YOUR-USERNAME/TaryagNotes/releases"
+                           class="btn btn-primary btn-lg">
+                            <i class="fa-solid fa-download me-2"></i> Download
+                        </a>
+                        <a href="https://github.com/YOUR-USERNAME/TaryagNotes" target="_blank"
+                           class="btn btn-outline-primary btn-lg">
+                            View on GitHub
+                        </a>
+                    </div>
 
-      <!-- Social icons -->
-      <div class="social">
-        <a href="mailto:menachemdesign.tech@gmail.com" class="icon-btn">
-          <img src="https://sea-static.cdn.phobos.id/assets/svg/email.svg">
-        </a>
-        <a href="https://www.instagram.com/menachemdesign/" target="_blank" class="icon-btn">
-          <img src="https://sea-static.cdn.phobos.id/assets/svg/instagram.svg">
-        </a>
-        <a href="https://github.com/Menachem-D" target="_blank" class="icon-btn">
-          <img src="https://sea-static.cdn.phobos.id/assets/svg/github.svg">
-        </a>
-      </div>
+                    <div class="install-snippet small text-muted">
+                        <p class="mb-1 fw-semibold text-uppercase letter-spacing-sm">Quick start (.NET)</p>
+                        <pre class="code-snippet mb-2"><code>git clone https://github.com/YOUR-USERNAME/TaryagNotes.git
+cd TaryagNotes
+dotnet run</code></pre>
+                        <p class="mb-0">
+                            Cross-platform via <span class="fw-semibold">.NET</span> & <span class="fw-semibold">Avalonia</span>.
+                        </p>
+                    </div>
+                </div>
 
-      <!-- Buttons -->
-      <div class="links">
-        <a href="javascript:void(0)" class="btn primary">
-          <span>View My Work</span>
-        </a>
+                <div class="col-12 col-lg-6 order-1 order-lg-2">
+                    <div class="hero-mockup mx-auto">
+                        <!-- TODO: replace src with your real screenshot -->
+                        <div class="mockup-frame shadow-lg">
+                            <div class="mockup-header d-flex align-items-center">
+                                <span class="circle circle-red"></span>
+                                <span class="circle circle-yellow"></span>
+                                <span class="circle circle-green"></span>
+                                <span class="mockup-title ms-2">TaryagNotes – E-Reader + Search</span>
+                            </div>
+                            <div class="mockup-body">
+                                <img src="images/taryagnotes-main.png" alt="TaryagNotes screenshot" class="img-fluid">
+                            </div>
+                        </div>
+                        <p class="text-center text-muted small mt-3">
+                            Rich e-reader UI with side-by-side mitzvah data, sefer text, and search results.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <a href="https://github.com/Menachem-D" target="_blank" class="btn secondary">
-          <span>Visit My GitHub</span>
-        </a>
+        <!-- Background shapes -->
+        <div class="bg-shape"></div>
+        <div class="bg-circle"></div>
+        <div class="bg-circle-two"></div>
+    </section>
+</header>
 
-        <a href="assets/Resume-Menachem-Drelich 2024.pdf" target="_blank" class="btn ghost">
-          <span>Download CV</span>
-        </a>
-      </div>
-    </main>
-  </section>
+<!-- ================= "USED BY / BUILT WITH" STRIP ================= -->
+<section class="section bg-light border-top">
+    <div class="container">
+        <div class="text-center mb-3">
+            <p class="text-muted text-uppercase small fw-semibold mb-2">Built with</p>
+            <div class="stack-logos d-flex flex-wrap justify-content-center align-items-center gap-4">
+                <span class="stack-pill">
+                    <i class="fa-solid fa-code-branch me-1"></i>.NET / C#
+                </span>
+                <span class="stack-pill">
+                    <i class="fa-solid fa-desktop me-1"></i>Avalonia UI
+                </span>
+                <span class="stack-pill">
+                    <i class="fa-solid fa-database me-1"></i>SQLite + FTS
+                </span>
+                <span class="stack-pill">
+                    <i class="fa-solid fa-scroll me-1"></i>JSON Seforim Corpus
+                </span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================= FEATURES ================= -->
+<section id="features" class="section">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title mb-2">Why TaryagNotes?</h2>
+            <p class="text-muted">
+                Designed for serious learning: marry a structured mitzvah database with a full seforim library,
+                and keep everything local, fast, and hackable.
+            </p>
+        </div>
+
+        <!-- Feature 1 -->
+        <div class="row align-items-center gy-4 mb-5">
+            <div class="col-md-6 order-2 order-md-1">
+                <h3 class="h3">Responsa-style search over JSON seforim</h3>
+                <p class="text-muted">
+                    TaryagNotes indexes your seforim — stored in simple <code>.json</code> files —
+                    into a SQLite FTS engine. Search across entire masechtos, seforim, or
+                    your own custom sets in milliseconds, without ever leaving your machine.
+                </p>
+                <ul class="list-unstyled feature-list">
+                    <li><i class="fa-solid fa-check text-primary me-1"></i> Full-text search with prefixes &amp; proximity</li>
+                    <li><i class="fa-solid fa-check text-primary me-1"></i> Per-daf / per-perek indexing for instant navigation</li>
+                    <li><i class="fa-solid fa-check text-primary me-1"></i> Works directly off your JSON corpus</li>
+                </ul>
+            </div>
+            <div class="col-md-6 order-1 order-md-2 text-center">
+                <div class="macbook-hero">
+                    <img src="images/macbook.png" class="img-fluid" alt="Mockup">
+                    <div class="macbook-screen">
+                        <!-- TODO: replace with search screenshot -->
+                        <img src="images/taryagnotes-search.png" class="img-fluid" alt="Search screenshot">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="row align-items-center gy-4 mb-5">
+            <div class="col-md-6 text-center">
+                <div class="macbook-hero">
+                    <img src="images/macbook.png" class="img-fluid" alt="Mockup">
+                    <div class="macbook-screen">
+                        <!-- TODO: replace with mitzvos / graph screenshot -->
+                        <img src="images/taryagnotes-mitzvos.png" class="img-fluid" alt="Mitzvos view">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h3 class="h3">Taryag mitzvos, mapped into your learning</h3>
+                <p class="text-muted">
+                    Flip between the “Taryag world” and the “seforim world” without losing context.
+                    Mitzvos are linked to sugyos in Shas, Rambam, Shulchan Aruch, and your corpus,
+                    giving you a unified view of each commandment.
+                </p>
+                <ul class="list-unstyled feature-list">
+                    <li><i class="fa-solid fa-check text-primary me-1"></i> Structured mitzvah dataset baked in</li>
+                    <li><i class="fa-solid fa-check text-primary me-1"></i> Two synchronized toolbars — same UI, different actions</li>
+                    <li><i class="fa-solid fa-check text-primary me-1"></i> Bookmarks, notes, and filters for both “worlds”</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="row align-items-center gy-4">
+            <div class="col-md-6 order-2 order-md-1">
+                <h3 class="h3">Built for hackers &amp; learners</h3>
+                <p class="text-muted">
+                    The app is open-source and unapologetically developer-friendly:
+                    everything from the corpus format (JSON) to the search queries is designed
+                    to be understandable and tweakable.
+                </p>
+                <ul class="list-unstyled feature-list">
+                    <li><i class="fa-solid fa-check text-primary me-1"></i> Clean C#/.NET codebase with Avalonia UI</li>
+                    <li><i class="fa-solid fa-check text-primary me-1"></i> Easy to add your own seforim or indices</li>
+                    <li><i class="fa-solid fa-check text-primary me-1"></i> Works offline; your data stays yours</li>
+                </ul>
+            </div>
+            <div class="col-md-6 order-1 order-md-2 text-center">
+                <div class="browser-window limit-height">
+                    <div class="top-bar d-flex align-items-center">
+                        <span class="circle circle-red"></span>
+                        <span class="circle circle-yellow"></span>
+                        <span class="circle circle-blue"></span>
+                    </div>
+                    <div class="content p-3">
+                        <pre class="code-snippet mb-0"><code>// Example: wiring a sefer page into the FTS index
+var page = new PageDocument
+{
+    SeferId = "Niddah",
+    Ref     = "נדה דף ב:",
+    Text    = normalizedText
+};
+
+ftsIndex.Insert(page);</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================= HOW IT WORKS ================= -->
+<section id="how-it-works" class="section bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title mb-2">How it works</h2>
+            <p class="text-muted">
+                Under the hood, TaryagNotes bridges a simple JSON corpus with a serious search engine.
+            </p>
+        </div>
+
+        <div class="row g-4 justify-content-center text-center">
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="icon-circle mb-3">
+                            <i class="fa-solid fa-file-code"></i>
+                        </div>
+                        <h3 class="h5">JSON corpus</h3>
+                        <p class="text-muted mb-0">
+                            Seforim are stored as JSON on disk: easy to version, inspect, and transform.
+                            The app reads them and splits into daf / siman units for indexing.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="icon-circle mb-3">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                        <h3 class="h5">SQLite FTS index</h3>
+                        <p class="text-muted mb-0">
+                            A local SQLite FTS database builds inverted indexes for the seforim,
+                            enabling Bar-Ilan-style, prefix and proximity search in milliseconds.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="icon-circle mb-3">
+                            <i class="fa-solid fa-display"></i>
+                        </div>
+                        <h3 class="h5">Avalonia front-end</h3>
+                        <p class="text-muted mb-0">
+                            Avalonia provides a modern cross-platform desktop UI:
+                            rich e-reader, split views, bookmarks, and a global toolbar shared
+                            across the “mitzvos” and “seforim” worlds.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================= SCREENSHOTS ================= -->
+<section id="screenshots" class="section">
+    <div class="container">
+        <div class="text-center mb-4">
+            <h2 class="section-title mb-2">Screenshots</h2>
+            <p class="text-muted">A glimpse into the current UI. More coming as the project grows.</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- TODO: replace images with real screenshots -->
+            <div class="col-md-4">
+                <figure class="screenshot-card">
+                    <img src="images/taryagnotes-main.png" class="img-fluid cast-shadow" alt="Main view">
+                    <figcaption class="small text-muted mt-2 text-center">
+                        Main learning layout: mitzvos list, sefer text, and notes panel.
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="col-md-4">
+                <figure class="screenshot-card">
+                    <img src="images/taryagnotes-search.png" class="img-fluid cast-shadow" alt="Search results">
+                    <figcaption class="small text-muted mt-2 text-center">
+                        Search results grouped by sefer and daf / siman.
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="col-md-4">
+                <figure class="screenshot-card">
+                    <img src="images/taryagnotes-mitzvos.png" class="img-fluid cast-shadow" alt="Mitzvos browser">
+                    <figcaption class="small text-muted mt-2 text-center">
+                        Browsing Taryag mitzvos with cross-references into Shas and Rambam.
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================= INSTALL / CONTRIBUTING ================= -->
+<section id="install" class="section bg-light">
+    <div class="container">
+        <div class="row gy-4">
+            <div class="col-md-6">
+                <h2 class="section-title mb-3">Install &amp; run</h2>
+                <p class="text-muted">
+                    TaryagNotes is still evolving, but you can already build and run it locally.
+                </p>
+
+                <h5 class="fw-semibold mb-2">From GitHub source</h5>
+                <pre class="code-snippet mb-3"><code>git clone https://github.com/YOUR-USERNAME/TaryagNotes.git
+cd TaryagNotes
+dotnet restore
+dotnet run</code></pre>
+
+                <h5 class="fw-semibold mb-2">Windows packaged build</h5>
+                <p class="text-muted">
+                    Download the latest <code>.zip</code> or installer from the
+                    <a href="https://github.com/YOUR-USERNAME/TaryagNotes/releases">Releases</a> page,
+                    extract, and run <code>TaryagNotes.exe</code>.
+                </p>
+            </div>
+
+            <div class="col-md-6">
+                <h2 class="section-title mb-3">Contributing</h2>
+                <p class="text-muted">
+                    This project is both a personal beis midrash and a playground for better Torah tools.
+                    PRs and issues are welcome — whether it’s UI polish, new seforim adapters, or smarter search.
+                </p>
+                <ul class="list-unstyled feature-list">
+                    <li><i class="fa-solid fa-heart text-primary me-1"></i> Star the repo on GitHub to support the project</li>
+                    <li><i class="fa-solid fa-bug text-primary me-1"></i> File issues for bugs, UX ideas, or learning workflows</li>
+                    <li><i class="fa-solid fa-code text-primary me-1"></i> Open PRs for C#, Avalonia, or search logic improvements</li>
+                </ul>
+                <a href="https://github.com/YOUR-USERNAME/TaryagNotes/issues"
+                   class="btn btn-outline-primary">
+                    <i class="fa-regular fa-message me-1"></i> Open an issue
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer id="footer" class="section border-top bg-white py-3">
+    <div class="container">
+        <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2">
+            <small class="text-muted">
+                © <span id="year"></span> TaryagNotes. Built with love for learning.
+            </small>
+            <div class="d-flex gap-3 small">
+                <!-- TODO: update links -->
+                <a href="https://github.com/YOUR-USERNAME/TaryagNotes" class="link-muted" target="_blank">
+                    <i class="fa-brands fa-github me-1"></i> GitHub
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- JS: Bootstrap bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
