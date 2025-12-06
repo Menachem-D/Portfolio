@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,9 +7,9 @@
 
     <!-- META -->
     <meta name="description" content="TaryagNotes is an offline, local-first Torah learning workbench with Bar-Ilan-style full-text search over a JSON seforim corpus, powered by .NET and SQLite FTS.">
-    <meta name="keywords" content="Taryag, mitzvot, Torah, seforim, responsa, offline, local first, .NET, Avalonia, SQLite">
+    <meta name="keywords" content="Taryag, mitzvot, mitzvos, Torah, seforim, responsa, offline, local first, .NET, Avalonia, SQLite">
     <meta property="og:title" content="TaryagNotes – Offline Torah Learning & Search">
-    <meta property="og:description" content="A local-first Torah learning app combining Taryag mitzvos with fast seforim search. Currently in active development.">
+    <meta property="og:description" content="A local-first Torah learning app combining Taryag mitzvot with fast seforim search. Currently in active development.">
     <meta property="og:type" content="website">
     <!-- TODO: replace with real image -->
     <meta property="og:image" content="images/taryagnotes-hero-dark.png">
@@ -49,10 +49,10 @@
 
             <div class="collapse navbar-collapse justify-content-end" id="siteNav">
                 <ul class="navbar-nav align-items-lg-center">
-                    <li class="nav-item"><a class="nav-link" href="#features">תכונות</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#how-it-works">איך זה עובד</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#screenshots">צילומי מסך</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#status">סטטוס הפרויקט</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#how-it-works">How it works</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#screenshots">Screenshots</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#status">Project status</a></li>
                     <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
                         <!-- If repo is public, keep this. If private, you can remove. -->
                         <a href="https://github.com/YOUR-USERNAME/TaryagNotes"
@@ -74,26 +74,28 @@
                         📴 Offline • Local-first • Seforim in JSON
                     </p>
                     <h1 class="display-5 fw-bold mb-3 gradient-mask">
-                        בית מדרש מקומי, עם חיפוש סופר-מהיר
+                        A local Beit Midrash with ultra-fast search
                     </h1>
                     <p class="lead text-muted mb-4">
-                        <strong>TaryagNotes</strong> היא אפליקציית שולחן עבודה (Windows / Linux / macOS בתכנון)
-                        המשלבת מאגר מצוות תרייג עם ספריה של ספרים בקבצי JSON,
-                        ומנוע חיפוש בסגנון בר-אילן – הכל מותקן מקומית, בלי ענן, בלי חשבון, בלי תלות בחיבור.
+                        <strong>TaryagNotes</strong> is a desktop app (Windows, with Linux/macOS planned)
+                        that combines a Taryag mitzvot (תרי״ג מצוות) knowledge base with a seforim (ספרים)
+                        library stored as clean JSON files, plus a Bar-Ilan-style full-text search engine —
+                        all installed locally, with no cloud, no account, and no dependency on a constant
+                        internet connection.
                     </p>
 
                     <div class="dev-status-pill mb-3">
                         <span class="dot"></span>
-                        <span class="small fw-semibold">בפיתוח פעיל – גרסת Pre-Launch (לא זמינה עדיין להורדה לציבור)</span>
+                        <span class="small fw-semibold">Actively in development — pre-launch build (not yet available for public download)</span>
                     </div>
 
                     <p class="text-muted small mb-1">
-                        מעוניין/ת להתעדכן כשיהיה בטא ציבורית?
+                        Want to hear when a public beta is ready?
                     </p>
                     <p class="small">
                         <!-- TODO: change email / link -->
-                        כתוב לי: <a href="mailto:you@example.com" class="link-accent">you@example.com</a>
-                        או עקוב אחרי הפרויקט ב-<a href="https://github.com/YOUR-USERNAME/TaryagNotes" class="link-accent" target="_blank">GitHub</a>.
+                        Drop me a line at <a href="mailto:you@example.com" class="link-accent">you@example.com</a>
+                        or follow the project on <a href="https://github.com/YOUR-USERNAME/TaryagNotes" class="link-accent" target="_blank">GitHub</a>.
                     </p>
                 </div>
 
@@ -112,7 +114,7 @@
                             </div>
                         </div>
                         <p class="text-center text-muted small mt-3">
-                            ממשק קריאה כהה, תצוגת סוגיות ולימוד מצוות – הכל בחלון אחד.
+                            Dark reading UI, sugya view, and mitzvah-centric learning — all in a single window.
                         </p>
                     </div>
                 </div>
@@ -129,16 +131,16 @@
 <section class="section bg-section-dark border-top">
     <div class="container">
         <div class="text-center mb-3">
-            <p class="text-muted text-uppercase small fw-semibold mb-2">תחת המכסה</p>
+            <p class="text-muted text-uppercase small fw-semibold mb-2">Under the hood</p>
             <div class="stack-logos d-flex flex-wrap justify-content-center align-items-center gap-3">
                 <span class="stack-pill">
                     <i class="fa-solid fa-laptop-code ms-1"></i>.NET + Avalonia
                 </span>
                 <span class="stack-pill">
-                    <i class="fa-solid fa-database ms-1"></i>SQLite FTS (Full Text Search)
+                    <i class="fa-solid fa-database ms-1"></i>SQLite FTS (Full-Text Search)
                 </span>
                 <span class="stack-pill">
-                    <i class="fa-solid fa-scroll ms-1"></i>ספרים בקבצי JSON
+                    <i class="fa-solid fa-scroll ms-1"></i>Seforim corpus in JSON
                 </span>
                 <span class="stack-pill">
                     <i class="fa-solid fa-shield-halved ms-1"></i>Offline • Local-first • Private
@@ -152,24 +154,26 @@
 <section id="features" class="section">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="section-title mb-2">מה TaryagNotes מנסה לפתור?</h2>
+            <h2 class="section-title mb-2">What is TaryagNotes trying to solve?</h2>
             <p class="text-muted">
-                לחבר בין “עולם התרייג” – מיפוי מצוות וסיווגים – לבין “עולם הספרים” – גמרא, רמב&quot;ם, שו&quot;ע וספרים,
-                בממשק אחד, מהיר, מקומי.
+                Connect the “Taryag world” — mapping and classifying mitzvot — with the “seforim world”
+                — Gemara, Rambam, Shulchan Aruch and other classic and modern works — in a single, fast,
+                local interface.
             </p>
         </div>
 
         <div class="row align-items-center gy-4 mb-5">
             <div class="col-md-6 order-2 order-md-1">
-                <h3 class="h3">חיפוש בסגנון בר-אילן, על ספרים משלך</h3>
+                <h3 class="h3">Bar-Ilan-style search on your own seforim</h3>
                 <p class="text-muted">
-                    הספרים נשמרים כקבצי <code>.json</code> ברורים, והאפליקציה בונה מהם אינדקס SQLite FTS.
-                    כך אפשר לחפש תוך מילי־שניות בדפים, פרקים וסעיפים – אבל בלי שרת, בלי רישיון, ובלי ענן.
+                    Seforim are stored as clear <code>.json</code> files, and the app builds a SQLite FTS index
+                    from them. That means you can run full-text searches across dapim, prakim and simanim
+                    in milliseconds — but without a server, license, or cloud dependency.
                 </p>
                 <ul class="list-unstyled feature-list">
-                    <li><i class="fa-solid fa-check text-accent ms-1"></i> חיפוש טקסט מלא על פני ספריה שלמה</li>
-                    <li><i class="fa-solid fa-check text-accent ms-1"></i> אינדוקס לפי דף / סימן כדי לקפוץ מיידית למקור</li>
-                    <li><i class="fa-solid fa-check text-accent ms-1"></i> הכל נשאר על המחשב האישי שלך</li>
+                    <li><i class="fa-solid fa-check text-accent ms-1"></i> Full-text search across your entire seforim library</li>
+                    <li><i class="fa-solid fa-check text-accent ms-1"></i> Indexing by daf / siman for instant jumps to the source</li>
+                    <li><i class="fa-solid fa-check text-accent ms-1"></i> All data stays on your own machine</li>
                 </ul>
             </div>
             <div class="col-md-6 order-1 order-md-2 text-center">
@@ -193,30 +197,31 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <h3 class="h3">תרייג מצוות – לא רק רשימה, אלא מפת ניווט</h3>
+                <h3 class="h3">Taryag mitzvot – not just a list, but a navigation map</h3>
                 <p class="text-muted">
-                    רשימת המצוות משמשת כנקודת מוצא: כל מצווה מחוברת לסוגיות, לרמב&quot;ם, לשו&quot;ע ולספרים נוספים,
-                    כדי לאפשר לימוד ממוקד ומעמיק בלי ללכת לאיבוד.
+                    The list of mitzvot becomes your launchpad: each mitzvah is connected to relevant sugyot,
+                    Rambam, Shulchan Aruch, and additional seforim, so you can go from concept to sources
+                    without getting lost.
                 </p>
                 <ul class="list-unstyled feature-list">
-                    <li><i class="fa-solid fa-check text-accent ms-1"></i> שני &quot;עולמות&quot; עם אותו Toolbar – מצוות וספרים</li>
-                    <li><i class="fa-solid fa-check text-accent ms-1"></i> סימניות, סינון ותיוג נפרדים לכל עולם</li>
-                    <li><i class="fa-solid fa-check text-accent ms-1"></i> מאפשר לראות &quot;היכן המצווה חיה&quot; במקורות</li>
+                    <li><i class="fa-solid fa-check text-accent ms-1"></i> Two “worlds” with one shared toolbar — mitzvot and seforim</li>
+                    <li><i class="fa-solid fa-check text-accent ms-1"></i> Separate bookmarks, filters, and tags per world</li>
+                    <li><i class="fa-solid fa-check text-accent ms-1"></i> See where each mitzvah “lives” across the sources</li>
                 </ul>
             </div>
         </div>
 
         <div class="row align-items-center gy-4">
             <div class="col-md-6 order-2 order-md-1">
-                <h3 class="h3">כלי עבודה ללומדים – אבל ידידותי למפתחים</h3>
+                <h3 class="h3">Built for learners – friendly for developers</h3>
                 <p class="text-muted">
-                    הקבצים, הקוד והחיפוש בנויים כך שמי שרוצה &quot;לשחק&quot; יכול:
-                    להוסיף ספרים בקבצי JSON, להתאים את האינדקס, ולשפר את חוויית הלימוד.
+                    The corpus, code, and search pipeline are structured so curious people can tinker:
+                    add seforim as JSON, customize indexing, and improve the learning experience over time.
                 </p>
                 <ul class="list-unstyled feature-list">
-                    <li><i class="fa-solid fa-check text-accent ms-1"></i> קוד נקי ב-C#/.NET עם Avalonia UI</li>
-                    <li><i class="fa-solid fa-check text-accent ms-1"></i> תמיכה בקורפוס ספרים הניתן להרחבה</li>
-                    <li><i class="fa-solid fa-check text-accent ms-1"></i> כוונה בטווח הארוך: תוספים / התאמות קהילה</li>
+                    <li><i class="fa-solid fa-check text-accent ms-1"></i> Clean C#/.NET codebase with Avalonia UI</li>
+                    <li><i class="fa-solid fa-check text-accent ms-1"></i> Extensible seforim corpus, not a closed box</li>
+                    <li><i class="fa-solid fa-check text-accent ms-1"></i> Long-term vision: plugins and community-driven customizations</li>
                 </ul>
             </div>
             <div class="col-md-6 order-1 order-md-2 text-center">
@@ -249,9 +254,9 @@ ftsIndex.Insert(page);
 <section id="how-it-works" class="section bg-section-dark">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="section-title mb-2">איך זה עובד בפנים?</h2>
+            <h2 class="section-title mb-2">How does it work inside?</h2>
             <p class="text-muted">
-                בקצרה: JSON → SQLite FTS → ממשק Avalonia. הכל על הדיסק המקומי שלך.
+                In short: JSON → SQLite FTS → Avalonia UI. Everything lives on your local disk.
             </p>
         </div>
 
@@ -262,10 +267,11 @@ ftsIndex.Insert(page);
                         <div class="icon-circle mb-3">
                             <i class="fa-solid fa-file-code"></i>
                         </div>
-                        <h3 class="h5">קורפוס ספרים בקבצי JSON</h3>
+                        <h3 class="h5">Seforim corpus as JSON</h3>
                         <p class="text-muted mb-0">
-                            כל ספר נשמר כקובץ JSON ברור: קל לבדוק, לגבות ולנהל ב-Git.
-                            האפליקציה חותכת לדפים / סימנים ומכינה אותם לאינדוקס.
+                            Each sefer is stored as a clear, inspectable JSON file, easy to version, back up,
+                            and manage in Git. The app slices it into dapim / simanim and prepares entries
+                            for indexing.
                         </p>
                     </div>
                 </div>
@@ -277,10 +283,11 @@ ftsIndex.Insert(page);
                         <div class="icon-circle mb-3">
                             <i class="fa-solid fa-database"></i>
                         </div>
-                        <h3 class="h5">אינדקס SQLite FTS</h3>
+                        <h3 class="h5">SQLite FTS index</h3>
                         <p class="text-muted mb-0">
-                            מנוע FTS (Full Text Search) של SQLite בונה אינדקס הפוך לטקסט,
-                            כך ששאילתות טקסטואליות מחזירות תוצאות כמעט מיידית.
+                            SQLite’s Full-Text Search engine builds an inverted index over the text, so
+                            textual queries return results almost instantly — even on a modest laptop,
+                            completely offline.
                         </p>
                     </div>
                 </div>
@@ -292,10 +299,11 @@ ftsIndex.Insert(page);
                         <div class="icon-circle mb-3">
                             <i class="fa-solid fa-display"></i>
                         </div>
-                        <h3 class="h5">ממשק Avalonia</h3>
+                        <h3 class="h5">Avalonia UI</h3>
                         <p class="text-muted mb-0">
-                            Avalonia מספקת UI מודרני ו-Cross-Platform: קורא טקסטים,
-                            Toolbar משותף, חיפוש וסימניות – במצב כהה נעים לעיניים.
+                            Avalonia provides a modern, cross-platform UI: text reader, shared toolbar,
+                            search panels, bookmarks, and a comfortable dark mode for long learning
+                            sessions.
                         </p>
                     </div>
                 </div>
@@ -308,8 +316,8 @@ ftsIndex.Insert(page);
 <section id="screenshots" class="section">
     <div class="container">
         <div class="text-center mb-4">
-            <h2 class="section-title mb-2">צילומי מסך (בפיתוח)</h2>
-            <p class="text-muted">מבט מוקדם לממשק. חלק מהפרטים עשויים להשתנות עד לגרסה לציבור.</p>
+            <h2 class="section-title mb-2">Screenshots (work in progress)</h2>
+            <p class="text-muted">Early look at the interface. Details may change before a public release.</p>
         </div>
 
         <div class="row g-4">
@@ -317,7 +325,7 @@ ftsIndex.Insert(page);
                 <figure class="screenshot-card">
                     <img src="images/taryagnotes-main-dark.png" class="img-fluid cast-shadow" alt="Main view">
                     <figcaption class="small text-muted mt-2 text-center">
-                        תצוגת לימוד ראשית – רשימת מצוות, טקסט הספר והערות.
+                        Main learning layout – Taryag mitzvot list, sefer text, and notes in one place.
                     </figcaption>
                 </figure>
             </div>
@@ -325,7 +333,7 @@ ftsIndex.Insert(page);
                 <figure class="screenshot-card">
                     <img src="images/taryagnotes-search-dark.png" class="img-fluid cast-shadow" alt="Search results">
                     <figcaption class="small text-muted mt-2 text-center">
-                        חיפוש טקסט מלא בקורפוס, מרוכז לפי ספר ודף / סימן.
+                        Full-text search across the corpus, grouped by sefer and daf / siman.
                     </figcaption>
                 </figure>
             </div>
@@ -333,7 +341,7 @@ ftsIndex.Insert(page);
                 <figure class="screenshot-card">
                     <img src="images/taryagnotes-mitzvos-dark.png" class="img-fluid cast-shadow" alt="Mitzvos browser">
                     <figcaption class="small text-muted mt-2 text-center">
-                        ניווט במצוות תרייג עם קישורים למקורות העיקריים.
+                        Browsing Taryag mitzvot with quick links into core sources and sugyot.
                     </figcaption>
                 </figure>
             </div>
@@ -346,34 +354,36 @@ ftsIndex.Insert(page);
     <div class="container">
         <div class="row gy-4">
             <div class="col-md-6">
-                <h2 class="section-title mb-3">סטטוס הפרויקט</h2>
+                <h2 class="section-title mb-3">Project status</h2>
                 <p class="text-muted">
-                    כרגע TaryagNotes היא אפליקציה בפיתוח פעיל, בשימוש אישי ובטסטים.
-                    המטרה היא להגיע בעתיד לגרסה שניתן לשחרר לציבור – תוך שמירה על איכות,
-                    דיוק טקסטים וחוויית לימוד מכבדת.
+                    Right now TaryagNotes is in active development, used for personal learning and
+                    internal testing. The goal is to reach a quality level where it’s appropriate to
+                    share with the broader tzibbur — with a focus on accurate texts and a respectful
+                    learning experience.
                 </p>
                 <ul class="list-unstyled feature-list">
-                    <li><i class="fa-solid fa-circle-dot text-accent ms-1"></i> UI ראשוני ל-E-Reader וחיפוש – קיים</li>
-                    <li><i class="fa-solid fa-circle-dot text-accent ms-1"></i> אינטגרציה מלאה עם מאגר מצוות – בעבודה</li>
-                    <li><i class="fa-solid fa-circle-dot text-accent ms-1"></i> חבילת התקנה + בטא ציבורית – בהמשך אי&quot;ה</li>
+                    <li><i class="fa-solid fa-circle-dot text-accent ms-1"></i> Initial E-Reader + search UI – implemented</li>
+                    <li><i class="fa-solid fa-circle-dot text-accent ms-1"></i> Deeper integration with the Taryag mitzvot dataset – in progress</li>
+                    <li><i class="fa-solid fa-circle-dot text-accent ms-1"></i> Installer + public beta build – planned, b’ezrat Hashem</li>
                 </ul>
             </div>
 
             <div class="col-md-6">
-                <h2 class="section-title mb-3">למה בניתי את זה?</h2>
+                <h2 class="section-title mb-3">Why I’m building this</h2>
                 <p class="text-muted">
-                    רציתי כלי לימוד שמכבד גם את העומק של התורה וגם את הדיוק של עולם התוכנה:
-                    חיפוש מהיר, טקסט מסודר, וכל זה בלי מנוי ובלי תלות באינטרנט.
+                    I wanted a learning tool that takes both sides seriously: the depth and kedushah of
+                    Torah, and the precision and UX of modern software. Fast search, clean text, and
+                    no subscriptions or always-online requirement.
                 </p>
                 <p class="text-muted">
-                    אם אתה/את:
-                    <br>• לומד/ת שרוצה כלי עבודה אישי למחשב,
-                    <br>• או מפתח/ת שרוצה להרים פרויקט שקשור לתורה וטקסט,
-                    <br>אשמח לשמוע ממך ולהבין מה היה עוזר לך.
+                    If you are:
+                    <br>• A learner who wants a personal, offline tool for your computer, or
+                    <br>• A developer interested in Torah-text projects and open formats,
+                    <br>I’d love to hear what would actually help you learn better.
                 </p>
                 <!-- TODO: adjust contact -->
                 <a href="mailto:you@example.com" class="btn btn-outline-light">
-                    <i class="fa-regular fa-envelope ms-1"></i> צור קשר
+                    <i class="fa-regular fa-envelope ms-1"></i> Get in touch
                 </a>
             </div>
         </div>
@@ -385,7 +395,7 @@ ftsIndex.Insert(page);
     <div class="container">
         <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2">
             <small class="text-muted">
-                © <span id="year"></span> TaryagNotes. Offline Torah, built בזהירות.
+                © <span id="year"></span> TaryagNotes. Offline Torah, built b’zehirut (בזהירות).
             </small>
             <div class="d-flex gap-3 small">
                 <a href="https://github.com/YOUR-USERNAME/TaryagNotes" class="link-muted" target="_blank">
