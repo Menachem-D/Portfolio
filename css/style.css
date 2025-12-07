@@ -66,8 +66,32 @@ h1, h2, h3, h4, h5, h6 {
     position: relative;
 }
 
+/* NEW: dark “page” for all sections */
+.section {
+    background: linear-gradient(180deg, #10131c 0%, #0c0f19 100%);
+}
+
+/* NEW: alternate tone for explicitly dark sections */
+.section.bg-section-dark {
+    background: var(--bg-section-dark);
+}
+
+/* NEW: constrain copy width for readability */
+.section p.lead,
+.section p.text-muted {
+    max-width: 46rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* NEW: slight divider between sections, like app panes */
+.section + .section {
+    border-top: 1px solid var(--border-soft);
+}
+
 .section-title {
     font-size: 1.9rem;
+    color: var(--text-main);
 }
 
 /* ---------- Navbar ---------- */
@@ -255,6 +279,18 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: var(--radius-md);
     border: 1px solid rgba(255,255,255,0.04);
     box-shadow: var(--shadow-soft);
+}
+
+/* NEW: hard override Bootstrap's light cards/backgrounds */
+.card,
+.card-body {
+    background-color: var(--bg-surface) !important;
+    border-color: rgba(255,255,255,0.04) !important;
+}
+
+.bg-white,
+.bg-light {
+    background-color: transparent !important;
 }
 
 /* ---------- Badges, pills & status ---------- */
