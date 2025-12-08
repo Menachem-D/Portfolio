@@ -6,7 +6,7 @@
     <title>TaryagNotes – 613-Mitzvah Learning System</title>
 
     <!-- META -->
-    <meta name="description" content="TaryagNotes is a cross-platform 613-mitzvah learning system with a curated halachic corpus, fast full-text search, a premium e-reader, personal notes, and a built-in calendar for classic learning cycles – all fully offline.">
+    <meta name="description" content="TaryagNotes is an offline, cross-platform 613-mitzvah learning system with a curated halachic corpus, fast search, and a premium e-reader for serious limmud.">
     <meta name="keywords" content="Taryag, mitzvot, mitzvos, Torah, seforim, Rambam, Shulchan Aruch, Rishonim, Beis Yosef, offline, local first, .NET, Avalonia, SQLite">
     <meta property="og:title" content="TaryagNotes – 613-Mitzvah Learning System">
     <meta property="og:description" content="A personal mitzvah-centric Beit Midrash: curated classic seforim, fast search, a modern e-reader, notes, flashcards, and daily learning cycles. Fully offline, cross-platform, and private.">
@@ -69,37 +69,56 @@
     <section class="hero pt-7 pb-5">
         <div class="container">
             <div class="row align-items-center gy-4">
+                <!-- HERO TEXT -->
                 <div class="col-12 col-lg-6 order-2 order-lg-1">
                     <p class="badge rounded-pill bg-soft-primary text-accent fw-semibold mb-3">
-                        🕯 613 mitzvos • Curated Rishonim • Fully offline
+                        🕯 613 mitzvos · Curated Rishonim · Fully offline
                     </p>
+
                     <h1 class="display-5 fw-bold mb-3 gradient-mask">
-                        Your personal 613-mitzvah learning system
+                        A mitzvah-centric Beit Midrash on your desktop
                     </h1>
+
                     <p class="lead text-muted mb-4">
                         <strong>TaryagNotes</strong> is a cross-platform desktop app that orients all your learning
-                        around the 613 mitzvot (תרי״ג מצוות). It layers a curated halachic corpus –
+                        around the 613 mitzvos (תרי״ג מצוות). It bundles a curated halachic corpus –
                         Chumash, Shas, Rambam, Tur, and the <strong>31 Rishonim quoted by the Beis Yosef</strong> –
-                        with a modern e-reader, fast full-text search, personal notes, flashcards, and a built-in
-                        calendar for classic learning cycles. Everything runs locally, with no cloud, no account,
+                        with a premium e-reader, fast full-text search, personal notes, flashcards, and a
+                        calendar for classic learning cycles. Everything runs locally: no account, no cloud,
                         and no always-online requirement.
                     </p>
 
+                    <ul class="list-unstyled mb-3 small text-muted">
+                        <li>• Mitzvah-centric index over a finite, authoritative corpus</li>
+                        <li>• Dark, distraction-free reader with bookmarks and history</li>
+                        <li>• Daily cycles (Daf Yomi, Rambam, Chumash, etc.) with progress tracking</li>
+                    </ul>
+
                     <div class="dev-status-pill mb-3">
                         <span class="dot"></span>
-                        <span class="small fw-semibold">Actively used for real learning – private pre-release build (not yet available for public download)</span>
+                        <span class="small fw-semibold">
+                            Actively used for real learning – private pre-release build
+                            (not yet available for public download)
+                        </span>
                     </div>
 
-                    <p class="text-muted small mb-1">
-                        Want to hear when a public beta or USB edition is ready?
+                    <p class="text-muted small mb-2">
+                        Interested in a future beta, USB edition, or just following the project?
                     </p>
-                    <p class="small">
+
+                    <div class="d-flex flex-wrap gap-2">
                         <!-- TODO: change email / link -->
-                        Email: <a href="mailto:you@example.com" class="link-accent">you@example.com</a>
-                        or follow the project on <a href="https://github.com/YOUR-USERNAME/TaryagNotes" class="link-accent" target="_blank">GitHub</a>.
-                    </p>
+                        <a href="mailto:you@example.com" class="btn btn-sm btn-accent">
+                            <i class="fa-regular fa-envelope ms-1"></i> Get notified about public beta
+                        </a>
+                        <a href="https://github.com/YOUR-USERNAME/TaryagNotes"
+                           class="btn btn-sm btn-outline-light" target="_blank">
+                            <i class="fa-brands fa-github ms-1"></i> Follow on GitHub
+                        </a>
+                    </div>
                 </div>
 
+                <!-- HERO MOCKUP -->
                 <div class="col-12 col-lg-6 order-1 order-lg-2">
                     <div class="hero-mockup mx-auto">
                         <div class="mockup-frame shadow-lg">
@@ -144,7 +163,7 @@
                     <i class="fa-solid fa-scroll ms-1"></i>Curated halachic corpus (Chumash, Shas, Rambam, Tur, 31 Rishonim)
                 </span>
                 <span class="stack-pill">
-                    <i class="fa-solid fa-shield-halved ms-1"></i>Offline • Local-first • Proprietary, read-only texts
+                    <i class="fa-solid fa-shield-halved ms-1"></i>Offline · Local-first · Proprietary, read-only texts
                 </span>
             </div>
         </div>
@@ -155,11 +174,12 @@
 <section id="features" class="section">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="section-title mb-2">What problem is TaryagNotes solving?</h2>
+            <h2 class="section-title mb-2">Why another Torah app?</h2>
             <p class="text-muted">
-                Today’s Torah tools are either massive seforim warehouses or basic readers. TaryagNotes is different:
-                it’s a <strong>personal 613-mitzvah workbench</strong> that connects mitzvos, mareh mekomos,
-                daily sedarim, and your own notes into a single, focused desktop environment.
+                Most Torah software is either a <strong>huge digital seforim shank</strong> or a simple PDF reader.
+                <strong>TaryagNotes</strong> is neither. It’s a <strong>personal 613-mitzvah workbench</strong> that
+                connects mitzvos, mareh mekomos, daily sedarim, and your own notes into one focused desktop
+                environment – tuned for real limmud, not just browsing.
             </p>
         </div>
 
@@ -168,15 +188,21 @@
             <div class="col-md-6 order-2 order-md-1">
                 <h3 class="h3">613 mitzvos over a curated halachic backbone</h3>
                 <p class="text-muted">
-                    Every mitzvah is an entry point into the classic halachic sources: Chumash, Shas, Rambam,
+                    Every mitzvah is an entry point into classic halachic sources: Chumash, Shas, Rambam,
                     Tur, and the <strong>31 Rishonim cited by the Beis Yosef</strong>. Instead of drowning in
-                    tens of thousands of seforim, you get a precise, finite, and authoritative corpus designed
-                    for serious limmud and psak-oriented research.
+                    thousands of seforim, you get a finite, authoritative corpus organized for psak-oriented
+                    research and structured review.
                 </p>
                 <ul class="list-unstyled feature-list">
-                    <li><i class="fa-solid fa-check text-accent ms-1"></i> Mitzvah-centric index spanning Chumash, Shas, Rambam, Tur, and key Rishonim</li>
-                    <li><i class="fa-solid fa-check text-accent ms-1"></i> Axis filters (time, place, gender, trigger, shiur, etc.) for targeted learning</li>
-                    <li><i class="fa-solid fa-check text-accent ms-1"></i> Ideal for yeshiva bachurim, mechanchim, and kovei‘ei ittim who need rapid cross-references</li>
+                    <li><i class="fa-solid fa-check text-accent ms-1"></i>
+                        Mitzvah-centric index spanning Chumash, Shas, Rambam, Tur, and key Rishonim
+                    </li>
+                    <li><i class="fa-solid fa-check text-accent ms-1"></i>
+                        Axis filters (who, where, when, trigger, shiur, violation) for targeted learning
+                    </li>
+                    <li><i class="fa-solid fa-check text-accent ms-1"></i>
+                        Ideal for yeshiva bachurim, mechanchim, and kovei’ei ittim who need fast cross-references
+                    </li>
                 </ul>
             </div>
             <div class="col-md-6 order-1 order-md-2 text-center">
@@ -202,15 +228,21 @@
             <div class="col-md-6">
                 <h3 class="h3">A premium e-reader built for real learning</h3>
                 <p class="text-muted">
-                    The built-in e-reader is designed to feel like a serious Beit Midrash tool: dark mode,
-                    clean typography, floating “always-on-top” windows, bookmarks, and instant jumps to daf or
-                    siman. Notes are atomic and tied directly to a mitzvah and its sources, so your chidushim
-                    and preparatory remarks stay organized and easy to retrieve.
+                    The reader is built like a serious Beit Midrash tool, not a PDF viewer. Dark mode, clean
+                    Hebrew typography, fullscreen, bookmarks, and an always-visible toolbar keep you anchored
+                    while you move between mitzvos and seforim. Your notes live on top of the text – tied to
+                    a specific mitzvah and source – so chidushim and mareh mekomos stay organized.
                 </p>
                 <ul class="list-unstyled feature-list">
-                    <li><i class="fa-solid fa-check text-accent ms-1"></i> Dark, distraction-free reading interface for long sedarim</li>
-                    <li><i class="fa-solid fa-check text-accent ms-1"></i> Mitzvah-linked notes, bookmarks, and history for fast review</li>
-                    <li><i class="fa-solid fa-check text-accent ms-1"></i> One toolbar across “two worlds” – mitzvos and seforim – so muscle memory stays simple</li>
+                    <li><i class="fa-solid fa-check text-accent ms-1"></i>
+                        Dark, distraction-free reading interface with adjustable font size and line height
+                    </li>
+                    <li><i class="fa-solid fa-check text-accent ms-1"></i>
+                        Mitzvah-linked notes, bookmarks, and history for quick review and shiur prep
+                    </li>
+                    <li><i class="fa-solid fa-check text-accent ms-1"></i>
+                        One global toolbar for both “worlds” – mitzvos and seforim – so muscle memory stays simple
+                    </li>
                 </ul>
             </div>
         </div>
@@ -220,18 +252,25 @@
             <div class="col-md-6 order-2 order-md-1">
                 <h3 class="h3">Daily cycles, journal, and chazarah tools</h3>
                 <p class="text-muted">
-                    TaryagNotes includes a built-in calendar aligned with classic learning programs:
-                    Daf Yomi (Bavli and Yerushalmi), Rambam Yomi (1 and 3 perakim), Chumash, Sefer HaMitzvos,
-                    amud/ daf programs, and more. On top of that sits a mitzvah journal, internal SRS flashcards,
-                    and simple analytics – so your limmud doesn’t just happen, it compounds.
+                    TaryagNotes knows the classic limmud programs: Daf Yomi (Bavli and Yerushalmi),
+                    Rambam Yomi (1 and 3 perakim), Chumash with aliyos, Sefer HaMitzvos, and more.
+                    A built-in calendar and daily panel pull these into your workspace, alongside a
+                    mitzvah journal and internal flashcards, so learning doesn’t just happen – it compounds.
                 </p>
                 <ul class="list-unstyled feature-list">
-                    <li><i class="fa-solid fa-check text-accent ms-1"></i> Calendar-aware interface that keeps you in sync with global sedarim</li>
-                    <li><i class="fa-solid fa-check text-accent ms-1"></i> Daily mitzvah journal / habit grid, streaks, and session timer</li>
-                    <li><i class="fa-solid fa-check text-accent ms-1"></i> Internal SRS flashcards generated from the mitzvah metadata for ongoing chazarah</li>
+                    <li><i class="fa-solid fa-check text-accent ms-1"></i>
+                        Calendar-aware interface that shows today’s daf, perek, or mitzvah at a glance
+                    </li>
+                    <li><i class="fa-solid fa-check text-accent ms-1"></i>
+                        Daily mitzvah journal, streaks, and a session timer to keep you honest
+                    </li>
+                    <li><i class="fa-solid fa-check text-accent ms-1"></i>
+                        Internal SRS flashcards generated from the mitzvah table for ongoing chazarah
+                    </li>
                 </ul>
             </div>
             <div class="col-md-6 order-1 order-md-2 text-center">
+                <p class="text-uppercase text-muted small mb-1">For developers</p>
                 <div class="browser-window limit-height">
                     <div class="top-bar d-flex align-items-center">
                         <span class="circle circle-red"></span>
@@ -264,9 +303,9 @@ ftsIndex.Insert(page);
         <div class="text-center mb-5">
             <h2 class="section-title mb-2">How does it work inside?</h2>
             <p class="text-muted">
-                In short: a curated halachic corpus is mapped onto the 613 mitzvos, indexed with SQLite FTS,
-                and surfaced through a modern Avalonia desktop UI with a personal user database for notes,
-                journal, and progress.
+                Under the hood, a curated halachic corpus is mapped onto the 613 mitzvos, indexed with SQLite FTS,
+                and surfaced through an Avalonia desktop UI. Only your own data – notes, journal, flashcards,
+                preferences – are writable; the corpus itself is read-only.
             </p>
         </div>
 
@@ -370,20 +409,25 @@ ftsIndex.Insert(page);
             <div class="col-md-6">
                 <h2 class="section-title mb-3">Project status</h2>
                 <p class="text-muted">
-                    At the moment, <strong>TaryagNotes</strong> is a private, actively-developed application in
-                    day-to-day use for personal limmud and shiur prep. The medium-term goal is a polished,
-                    cross-platform USB / installer edition appropriate for broader distribution, with
-                    stable texts, clear licensing, and a respectful, kavod-dik experience for the user.
+                    Right now, <strong>TaryagNotes</strong> is a private, actively-developed application used
+                    day-to-day for personal limmud and shiur prep. The medium-term goal is a polished,
+                    cross-platform USB / installer edition suitable for broader distribution, with
+                    stable texts, clear licensing, and a respectful, kavod-dik user experience.
                 </p>
                 <ul class="list-unstyled feature-list">
-                    <li><i class="fa-solid fa-circle-dot text-accent ms-1"></i> Core mitzvah grid + reader + search – working</li>
-                    <li><i class="fa-solid fa-circle-dot text-accent ms-1"></i> Calendar, journal, and flashcards – in active development</li>
-                    <li><i class="fa-solid fa-circle-dot text-accent ms-1"></i> Packaging, documentation, and pilot USB run – planned, b’ezrat Hashem</li>
+                    <li><i class="fa-solid fa-circle-dot text-accent ms-1"></i>
+                        Core mitzvah grid, reader, and full-text search – working and used
+                    </li>
+                    <li><i class="fa-solid fa-circle-dot text-accent ms-1"></i>
+                        Calendar, journal, and flashcards – in active development
+                    </li>
+                    <li><i class="fa-solid fa-circle-dot text-accent ms-1"></i>
+                        Packaging, documentation, and pilot USB run – planned, בעזרת ה׳
+                    </li>
                 </ul>
             </div>
 
             <div class="col-md-6">
-              
                 <p class="text-muted">
                     If you are:
                     <br>• A learner who wants a serious, offline, mitzvah-centric workbench, or
@@ -392,7 +436,7 @@ ftsIndex.Insert(page);
                 </p>
                 <!-- TODO: adjust contact -->
                 <a href="mailto:you@example.com" class="btn btn-outline-light">
-                    <i class="fa-regular fa-envelope ms-1"></i> Get in touch
+                    <i class="fa-regular fa-envelope ms-1"></i> Share your use-case
                 </a>
             </div>
         </div>
