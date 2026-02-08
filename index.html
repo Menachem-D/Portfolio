@@ -1,286 +1,247 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>TaryagNotes – Mitzvah-Native Beit Midrash Desktop</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TaryagNotes – Mitzvah-Native Beit Midrash Desktop</title>
 
-    <!-- META -->
-    <meta name="description" content="TaryagNotes is a mitzvah-native desktop Beit Midrash: a finite corpus (Chumash, Shas, Rambam, Tur, 31 Rishonim), mapped to all 613 mitzvos with fast search, a premium reader, and serious tools for real limmud – fully offline and local-first.">
-    <meta name="keywords" content="Taryag, mitzvot, mitzvos, Torah, seforim, Rambam, Shulchan Aruch, Rishonim, Beis Yosef, offline, local first, .NET, Avalonia, SQLite">
-    <meta property="og:title" content="TaryagNotes – Mitzvah-Native Beit Midrash Desktop">
-    <meta property="og:description" content="A mitzvah-native Beit Midrash on your desk: curated classic seforim, fast axis-based search, a modern reader, notes, flashcards, and daily cycles. Fully offline, cross-platform, and private.">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="images/taryagnotes-hero-dark.png">
+  <!-- META -->
+  <meta name="description" content="TaryagNotes is a mitzvah-native desktop Beit Midrash: a finite corpus (Chumash, Shas, Rambam, Tur, 31 Rishonim), mapped to all 613 mitzvos with fast search, a premium reader, and serious tools for real limmud – fully offline and local-first.">
+  <meta name="keywords" content="Taryag, mitzvot, mitzvos, Torah, seforim, Rambam, Shulchan Aruch, Rishonim, Beis Yosef, offline, local first, .NET, Avalonia, SQLite">
+  <meta property="og:title" content="TaryagNotes – Mitzvah-Native Beit Midrash Desktop">
+  <meta property="og:description" content="A mitzvah-native Beit Midrash on your desk: curated classic seforim, fast axis-based search, a modern reader, notes, flashcards, and daily cycles. Fully offline, cross-platform, and private.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/taryagnotes-hero-dark.png">
 
-    <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="icon" type="image/png" href="images/favicon.png">
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    <!-- Bootstrap (CDN) -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap (CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- Custom styles -->
-    <link rel="stylesheet" href="css/style.css">
+  <!-- Premium styles -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body class="bg-body text-light">
+<body class="app">
 
 <!-- ================= NAVBAR ================= -->
-<header id="home" class="header-hero position-relative overflow-hidden">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-navbar fixed-top">
-        <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="#home">
-                <span class="brand-logo d-inline-flex align-items-center justify-content-center ms-2">
-                    <span class="brand-logo-inner">🕮</span>
-                </span>
-                <span class="fw-bold brand-title">TaryagNotes</span>
+<header id="home" class="hero-wrap">
+  <nav class="navbar navbar-expand-lg navbar-dark nav-premium fixed-top">
+    <div class="container app-container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="#home" aria-label="TaryagNotes home">
+        <span class="brand-mark" aria-hidden="true">
+          <span class="brand-mark-inner">🕮</span>
+        </span>
+        <span class="brand-title">TaryagNotes</span>
+        <span class="brand-sub d-none d-md-inline">Mitzvah-native desktop Beit Midrash</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#siteNav" aria-controls="siteNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="siteNav">
+        <ul class="navbar-nav align-items-lg-center gap-lg-1">
+          <li class="nav-item"><a class="nav-link" href="#features">Why this app</a></li>
+          <li class="nav-item"><a class="nav-link" href="#how-it-works">Inside the engine</a></li>
+          <li class="nav-item"><a class="nav-link" href="#screenshots">Screenshots</a></li>
+          <li class="nav-item"><a class="nav-link" href="#status">Project status</a></li>
+          <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+            <a href="https://github.com/YOUR-USERNAME/TaryagNotes" target="_blank" class="btn btn-sm btn-ghost">
+              <i class="fa-brands fa-github ms-2"></i> GitHub
             </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#siteNav" aria-controls="siteNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="container app-container">
+      <div class="row align-items-center gy-4">
+        <!-- HERO TEXT -->
+        <div class="col-12 col-lg-6 order-2 order-lg-1">
+          <div class="kicker mb-3">
+            <span class="kicker-pill">
+              🕯 613 mitzvos · finite corpus · fully offline
+            </span>
+          </div>
 
-            <div class="collapse navbar-collapse justify-content-end" id="siteNav">
-                <ul class="navbar-nav align-items-lg-center">
-                    <li class="nav-item"><a class="nav-link" href="#features">Why this app</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#how-it-works">Inside the engine</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#screenshots">Screenshots</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#status">Project status</a></li>
-                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
-                        <!-- Swap to your real GitHub URL -->
-                        <a href="https://github.com/YOUR-USERNAME/TaryagNotes"
-                           target="_blank" class="btn btn-sm btn-outline-light">
-                            <i class="fa-brands fa-github ms-1"></i> GitHub
-                        </a>
-                    </li>
-                </ul>
+          <h1 class="hero-title mb-3">
+            A mitzvah-native Beit Midrash on your desktop
+          </h1>
+
+          <p class="hero-lede mb-4">
+            <strong>TaryagNotes</strong> treats the <strong>613 mitzvos</strong> as the spine of your learning.
+            A finite, authoritative corpus — Chumash, Shas, Rambam, Tur, and the
+            <strong>31 Rishonim cited by the Beis Yosef</strong> — mapped to every mitzvah, with axis filters,
+            fast full-text search, and a reader built for serious limmud.
+            <span class="text-soft">No account. No cloud. No online-only Torah.</span>
+          </p>
+
+          <div class="feature-mini mb-4">
+            <div class="mini">
+              <i class="fa-solid fa-check"></i>
+              <span>Mitzvah-centric index over a finite halachic backbone</span>
             </div>
-        </div>
-    </nav>
-
-    <!-- ================= HERO ================= -->
-    <section class="hero pt-7 pb-5">
-        <div class="container">
-            <div class="row align-items-center gy-4">
-                <!-- HERO TEXT -->
-                <div class="col-12 col-lg-6 order-2 order-lg-1">
-                    <p class="badge rounded-pill bg-soft-primary text-accent fw-semibold mb-3">
-                        🕯 613 mitzvos · Finite corpus · Fully offline
-                    </p>
-
-                    <h1 class="display-5 fw-bold mb-3 gradient-mask">
-                        A mitzvah-native Beit Midrash on your desktop
-                    </h1>
-
-                    <p class="lead text-muted mb-4">
-                        <strong>TaryagNotes</strong> is a cross-platform desktop app that treats the
-                        <strong>613 mitzvos</strong> as the spine of your learning. Instead of a random pile
-                        of PDFs, you get a finite halachic backbone – Chumash, Shas, Rambam, Tur, and the
-                        <strong>31 Rishonim quoted by the Beis Yosef</strong> – all mapped and indexed by mitzvah,
-                        with axis filters, fast full-text search, and a premium reader built for serious limmud.
-                        Everything runs locally: no account, no cloud, no “online-only” Torah.
-                    </p>
-
-                    <ul class="list-unstyled mb-3 small text-muted">
-                        <li>• Mitzvah-centric index across a finite, authoritative halachic corpus</li>
-                        <li>• Axis filters (who / where / when / trigger / shiur / violation) for targeted psak work</li>
-                        <li>• Dark, distraction-free reader with bookmarks, history, and daily learning hooks</li>
-                    </ul>
-
-                    <div class="dev-status-pill mb-3">
-                        <span class="dot"></span>
-                        <span class="small fw-semibold">
-                            Actively used for real limmud – focused pre-release build
-                            (not yet available for public download)
-                        </span>
-                    </div>
-
-                    <p class="text-muted small mb-2">
-                        Interested in a future beta, a USB edition, or just following the project’s development?
-                    </p>
-
-                    <div class="d-flex flex-wrap gap-2">
-                        <!-- Swap to your real contact -->
-                        <a href="mailto:you@example.com" class="btn btn-sm btn-accent">
-                            <i class="fa-regular fa-envelope ms-1"></i> Get notified about public beta
-                        </a>
-                        <a href="https://github.com/YOUR-USERNAME/TaryagNotes"
-                           class="btn btn-sm btn-outline-light" target="_blank">
-                            <i class="fa-brands fa-github ms-1"></i> Follow on GitHub
-                        </a>
-                    </div>
-                </div>
-
-                <!-- HERO MOCKUP -->
-                <div class="col-12 col-lg-6 order-1 order-lg-2">
-                    <div class="hero-mockup mx-auto">
-                        <div class="mockup-frame shadow-lg">
-                            <div class="mockup-header d-flex align-items-center">
-                                <span class="circle circle-red"></span>
-                                <span class="circle circle-yellow"></span>
-                                <span class="circle circle-green"></span>
-                                <span class="mockup-title me-2">TaryagNotes – Reader · Search · Calendar</span>
-                            </div>
-                            <div class="mockup-body">
-                                <img src="assets/img/Screenshot1.jpeg"
-                                     alt="TaryagNotes main app screenshot"
-                                     class="img-fluid">
-                            </div>
-                        </div>
-                        <p class="text-center text-muted small mt-3">
-                            Mitzvah-centric workspace with dark reader, mitzvah grid, daily cycles, and notes in one window.
-                        </p>
-                    </div>
-                </div>
+            <div class="mini">
+              <i class="fa-solid fa-check"></i>
+              <span>Axis filters for targeted psak-style research</span>
             </div>
+            <div class="mini">
+              <i class="fa-solid fa-check"></i>
+              <span>Premium reader + notes + daily cycles in one workbench</span>
+            </div>
+          </div>
+
+          <div class="status-callout mb-3">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="status-text">
+              Actively used for real limmud — focused pre-release build (not yet public)
+            </span>
+          </div>
+
+          <p class="text-soft small mb-3">
+            Interested in a future beta, a USB edition, or tracking the build?
+          </p>
+
+          <div class="d-flex flex-wrap gap-2">
+            <a href="mailto:you@example.com" class="btn btn-accent">
+              <i class="fa-regular fa-envelope ms-2"></i> Get notified
+            </a>
+            <a href="https://github.com/YOUR-USERNAME/TaryagNotes" class="btn btn-ghost" target="_blank">
+              <i class="fa-brands fa-github ms-2"></i> Follow on GitHub
+            </a>
+          </div>
         </div>
 
-        <div class="bg-shape"></div>
-        <div class="bg-circle"></div>
-        <div class="bg-circle-two"></div>
-    </section>
+        <!-- HERO MOCKUP -->
+        <div class="col-12 col-lg-6 order-1 order-lg-2">
+          <div class="mock">
+            <div class="mock-shell">
+              <div class="mock-top">
+                <span class="dot dot-r" aria-hidden="true"></span>
+                <span class="dot dot-y" aria-hidden="true"></span>
+                <span class="dot dot-g" aria-hidden="true"></span>
+                <span class="mock-title">TaryagNotes · Reader · Search · Notes</span>
+              </div>
+              <div class="mock-body">
+                <img src="assets/img/Screenshot1.jpeg" alt="TaryagNotes main app screenshot" class="img-fluid">
+              </div>
+            </div>
+            <p class="text-soft small mt-3 text-center">
+              One window: mitzvah grid, sources, notes, daily cycles, and a dark reader.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- premium glows (subtle, not loud) -->
+    <div class="glow glow-a" aria-hidden="true"></div>
+    <div class="glow glow-b" aria-hidden="true"></div>
+  </section>
 </header>
 
-<!-- ================= STACK / OFFLINE STRIP ================= -->
-<section class="section bg-section-dark border-top">
-    <div class="container">
-        <div class="text-center mb-3">
-            <p class="text-muted text-uppercase small fw-semibold mb-2">Under the hood</p>
-            <div class="stack-logos d-flex flex-wrap justify-content-center align-items-center gap-3">
-                <span class="stack-pill">
-                    <i class="fa-solid fa-laptop-code ms-1"></i>.NET + Avalonia (cross-platform desktop)
-                </span>
-                <span class="stack-pill">
-                    <i class="fa-solid fa-database ms-1"></i>SQLite FTS (fast full-text search)
-                </span>
-                <span class="stack-pill">
-                    <i class="fa-solid fa-scroll ms-1"></i>Curated halachic corpus (Chumash, Shas, Rambam, Tur, 31 Rishonim)
-                </span>
-                <span class="stack-pill">
-                    <i class="fa-solid fa-shield-halved ms-1"></i>Offline · Local-first · Read-only corpus, private notes
-                </span>
-            </div>
-        </div>
+<!-- ================= STACK STRIP ================= -->
+<section class="band">
+  <div class="container app-container">
+    <div class="band-row">
+      <span class="band-pill"><i class="fa-solid fa-laptop-code ms-2"></i>.NET + Avalonia</span>
+      <span class="band-pill"><i class="fa-solid fa-database ms-2"></i>SQLite FTS</span>
+      <span class="band-pill"><i class="fa-solid fa-scroll ms-2"></i>Finite curated corpus</span>
+      <span class="band-pill"><i class="fa-solid fa-shield-halved ms-2"></i>Offline · local-first</span>
     </div>
+  </div>
 </section>
 
 <!-- ================= FEATURES ================= -->
 <section id="features" class="section">
-    <div class="container">
-        <div class="text-center mb-5">
-            <h2 class="section-title mb-2">Why another Torah app?</h2>
-            <p class="text-muted">
-                Most Torah software is either a <strong>huge digital seforim shank</strong> or a basic
-                PDF reader. <strong>TaryagNotes</strong> is neither. It’s a
-                <strong>mitzvah-native workbench</strong> that ties together mitzvos, classic
-                mareh mekomos, daily sedarim, and your own notes into one opinionated desktop
-                environment – tuned for deep, structured limmud, not just casual browsing.
-            </p>
-        </div>
+  <div class="container app-container">
+    <div class="section-head text-center">
+      <h2 class="section-title">Why another Torah app?</h2>
+      <p class="section-sub">
+        Most Torah software is either a massive digital shelf, or a basic PDF viewer.
+        <strong>TaryagNotes</strong> is a <strong>mitzvah-native workbench</strong> designed for structured limmud:
+        mareh mekomos, focused chazarah, and clean navigation across a finite backbone.
+      </p>
+    </div>
 
-        <!-- Row 1: Mitzvah-centric index + curated corpus -->
-        <div class="row align-items-center gy-4 mb-5">
-            <div class="col-md-6 order-2 order-md-1">
-                <h3 class="h3">613 mitzvos over a deliberate halachic backbone</h3>
-                <p class="text-muted">
-                    Every mitzvah is wired into a carefully chosen backbone: Chumash, Shas, Rambam,
-                    Tur, and the <strong>31 Rishonim cited by the Beis Yosef</strong>. Instead of
-                    wading through thousands of seforim and random scans, you work inside a
-                    <strong>finite, opinionated corpus</strong> designed for psak-oriented learning,
-                    structured review, and clear mareh mekomos.
-                </p>
-                <ul class="list-unstyled feature-list">
-                    <li><i class="fa-solid fa-check text-accent ms-1"></i>
-                        Mitzvah-centric index spanning Chumash, Shas, Rambam, Tur, and key Rishonim
-                    </li>
-                    <li><i class="fa-solid fa-check text-accent ms-1"></i>
-                        Axis filters (who, where, when, trigger, shiur, violation) baked into the mitzvah table
-                    </li>
-                    <li><i class="fa-solid fa-check text-accent ms-1"></i>
-                        Built for learners, mechanchim, and rabbanim who need clear, repeatable cross-references
-                    </li>
-                </ul>
-            </div>
-            <div class="col-md-6 order-1 order-md-2 text-center">
-                <div class="macbook-hero">
-                    <img src="images/macbook-dark.png" class="img-fluid" alt="Laptop mockup">
-                    <div class="macbook-screen">
-                        <img src="images/taryagnotes-search-dark.png" class="img-fluid" alt="TaryagNotes search and mitzvah grid">
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="row align-items-center gy-4 mb-5">
+      <div class="col-md-6 order-2 order-md-1">
+        <h3 class="h3">613 mitzvos over a deliberate halachic backbone</h3>
+        <p class="text-soft">
+          Each mitzvah is wired into a carefully chosen backbone: Chumash, Shas, Rambam, Tur, and the
+          <strong>31 Rishonim cited by the Beis Yosef</strong>. Not “a folder of files” — a mapped,
+          normalized, predictable corpus.
+        </p>
 
-        <!-- Row 2: E-reader + notes workspace -->
-        <div class="row align-items-center gy-4 mb-5">
-            <div class="col-md-6 text-center">
-                <div class="macbook-hero">
-                    <img src="images/macbook-dark.png" class="img-fluid" alt="Laptop mockup">
-                    <div class="macbook-screen">
-                        <img src="images/taryagnotes-mitzvos-dark.png" class="img-fluid" alt="TaryagNotes mitzvos view">
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <h3 class="h3">A reader that feels like a real shtender, not a PDF viewer</h3>
-                <p class="text-muted">
-                    The reader is designed around how people actually learn: dark theme, crisp Hebrew
-                    typography, generous margins, and an integrated toolbar that stays out of the way.
-                    Sources, mitzvah details, and your notes live in the same workspace, so chidushim
-                    never drift off into random files or sticky notes.
-                </p>
-                <ul class="list-unstyled feature-list">
-                    <li><i class="fa-solid fa-check text-accent ms-1"></i>
-                        Dark, distraction-free interface with adjustable font size and line height
-                    </li>
-                    <li><i class="fa-solid fa-check text-accent ms-1"></i>
-                        Mitzvah-linked notes, bookmarks, and history for quick chazarah and shiur prep
-                    </li>
-                    <li><i class="fa-solid fa-check text-accent ms-1"></i>
-                        One coherent UI for both “worlds” – mitzvos and seforim – so muscle memory stays simple
-                    </li>
-                </ul>
-            </div>
-        </div>
+        <ul class="bullets">
+          <li><i class="fa-solid fa-check"></i><span>Mitzvah-centric index spanning core sources</span></li>
+          <li><i class="fa-solid fa-check"></i><span>Axis filters baked into the mitzvah table</span></li>
+          <li><i class="fa-solid fa-check"></i><span>Designed for psak-oriented research and review</span></li>
+        </ul>
+      </div>
 
-        <!-- Row 3: Calendar, cycles, SRS, analytics -->
-        <div class="row align-items-center gy-4">
-            <div class="col-md-6 order-2 order-md-1">
-                <h3 class="h3">Daily cycles, journal, and chazarah – wired into the same map</h3>
-                <p class="text-muted">
-                    TaryagNotes knows where you are in the classic sedarim: Daf Yomi (Bavli and Yerushalmi),
-                    Rambam Yomi (1 and 3 perakim), Chumash with aliyos, Sefer HaMitzvos, and more.
-                    A built-in calendar, daily mitzvah view, journal, and internal flashcards all sit
-                    on top of the same mitzvah map, so every minute of learning has somewhere to land.
-                </p>
-                <ul class="list-unstyled feature-list">
-                    <li><i class="fa-solid fa-check text-accent ms-1"></i>
-                        Calendar-aware interface showing today’s daf, perek, or mitzvah at a glance
-                    </li>
-                    <li><i class="fa-solid fa-check text-accent ms-1"></i>
-                        Simple mitzvah journal, streaks, and a session timer to keep sedarim steady
-                    </li>
-                    <li><i class="fa-solid fa-check text-accent ms-1"></i>
-                        Internal flashcards driven by the mitzvah table for built-in chazarah
-                    </li>
-                </ul>
-            </div>
-            <div class="col-md-6 order-1 order-md-2 text-center">
-                <p class="text-uppercase text-muted small mb-1">For developers & power users</p>
-                <div class="browser-window limit-height">
-                    <div class="top-bar d-flex align-items-center">
-                        <span class="circle circle-red"></span>
-                        <span class="circle circle-yellow"></span>
-                        <span class="circle circle-blue"></span>
-                    </div>
-                    <div class="content p-3">
-<pre class="code-snippet mb-0"><code>// Conceptual sketch: indexing a daf into FTS
+      <div class="col-md-6 order-1 order-md-2 text-center">
+        <figure class="shot">
+          <img src="images/taryagnotes-search-dark.png" class="img-fluid" alt="Search and mitzvah grid">
+        </figure>
+      </div>
+    </div>
+
+    <div class="row align-items-center gy-4 mb-5">
+      <div class="col-md-6 text-center">
+        <figure class="shot">
+          <img src="images/taryagnotes-mitzvos-dark.png" class="img-fluid" alt="Mitzvos view">
+        </figure>
+      </div>
+
+      <div class="col-md-6">
+        <h3 class="h3">A reader that feels like a shtender, not a PDF viewer</h3>
+        <p class="text-soft">
+          Dark theme, crisp typography, generous rhythm, and a tool-like UI.
+          Sources, mitzvah details, and notes live together — no drifting into random docs.
+        </p>
+
+        <ul class="bullets">
+          <li><i class="fa-solid fa-check"></i><span>Adjustable font size / line height</span></li>
+          <li><i class="fa-solid fa-check"></i><span>Mitzvah-linked notes, bookmarks, history</span></li>
+          <li><i class="fa-solid fa-check"></i><span>One consistent workspace for “mitzvos + seforim”</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row align-items-center gy-4">
+      <div class="col-md-6 order-2 order-md-1">
+        <h3 class="h3">Daily cycles + journal + chazarah on the same map</h3>
+        <p class="text-soft">
+          Daily cycles (Daf Yomi, Rambam Yomi, Chumash, etc.) connect to the same mitzvah spine.
+          Learning sessions have a place to land — and a path to review.
+        </p>
+
+        <ul class="bullets">
+          <li><i class="fa-solid fa-check"></i><span>Calendar-aware daily view</span></li>
+          <li><i class="fa-solid fa-check"></i><span>Session timer + simple streaks</span></li>
+          <li><i class="fa-solid fa-check"></i><span>Internal flashcards driven by the mitzvah table</span></li>
+        </ul>
+      </div>
+
+      <div class="col-md-6 order-1 order-md-2">
+        <div class="codeframe">
+          <div class="codeframe-top">
+            <span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-b"></span>
+            <span class="codeframe-title">Developer sketch</span>
+          </div>
+          <pre class="code"><code>// Conceptual sketch: indexing a page into FTS
 
 var page = new PageDocument
 {
@@ -292,187 +253,159 @@ var page = new PageDocument
 
 ftsIndex.Insert(page);
 // Tight corpus, fast search, predictable results.</code></pre>
-                    </div>
-                </div>
-            </div>
         </div>
+      </div>
     </div>
+
+  </div>
 </section>
 
 <!-- ================= HOW IT WORKS ================= -->
-<section id="how-it-works" class="section bg-section-dark">
-    <div class="container">
-        <div class="text-center mb-5">
-            <h2 class="section-title mb-2">How does it work inside?</h2>
-            <p class="text-muted">
-                Under the hood, a curated halachic corpus is mapped onto the 613 mitzvos, indexed
-                with SQLite FTS, and surfaced through an Avalonia desktop UI. Only your data –
-                notes, journal, flashcards, preferences – is writable. The corpus remains
-                read-only, consistent, and the same on every machine.
-            </p>
-        </div>
-
-        <div class="row g-4 justify-content-center text-center">
-            <div class="col-md-4">
-                <div class="card h-100 border-0 card-dark shadow-sm">
-                    <div class="card-body">
-                        <div class="icon-circle mb-3">
-                            <i class="fa-solid fa-scroll"></i>
-                        </div>
-                        <h3 class="h5">Curated, mitzvah-mapped corpus</h3>
-                        <p class="text-muted mb-0">
-                            Static, read-only seforim and mitzvah data ship with the app: Chumash, Shas,
-                            Rambam, Tur, and the 31 core Rishonim used by the Beis Yosef. The texts are not
-                            “a big folder of files” – they are pre-normalized and mapped to a structured
-                            mitzvah table and metadata so queries stay sharp and predictable.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="card h-100 border-0 card-dark shadow-sm">
-                    <div class="card-body">
-                        <div class="icon-circle mb-3">
-                            <i class="fa-solid fa-database"></i>
-                        </div>
-                        <h3 class="h5">SQLite FTS as a halachic index</h3>
-                        <p class="text-muted mb-0">
-                            A SQLite Full-Text Search (FTS) index powers millisecond-level queries across
-                            dapim, prakim, and simanim in the curated corpus. Combined with mitzvah IDs
-                            and axis filters (time, place, who, shiur, trigger, violation), it behaves less
-                            like a general search engine and more like a precision instrument for mareh mekomos.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="card h-100 border-0 card-dark shadow-sm">
-                    <div class="card-body">
-                        <div class="icon-circle mb-3">
-                            <i class="fa-solid fa-display"></i>
-                        </div>
-                        <h3 class="h5">Avalonia desktop workspace</h3>
-                        <p class="text-muted mb-0">
-                            Avalonia provides a modern, cross-platform shell: mitzvah grid, sefer reader,
-                            global toolbar, daily-cycle calendar, notes pane, and status bar. User data –
-                            notes, journal, SRS progress and preferences – lives in a separate SQLite database
-                            per profile, so multiple learners can share the same corpus while keeping their
-                            learning entirely private.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
+<section id="how-it-works" class="section section-alt">
+  <div class="container app-container">
+    <div class="section-head text-center">
+      <h2 class="section-title">How does it work inside?</h2>
+      <p class="section-sub">
+        The corpus is curated and mapped to mitzvos, indexed with SQLite FTS, and surfaced through an Avalonia desktop UI.
+        Only your personal data is writable; the corpus stays read-only and consistent.
+      </p>
     </div>
+
+    <div class="row g-4 justify-content-center">
+      <div class="col-md-4">
+        <div class="card-premium h-100">
+          <div class="card-premium-body">
+            <div class="icon-badge"><i class="fa-solid fa-scroll"></i></div>
+            <h3 class="h5">Curated, mitzvah-mapped corpus</h3>
+            <p class="text-soft mb-0">
+              Not a folder of files — normalized texts mapped to a structured mitzvah table and metadata.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card-premium h-100">
+          <div class="card-premium-body">
+            <div class="icon-badge"><i class="fa-solid fa-database"></i></div>
+            <h3 class="h5">SQLite FTS as a halachic index</h3>
+            <p class="text-soft mb-0">
+              Millisecond queries + predictable filters (who/where/when/shiur/trigger/violation) for precision work.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card-premium h-100">
+          <div class="card-premium-body">
+            <div class="icon-badge"><i class="fa-solid fa-display"></i></div>
+            <h3 class="h5">Avalonia desktop workspace</h3>
+            <p class="text-soft mb-0">
+              Workbench UI (grid, reader, calendar, notes, status) with private per-profile data storage.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </section>
 
 <!-- ================= SCREENSHOTS ================= -->
 <section id="screenshots" class="section">
-    <div class="container">
-        <div class="text-center mb-4">
-            <h2 class="section-title mb-2">Screenshots (work in progress)</h2>
-            <p class="text-muted">
-                A preview of the interface. Details and visual polish may still evolve before a public release.
-            </p>
-        </div>
-
-        <div class="row g-4">
-            <div class="col-md-4">
-                <figure class="screenshot-card">
-                    <img src="assets/img/Screenshot1.jpeg"
-                         class="img-fluid cast-shadow"
-                         alt="TaryagNotes main mitzvah-centric workspace">
-                    <figcaption class="small text-muted mt-2 text-center">
-                        Main mitzvah-centric workspace with reader, source links, and daily cycles in one window.
-                    </figcaption>
-                </figure>
-            </div>
-            <div class="col-md-4">
-                <figure class="screenshot-card">
-                    <img src="assets/img/Screenshot2.jpeg"
-                         class="img-fluid cast-shadow"
-                         alt="TaryagNotes filters and search view">
-                    <figcaption class="small text-muted mt-2 text-center">
-                        Structured mitzvah browsing with axis filters, search, and source navigation.
-                    </figcaption>
-                </figure>
-            </div>
-            <div class="col-md-4">
-                <figure class="screenshot-card">
-                    <img src="assets/img/Screenshot1.jpeg"
-                         class="img-fluid cast-shadow"
-                         alt="TaryagNotes detail reader view">
-                    <figcaption class="small text-muted mt-2 text-center">
-                        Detail reader view – placeholder for an additional screenshot as the UI matures.
-                    </figcaption>
-                </figure>
-            </div>
-        </div>
+  <div class="container app-container">
+    <div class="section-head text-center">
+      <h2 class="section-title">Screenshots</h2>
+      <p class="section-sub">Preview of the interface. Visual polish may evolve before public release.</p>
     </div>
+
+    <div class="row g-4">
+      <div class="col-md-4">
+        <figure class="shot">
+          <img src="assets/img/Screenshot1.jpeg" class="img-fluid" alt="Main workspace">
+          <figcaption class="text-soft small mt-2 text-center">
+            Main workbench: reader, sources, notes, cycles.
+          </figcaption>
+        </figure>
+      </div>
+      <div class="col-md-4">
+        <figure class="shot">
+          <img src="assets/img/Screenshot2.jpeg" class="img-fluid" alt="Filters and search">
+          <figcaption class="text-soft small mt-2 text-center">
+            Structured browsing with filters + search.
+          </figcaption>
+        </figure>
+      </div>
+      <div class="col-md-4">
+        <figure class="shot">
+          <img src="assets/img/Screenshot1.jpeg" class="img-fluid" alt="Detail reader view">
+          <figcaption class="text-soft small mt-2 text-center">
+            Detail reader view (placeholder).
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- ================= STATUS / ABOUT ================= -->
-<section id="status" class="section bg-section-dark">
-    <div class="container">
-        <div class="row gy-4">
-            <div class="col-md-6">
-                <h2 class="section-title mb-3">Project status</h2>
-                <p class="text-muted">
-                    Right now, <strong>TaryagNotes</strong> is a private, actively-developed application used
-                    day-to-day for personal limmud and shiur prep. The medium-term goal is a polished,
-                    cross-platform USB / installer edition that’s stable, respectful of licensing, and
-                    genuinely pleasant to live in for hours at a time.
-                </p>
-                <ul class="list-unstyled feature-list">
-                    <li><i class="fa-solid fa-circle-dot text-accent ms-1"></i>
-                        Core mitzvah grid, reader, and full-text search – working and in real use
-                    </li>
-                    <li><i class="fa-solid fa-circle-dot text-accent ms-1"></i>
-                        Calendar, journal, and flashcards – in active development
-                    </li>
-                    <li><i class="fa-solid fa-circle-dot text-accent ms-1"></i>
-                        Packaging, documentation, and pilot USB run – planned, בעזרת ה׳
-                    </li>
-                </ul>
-            </div>
+<!-- ================= STATUS ================= -->
+<section id="status" class="section section-alt">
+  <div class="container app-container">
+    <div class="row gy-4">
+      <div class="col-md-6">
+        <h2 class="section-title mb-3">Project status</h2>
+        <p class="text-soft">
+          Private, actively developed, used day-to-day for limmud and shiur prep.
+          Goal: a polished cross-platform USB / installer edition that’s stable and pleasant for hours of use.
+        </p>
 
-            <div class="col-md-6">
-                <p class="text-muted">
-                    If you are:
-                    <br>• A learner who wants a serious, offline, mitzvah-centric workbench, or
-                    <br>• A mechanech or rav preparing shiurim around specific mitzvos,
-                    <br>I’d be glad to hear what would make a tool like this genuinely helpful in your world.
-                </p>
-                <!-- Swap to your real contact -->
-                <a href="mailto:you@example.com" class="btn btn-outline-light">
-                    <i class="fa-regular fa-envelope ms-1"></i> Share your use-case
-                </a>
-            </div>
+        <ul class="bullets">
+          <li><i class="fa-solid fa-circle-dot"></i><span>Core workbench + search: in real use</span></li>
+          <li><i class="fa-solid fa-circle-dot"></i><span>Calendar / journal / flashcards: active development</span></li>
+          <li><i class="fa-solid fa-circle-dot"></i><span>Packaging + docs + pilot run: planned בעזרת ה׳</span></li>
+        </ul>
+      </div>
+
+      <div class="col-md-6">
+        <div class="panel">
+          <h3 class="h5 mb-2">Want to shape the beta?</h3>
+          <p class="text-soft mb-3">
+            If you’re a learner, mechanech, or rav preparing shiurim around mitzvos, I’d love to hear what would make this tool genuinely useful.
+          </p>
+          <div class="d-flex flex-wrap gap-2">
+            <a href="mailto:you@example.com" class="btn btn-ghost">
+              <i class="fa-regular fa-envelope ms-2"></i> Share your use-case
+            </a>
+            <a href="https://github.com/YOUR-USERNAME/TaryagNotes" class="btn btn-ghost" target="_blank">
+              <i class="fa-brands fa-github ms-2"></i> Track development
+            </a>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </section>
 
 <!-- ================= FOOTER ================= -->
-<footer id="footer" class="section bg-footer border-top py-3">
-    <div class="container">
-        <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2">
-            <small class="text-muted">
-                © <span id="year"></span> TaryagNotes. Offline Torah, built b’zehirut (בזהירות).
-            </small>
-            <div class="d-flex gap-3 small">
-                <a href="https://github.com/YOUR-USERNAME/TaryagNotes" class="link-muted" target="_blank">
-                    <i class="fa-brands fa-github ms-1"></i> GitHub
-                </a>
-            </div>
-        </div>
+<footer class="footer">
+  <div class="container app-container">
+    <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2">
+      <small class="text-soft">
+        © <span id="year"></span> TaryagNotes. Offline Torah, built b’zehirut (בזהירות).
+      </small>
+      <div class="d-flex gap-3 small">
+        <a href="https://github.com/YOUR-USERNAME/TaryagNotes" class="link-soft" target="_blank">
+          <i class="fa-brands fa-github ms-2"></i> GitHub
+        </a>
+      </div>
     </div>
+  </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+  document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 </body>
 </html>
