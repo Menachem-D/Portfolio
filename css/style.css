@@ -136,8 +136,8 @@ h1,h2,h3,h4,h5{
 .hero-content{
   position:relative;
   z-index:1;
-  padding-top: 4.75rem;
-  padding-bottom: 4.4rem;
+  padding-top: 4.25rem;
+  padding-bottom: 4rem;
   max-width: 980px;
 }
 
@@ -151,20 +151,34 @@ h1,h2,h3,h4,h5{
 }
 
 .hero-title{
-  max-width: 720px;
-  font-size: clamp(2.55rem, 4.7vw, 4.35rem);
-  line-height: 1.01;
+  max-width: 880px;
+  font-size: clamp(2.08rem, 3.75vw, 3.65rem);
+  line-height: 1.08;
   font-weight: 800;
   color: var(--text);
   margin-bottom: .95rem;
 }
 
+.hero-title-stack span{
+  display:block;
+}
+
+.hero-title-stack span:first-child{
+  color: var(--paper);
+}
+
+.hero-title-stack span:nth-child(2),
+.hero-title-stack span:nth-child(3){
+  font-size: .78em;
+  color: rgba(244,239,230,.92);
+}
+
 .hero-lede{
-  max-width: 690px;
+  max-width: 650px;
   color: var(--muted);
-  font-size: clamp(1.02rem, 1.35vw, 1.16rem);
-  line-height: 1.54;
-  margin-bottom: 1.45rem;
+  font-size: clamp(1rem, 1.18vw, 1.1rem);
+  line-height: 1.5;
+  margin-bottom: 1.4rem;
 }
 
 .hero-actions{
@@ -439,11 +453,15 @@ h1,h2,h3,h4,h5{
 
 @media (max-width: 575px){
   .hero-content{
-    padding-top:3.8rem;
-    padding-bottom:3.2rem;
+    padding-top:3.5rem;
+    padding-bottom:3.1rem;
   }
   .hero-title{
-    font-size:2.38rem;
+    font-size:2.22rem;
+  }
+  .hero-title-stack span:nth-child(2),
+  .hero-title-stack span:nth-child(3){
+    font-size: .82em;
   }
   .section{
     padding:2.8rem 0;
