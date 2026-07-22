@@ -3,50 +3,35 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="color-scheme" content="dark light" />
+  <meta name="color-scheme" content="dark" />
 
-  <title>TaryagNotes | Master Taryag Mitzvos</title>
+  <title>TaryagNotes | A local-first Torah learning workspace</title>
 
   <meta
     name="description"
-    content="TaryagNotes is a mitzvah-first Beis Midrash workspace for mastering Taryag mitzvos, learning each sugya with the Rishonim, searching the library, and writing source-linked ha'aros and chiddushim."
+    content="TaryagNotes is a local-first desktop workspace built around the 613 mitzvos: browse the Taryag, read the primary sources, write source-linked ha'aros with a quote+source convention, and review — all stored locally, no cloud required."
   />
   <meta
     name="keywords"
-    content="TaryagNotes, Taryag mitzvos, 613 mitzvos, Torah software, Beis Midrash, Beit Midrash, mitzvah learning, ha'aros, chiddushim, cross references, global Torah search, Chumash, Shas, Bavli, Mishneh Torah, Arbaah Turim, Rishonim, Torah notes, local-first, Avalonia, SQLite"
+    content="TaryagNotes, Taryag mitzvos, 613 mitzvos, Torah software, Beis Midrash, mitzvah learning, ha'aros, chiddushim, Chumash, Shas, Bavli, Mishneh Torah, Rambam, Arbaah Turim, Tur, Torah notes, local-first, Avalonia, SQLite, spaced repetition"
   />
 
-  <meta property="og:title" content="TaryagNotes | Master Taryag Mitzvos" />
+  <meta property="og:title" content="TaryagNotes | A local-first Torah learning workspace" />
   <meta
     property="og:description"
-    content="A mitzvah-first Beis Midrash workspace for learning each sugya with the Rishonim and crafting source-linked ha'aros and chiddushim."
+    content="Built around the 613 mitzvos: Today → Learn → Reader → Notes → Review. Local-first, source-linked, no cloud required."
   />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/img/Screenshot1.jpeg" />
   <meta property="og:locale" content="en_US" />
 
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="TaryagNotes | Master Taryag Mitzvos" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="TaryagNotes | A local-first Torah learning workspace" />
   <meta
     name="twitter:description"
-    content="Learn each sugya with the Rishonim, search across the library, and craft source-linked ha'aros and chiddushim."
+    content="Built around the 613 mitzvos: Today → Learn → Reader → Notes → Review. Local-first, source-linked, no cloud required."
   />
-  <meta name="twitter:image" content="assets/img/Screenshot1.jpeg" />
 
-  <link rel="icon" type="image/png" href="assets/img/favicon.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&family=Assistant:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
+  <link rel="icon" href="assets/favicon.ico" />
   <link rel="stylesheet" href="css/style.css" />
 
   <script type="application/ld+json">
@@ -56,260 +41,247 @@
     "name": "TaryagNotes",
     "applicationCategory": "EducationalApplication",
     "operatingSystem": "Windows, macOS, Linux",
-    "description": "A mitzvah-first Beis Midrash workspace for mastering Taryag mitzvos, learning each sugya with the Rishonim, searching the library, and writing source-linked ha'aros and chiddushim.",
+    "description": "A local-first desktop workspace for learning the 613 mitzvos: a mitzvah browser routed into the primary sources, a structured reader, and a source-linked notes system with spaced review.",
     "creator": { "@type": "Person", "name": "Menachem D" }
   }
   </script>
 </head>
 
-<body class="app">
-  <a class="visually-hidden-focusable skip-link" href="#main">Skip to content</a>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <header id="home" class="hero-wrap">
-    <nav class="navbar navbar-expand-lg navbar-dark nav-premium fixed-top" aria-label="Primary">
-      <div class="container app-container">
-        <a class="navbar-brand d-flex align-items-center gap-2" href="#home" aria-label="TaryagNotes home">
-          <span class="brand-mark" aria-hidden="true">ת</span>
-          <span class="brand-title">TaryagNotes</span>
-          <span class="brand-sub d-none d-md-inline">Beis Midrash Workspace</span>
+  <nav class="site-nav" aria-label="Primary">
+    <div class="container nav-row">
+      <a class="brand" href="#home" aria-label="TaryagNotes home">
+        <span class="brand-mark" aria-hidden="true">ת</span>
+        <span class="brand-title">TaryagNotes</span>
+        <span class="brand-sub">Local-first Torah workspace</span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNavLinks" aria-label="Toggle navigation">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+
+      <ul class="nav-links" id="siteNavLinks">
+        <li><a href="#how-it-works">How it works</a></li>
+        <li><a href="#reader">Reader</a></li>
+        <li><a href="#notes">Ha'aros</a></li>
+        <li><a href="#ui-reference">Live UI</a></li>
+        <li><a href="#status">Status</a></li>
+        <li>
+          <a href="https://github.com/Menachem-D" target="_blank" rel="noopener" class="btn btn-ghost">
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 0 0-2.53 15.59c.4.07.55-.17.55-.38l-.01-1.49c-2.01.44-2.44-.97-2.44-.97-.33-.84-.81-1.06-.81-1.06-.66-.45.05-.44.05-.44.73.05 1.12.75 1.12.75.65 1.11 1.7.79 2.12.6.07-.48.26-.79.46-.98-1.6-.18-3.29-.8-3.29-3.57 0-.79.28-1.43.75-1.94-.08-.18-.33-.92.07-1.92 0 0 .61-.2 2 .74a6.9 6.9 0 0 1 3.64 0c1.39-.94 2-.74 2-.74.4 1 .15 1.74.07 1.92.47.51.75 1.15.75 1.94 0 2.78-1.69 3.39-3.3 3.57.27.23.5.68.5 1.37l-.01 2.03c0 .2.14.44.55.37A8 8 0 0 0 8 0Z"/></svg>
+            GitHub
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <header id="home" class="hero">
+    <div class="container">
+      <p class="eyebrow">613 mitzvos · local-first · .NET + Avalonia desktop</p>
+      <h1 class="hero-title">A quiet study desk for the <span class="accent-word">Taryag</span> — not another notes app.</h1>
+      <p class="hero-lede">
+        TaryagNotes is organized around the 613 mitzvos themselves. Pick a mitzvah, land in the right primary
+        source, write a ha'arah that stays permanently tied to where it came from, and come back tomorrow exactly
+        where you left off — all stored locally, no account or cloud sync required.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#ui-reference" class="btn btn-accent">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 20h8"/></svg>
+          See the live UI
         </a>
-
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#siteNav"
-          aria-controls="siteNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon" aria-hidden="true"></span>
-        </button>
-
-        <div class="collapse navbar-collapse justify-content-end" id="siteNav">
-          <ul class="navbar-nav align-items-lg-center gap-lg-1">
-            <li class="nav-item"><a class="nav-link" href="#why">System</a></li>
-            <li class="nav-item"><a class="nav-link" href="#reader">Reader</a></li>
-            <li class="nav-item"><a class="nav-link" href="#search">Search</a></li>
-            <li class="nav-item"><a class="nav-link" href="#notes">Ha'aros</a></li>
-            <li class="nav-item"><a class="nav-link" href="#screenshots">Screenshots</a></li>
-            <li class="nav-item"><a class="nav-link" href="#status">Status</a></li>
-            <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
-              <a href="https://github.com/Menachem-D" target="_blank" rel="noopener" class="btn btn-sm btn-ghost">
-                <i class="fa-brands fa-github ms-2" aria-hidden="true"></i> GitHub
-              </a>
-            </li>
-          </ul>
-        </div>
+        <a href="#how-it-works" class="btn btn-ghost">How it works</a>
       </div>
-    </nav>
 
-    <section class="hero" aria-label="TaryagNotes introduction">
-      <div class="hero-bg" aria-hidden="true"></div>
-      <div class="container app-container hero-content">
-        <p class="eyebrow">Beis Midrash workspace</p>
-        <h1 class="hero-title hero-title-stack">
-          <span>Master Taryag Mitzvos.</span>
-          <span>Learn each sugya with the Rishonim.</span>
-          <span>Craft ha'aros and chiddushim.</span>
-        </h1>
-        <p class="hero-lede">
-          Mapped sources, clean reading, global search, and a notebook that stays attached to the sugya.
-        </p>
-
-        <div class="hero-actions">
-          <a href="#screenshots" class="btn btn-accent">
-            <i class="fa-regular fa-image ms-2" aria-hidden="true"></i> View the workspace
-          </a>
-          <a href="#status" class="btn btn-ghost">
-            Current status
-          </a>
-        </div>
-
-        <div class="hero-proof" aria-label="Core product strengths">
-          <span>Mitzvah-by-mitzvah structure</span>
-          <span>Rishonim-guided reader</span>
-          <span>Global text search</span>
-          <span>Source-linked ha'aros</span>
-        </div>
+      <div class="hero-proof">
+        <span class="pill">Mitzvah-by-mitzvah structure</span>
+        <span class="pill">Quote + source note convention</span>
+        <span class="pill">Local SQLite, no cloud</span>
+        <span class="pill">Plain spaced-repetition review</span>
       </div>
-    </section>
+    </div>
   </header>
 
-  <section class="band" aria-label="Technology and product strip">
-    <div class="container app-container">
-      <div class="band-row">
-        <span class="band-pill"><i class="fa-solid fa-desktop ms-2" aria-hidden="true"></i>.NET + Avalonia desktop</span>
-        <span class="band-pill"><i class="fa-solid fa-link ms-2" aria-hidden="true"></i>Mitzvah cross-references</span>
-        <span class="band-pill"><i class="fa-solid fa-magnifying-glass ms-2" aria-hidden="true"></i>Global search</span>
-        <span class="band-pill"><i class="fa-solid fa-book-open ms-2" aria-hidden="true"></i>Structured reader</span>
-        <span class="band-pill"><i class="fa-solid fa-pen-nib ms-2" aria-hidden="true"></i>Ha'aros notebook</span>
-      </div>
+  <section class="band" aria-label="Technology strip">
+    <div class="container band-row">
+      <span class="pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        .NET + Avalonia desktop
+      </span>
+      <span class="pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.66 3.58 3 8 3s8-1.34 8-3V6M4 12v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6"/></svg>
+        Local SQLite storage
+      </span>
+      <span class="pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15Z"/></svg>
+        Structured reader
+      </span>
+      <span class="pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+        Ha'aros notebook
+      </span>
     </div>
   </section>
 
   <main id="main">
-    <section id="why" class="section">
-      <div class="container app-container">
-        <div class="section-head text-center">
-          <p class="eyebrow">The system</p>
-          <h2 class="section-title">A mitzvah-first map of the library.</h2>
+    <section id="how-it-works" class="section">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">The mental model</p>
+          <h2 class="section-title">One loop, five stops.</h2>
           <p class="section-sub">
-            The app is organized around the taryag itself: every mitzvah becomes a home base for sources, reader history, ha'aros, and review.
+            Everything in the app funnels through the same cycle. There's no dashboard to configure and no feed to
+            scroll — just a path from "I want to learn this mitzvah" back to "what should I do next."
           </p>
         </div>
 
-        <div class="row g-4">
-          <div class="col-md-4">
-            <article class="card-premium h-100">
-              <div class="icon-badge"><i class="fa-solid fa-sitemap" aria-hidden="true"></i></div>
-              <h3>Cross-referenced mitzvos</h3>
-              <p>Each mitzvah carries its source trail, related sugyos, notes, and return paths instead of sitting as a flat list item.</p>
-            </article>
-          </div>
+        <div class="flow">
+          <div class="flow-step"><span class="flow-index">1</span><h3>Today</h3><p>Answers one question: where should I continue? Recent &amp; pinned mitzvos, notes due for review.</p></div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step"><span class="flow-index">2</span><h3>Learn</h3><p>Browse the 613 mitzvos. Pick one and get routed toward its primary sources.</p></div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step"><span class="flow-index">3</span><h3>Reader</h3><p>Read the actual sugya — Bavli daf/amud, Rambam perek, Tur siman, Chumash perek/pasuk.</p></div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step"><span class="flow-index">4</span><h3>Notes</h3><p>Write a ha'arah tied to that exact source, using a plain quote+citation convention.</p></div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step"><span class="flow-index">5</span><h3>Review</h3><p>A plain spaced-repetition pass over your notes — no streaks, no gamification.</p></div>
+        </div>
 
-          <div class="col-md-4">
-            <article class="card-premium h-100">
-              <div class="icon-badge"><i class="fa-solid fa-scroll" aria-hidden="true"></i></div>
-              <h3>Natural text structure</h3>
-              <p>Open seforim the way they are learned: Chumash by perek/pasuk, Bavli by daf/amud, Rambam by perek, Tur by siman.</p>
-            </article>
-          </div>
-
-          <div class="col-md-4">
-            <article class="card-premium h-100">
-              <div class="icon-badge"><i class="fa-solid fa-pen-nib" aria-hidden="true"></i></div>
-              <h3>Built for ha'aros</h3>
-              <p>Search, read, connect sources, and turn the sugya into lasting notes that remain tied to the mitzvah you learned.</p>
-            </article>
-          </div>
+        <div class="flow-detail">
+          <div class="flow-detail-row"><strong>Honest routing</strong><span>Mitzvah → source routes are "best-available" hints, not guaranteed exact citations. Sometimes it's the exact segment; sometimes just the right neighborhood — the Reader's own navigation and search take it from there.</span></div>
+          <div class="flow-detail-row"><strong>Shared location</strong><span>Commentaries (Rashi, Tosafos, Ritva, Beis Yosef, and the rest) are reached through the host text's location rather than being separately mapped to every mitzvah.</span></div>
+          <div class="flow-detail-row"><strong>No cloud</strong><span>Everything — the mitzvah list, your reading position, your notes — lives in a local SQLite database with its own backup workflow.</span></div>
         </div>
       </div>
     </section>
 
     <section id="reader" class="section section-alt">
-      <div class="container app-container">
-        <div class="row align-items-center gy-4">
-          <div class="col-lg-6">
+      <div class="container">
+        <div class="feature-split">
+          <div>
             <p class="eyebrow">Reader</p>
-            <h2 class="section-title">Move through the sugya without fighting the software.</h2>
-            <p class="text-soft">
-              The reader is built for long sessions: readable text, stable navigation, bookmarks, recent reading, and direct jumps from mitzvos or daily learning.
+            <h2 class="section-title">Text the way it's actually learned.</h2>
+            <p class="section-sub">
+              Seforim aren't flattened into one scrollable file — each one keeps its own real structure, so a
+              location you open today is the same location you reopen next month.
             </p>
-            <ul class="bullets">
-              <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Bavli opens as daf/amud pages.</span></li>
-              <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Rambam opens by perek with halacha-level segments.</span></li>
-              <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Tur opens by section and siman, not as one giant file.</span></li>
-              <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Related Rishonim and source paths stay close at hand.</span></li>
-            </ul>
           </div>
-          <div class="col-lg-6">
-            <figure class="shot">
-              <img src="assets/img/Screenshot1.jpeg" alt="TaryagNotes reader and workspace" loading="lazy" />
-            </figure>
-          </div>
+          <ul class="bullets">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span>Bavli opens as daf/amud pages, the way the Gemara is actually cited.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span>Rambam opens by perek, down to the individual halacha.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span>Tur opens by siman, not as one giant document.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span>The reading pane uses a dedicated warm parchment surface — the one deliberately warm element in an otherwise flat, fatigue-resistant dark UI.</span></li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <section id="search" class="section">
-      <div class="container app-container">
+    <section id="notes" class="section">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Ha'aros</p>
+          <h2 class="section-title">A note is never just text.</h2>
+          <p class="section-sub">
+            Every note lives at an address — either a specific mitzvah, or a free/inbox slot when it isn't tied to
+            one — and a source citation is never an afterthought.
+          </p>
+        </div>
+
         <div class="feature-split">
-          <div>
-            <p class="eyebrow">Search</p>
-            <h2 class="section-title">Global search across the learning library.</h2>
-          </div>
-          <div>
-            <p class="text-soft">
-              Search is there when you need raw discovery. The difference is what happens after: results can become part of a mitzvah path, a ha'arah, or a returnable reader location.
-            </p>
-            <div class="mini-grid">
-              <span><i class="fa-solid fa-check" aria-hidden="true"></i> Full-library lookup</span>
-              <span><i class="fa-solid fa-check" aria-hidden="true"></i> Source-aware results</span>
-              <span><i class="fa-solid fa-check" aria-hidden="true"></i> Review-friendly workflow</span>
+          <ul class="bullets">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span>Type a quoted line followed by <code>(source)</code> — it's rewritten into an attributed block quote automatically.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span>Full markdown inside notes and even inside the quote itself — bold, italic, tables, task lists.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span>Lightweight <code>#hashtag</code> tagging, parsed straight out of the text.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span>A plain spaced-repetition review pass — one more reason notes stay worth writing.</span></li>
+          </ul>
+
+          <div class="quote-demo">
+            <div class="quote-demo-row">
+              <div class="quote-demo-label">You type</div>
+              <div class="quote-demo-typed">"תפילין צריכין גוף נקי" (Rambam Hilchos Tefillin 4:1)</div>
+            </div>
+            <div class="quote-demo-arrow">↓ rendered automatically</div>
+            <div class="quote-demo-row quote-demo-rendered">
+              <div class="rendered-quote"><p>תפילין צריכין גוף נקי</p></div>
+              <div class="rendered-source">Rambam Hilchos Tefillin 4:1</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="notes" class="section section-alt">
-      <div class="container app-container">
-        <div class="row align-items-center gy-4">
-          <div class="col-lg-6 order-2 order-lg-1">
-            <figure class="shot">
-              <img src="assets/img/Screenshot2.jpeg" alt="TaryagNotes ha'aros and search workspace" loading="lazy" />
-            </figure>
-          </div>
-          <div class="col-lg-6 order-1 order-lg-2">
-            <p class="eyebrow">Ha'aros</p>
-            <h2 class="section-title">A notebook for the Torah you are building.</h2>
-            <p class="text-soft">
-              Notes are local, searchable, and connected to the sources they came from. They are built for real review: one idea, its sources, and the path back into the sugya.
-            </p>
-            <ul class="bullets">
-              <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Atomic ha'aros for one idea at a time.</span></li>
-              <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Source references, tags, and backlinks.</span></li>
-              <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Local notebook database with backup workflow.</span></li>
-              <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Search designed for review and retrieval.</span></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="screenshots" class="section">
-      <div class="container app-container">
-        <div class="section-head text-center">
-          <p class="eyebrow">Screenshots</p>
-          <h2 class="section-title">The product is the proof.</h2>
+    <section id="ui-reference" class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Live UI reference</p>
+          <h2 class="section-title">The real layout, placeholder data.</h2>
           <p class="section-sub">
-            A focused desktop environment for reading, searching, tracking, and writing while you learn.
+            These are live HTML/CSS reconstructions of the actual screens — same palette, same structure — with
+            obviously fake mitzvos and notes standing in for real ones.
           </p>
         </div>
 
-        <div class="row g-4">
-          <div class="col-md-4">
-            <figure class="shot with-caption">
-              <img src="assets/img/Screenshot1.jpeg" alt="Reader, navigation, and source workspace" loading="lazy" />
-              <figcaption>Reader, source navigation, and learning context.</figcaption>
-            </figure>
+        <div class="mockup-tabs" role="tablist" aria-label="UI reference screen">
+          <button class="mockup-tab" role="tab" aria-selected="true" data-target="tab-shell">App shell</button>
+          <button class="mockup-tab" role="tab" aria-selected="false" data-target="tab-today">Today</button>
+          <button class="mockup-tab" role="tab" aria-selected="false" data-target="tab-learn">Learn + Notes</button>
+          <button class="mockup-tab" role="tab" aria-selected="false" data-target="tab-reader">Reader</button>
+        </div>
+
+        <div class="window-frame">
+          <div class="window-titlebar">
+            <span class="window-dot"></span><span class="window-dot"></span><span class="window-dot"></span>
+            <span id="mockupTitle">TaryagNotes — App shell</span>
           </div>
-          <div class="col-md-4">
-            <figure class="shot with-caption">
-              <img src="assets/img/Screenshot2.jpeg" alt="Search, notes, and filters" loading="lazy" />
-              <figcaption>Global search, ha'aros, and filters.</figcaption>
-            </figure>
-          </div>
-          <div class="col-md-4">
-            <figure class="shot with-caption">
-              <img src="assets/img/Screenshot3.jpeg" alt="Daily learning integration" loading="lazy" />
-              <figcaption>Daily learning and return paths into the reader.</figcaption>
-            </figure>
-          </div>
+          <div class="mockup-panel is-active" id="tab-shell"><iframe src="mockup/shell.html" title="App shell mockup" loading="lazy"></iframe></div>
+          <div class="mockup-panel" id="tab-today"><iframe src="mockup/today.html" title="Today dashboard mockup" loading="lazy"></iframe></div>
+          <div class="mockup-panel" id="tab-learn"><iframe src="mockup/learn.html" title="Learn and notes mockup" loading="lazy"></iframe></div>
+          <div class="mockup-panel" id="tab-reader"><iframe src="mockup/reader.html" title="Reader mockup" loading="lazy"></iframe></div>
+        </div>
+        <p class="mockup-caption">All names, mitzvos, and notes shown are placeholder data for illustration only.</p>
+      </div>
+    </section>
+
+    <section id="workflow" class="section">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Workflow</p>
+          <h2 class="section-title">See the loop in motion.</h2>
+        </div>
+        <div class="gif-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m9 9 5 3-5 3Z" fill="currentColor" stroke="none"/></svg>
+          <p><strong>Workflow GIF coming soon.</strong></p>
+          <p>Today → pick a mitzvah in Learn → open it in the Reader → write a note with the quote+source convention → see it land in Review.</p>
         </div>
       </div>
     </section>
 
     <section id="status" class="section section-alt">
-      <div class="container app-container">
+      <div class="container">
         <div class="status-grid">
           <div>
             <p class="eyebrow">Status</p>
             <h2 class="section-title">Private build. Real use. Active hardening.</h2>
-            <p class="text-soft">
-              TaryagNotes is in active private development. The current work is reliability: source loading, reader performance, local notebook storage, backups, search, and a clean public release path.
+            <p class="section-sub">
+              TaryagNotes is in active private development and already in daily personal use. Current focus is
+              reliability: source loading, reader performance, notebook sync/merge across copies, and a clean
+              public release path.
             </p>
           </div>
-          <div class="panel status-panel">
+          <div class="panel">
             <h3>Current focus</h3>
             <ul class="status-list">
               <li><span>Reader stability across core seforim</span><strong>In progress</strong></li>
-              <li><span>Cross-references and global search</span><strong>Active</strong></li>
-              <li><span>Local ha'aros, links, and backups</span><strong>Active</strong></li>
-              <li><span>Packaging and public release path</span><strong>Planned</strong></li>
+              <li><span>Mitzvah routing &amp; global search</span><strong>Active</strong></li>
+              <li><span>Local ha'aros, backups &amp; merge</span><strong>Active</strong></li>
+              <li><span>Packaging &amp; public release path</span><strong>Planned</strong></li>
             </ul>
-            <a href="https://github.com/Menachem-D" class="btn btn-ghost w-100 mt-3" target="_blank" rel="noopener">
-              <i class="fa-brands fa-github ms-2" aria-hidden="true"></i> Follow development
+            <a href="https://github.com/Menachem-D" class="btn btn-ghost" target="_blank" rel="noopener" style="width:100%; justify-content:center;">
+              <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 0 0-2.53 15.59c.4.07.55-.17.55-.38l-.01-1.49c-2.01.44-2.44-.97-2.44-.97-.33-.84-.81-1.06-.81-1.06-.66-.45.05-.44.05-.44.73.05 1.12.75 1.12.75.65 1.11 1.7.79 2.12.6.07-.48.26-.79.46-.98-1.6-.18-3.29-.8-3.29-3.57 0-.79.28-1.43.75-1.94-.08-.18-.33-.92.07-1.92 0 0 .61-.2 2 .74a6.9 6.9 0 0 1 3.64 0c1.39-.94 2-.74 2-.74.4 1 .15 1.74.07 1.92.47.51.75 1.15.75 1.94 0 2.78-1.69 3.39-3.3 3.57.27.23.5.68.5 1.37l-.01 2.03c0 .2.14.44.55.37A8 8 0 0 0 8 0Z"/></svg>
+              Follow development
             </a>
           </div>
         </div>
@@ -317,20 +289,46 @@
     </section>
   </main>
 
-  <footer class="footer" aria-label="Footer">
-    <div class="container app-container">
-      <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2">
-        <small class="text-soft">© <span id="year"></span> TaryagNotes. Built for focused Torah learning.</small>
-        <a href="https://github.com/Menachem-D" class="link-soft" target="_blank" rel="noopener">
-          <i class="fa-brands fa-github ms-2" aria-hidden="true"></i> Menachem-D
-        </a>
-      </div>
+  <footer class="footer">
+    <div class="container footer-row">
+      <small>© <span id="year"></span> TaryagNotes. Built for focused Torah learning.</small>
+      <a href="https://github.com/Menachem-D" class="link-soft" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 0 0-2.53 15.59c.4.07.55-.17.55-.38l-.01-1.49c-2.01.44-2.44-.97-2.44-.97-.33-.84-.81-1.06-.81-1.06-.66-.45.05-.44.05-.44.73.05 1.12.75 1.12.75.65 1.11 1.7.79 2.12.6.07-.48.26-.79.46-.98-1.6-.18-3.29-.8-3.29-3.57 0-.79.28-1.43.75-1.94-.08-.18-.33-.92.07-1.92 0 0 .61-.2 2 .74a6.9 6.9 0 0 1 3.64 0c1.39-.94 2-.74 2-.74.4 1 .15 1.74.07 1.92.47.51.75 1.15.75 1.94 0 2.78-1.69 3.39-3.3 3.57.27.23.5.68.5 1.37l-.01 2.03c0 .2.14.44.55.37A8 8 0 0 0 8 0Z"/></svg>
+        Menachem-D
+      </a>
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    var navToggle = document.getElementById("navToggle");
+    var navLinks = document.getElementById("siteNavLinks");
+    navToggle.addEventListener("click", function () {
+      var isOpen = navLinks.classList.toggle("is-open");
+      navToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+    navLinks.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        navLinks.classList.remove("is-open");
+        navToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    var tabTitles = { "tab-shell": "TaryagNotes — App shell", "tab-today": "TaryagNotes — Today", "tab-learn": "TaryagNotes — Learn + Notes", "tab-reader": "TaryagNotes — Reader" };
+    var tabs = document.querySelectorAll(".mockup-tab");
+    var panels = document.querySelectorAll(".mockup-panel");
+    var mockupTitle = document.getElementById("mockupTitle");
+    tabs.forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        tabs.forEach(function (t) { t.setAttribute("aria-selected", "false"); });
+        panels.forEach(function (p) { p.classList.remove("is-active"); });
+        tab.setAttribute("aria-selected", "true");
+        var target = document.getElementById(tab.dataset.target);
+        target.classList.add("is-active");
+        mockupTitle.textContent = tabTitles[tab.dataset.target];
+      });
+    });
   </script>
 </body>
 </html>

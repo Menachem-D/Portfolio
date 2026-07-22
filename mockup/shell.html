@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TaryagNotes — App shell (UI reference, placeholder data)</title>
+<link rel="stylesheet" href="mockup.css" />
+<style>
+  /* Toolbar sits with a 32px margin off the window edges and shares the
+     app's own background (not the chrome tone) - a 1px bottom border is
+     the only separation. Matches Border.premium-toolbar exactly. */
+  .shell-toolbar{
+    margin: 16px 32px 0;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 8px 16px;
+    background: var(--bg-app);
+    border-bottom: 1px solid var(--border-strong);
+  }
+  .now-learning{ display: flex; align-items: center; gap: 10px; flex: none; }
+  .route-combo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    height: 28px;
+    padding: 0 10px;
+    background: var(--bg-chrome);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-s);
+    color: var(--text-secondary);
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  .route-combo .num{ color: var(--mitzvah-notes); font-weight: 700; }
+  .route-combo .caret{ color: var(--text-muted); font-size: 9px; margin-inline-start: 2px; }
+  .link-toggle{
+    width: 28px; height: 28px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: var(--radius-s);
+    color: var(--text-secondary);
+    font-size: 12px;
+    background: transparent;
+  }
+  .hud-kicker{ font-size: 11px; color: var(--text-muted); flex: none; }
+  .route-pills{ display: flex; align-items: center; gap: 14px; flex: none; }
+  .route-pill-group{
+    display: flex;
+    background: var(--bg-chrome);
+    border-radius: var(--radius-s);
+    padding: 2px;
+  }
+  .route-pill-group .route-combo{
+    background: transparent;
+    border: none;
+    width: 126px;
+  }
+  .route-pill-group .sep{ display:flex; align-items:center; justify-content:center; width: 14px; color: var(--text-muted); opacity: .55; font-size: 12px; }
+  .toolbar-spacer{ flex: 1; }
+  .toolbar-icon-btn{
+    width: 32px; height: 32px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: var(--radius-s);
+    color: var(--text-secondary);
+    background: transparent;
+    flex: none;
+  }
+
+  /* Content stage - 32px margin on all sides, same as Border.reader-stage */
+  .shell-stage{
+    flex: 1;
+    min-height: 0;
+    margin: 24px 32px;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-s);
+    background: var(--bg-surface);
+    overflow-y: auto;
+    padding: 22px 26px;
+  }
+  .stage-kicker{ font-size: 10.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--text-muted); margin: 0 0 14px; }
+  .resume-card{
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    border: 1px solid var(--border-subtle);
+    background: var(--bg-surface-raised);
+    border-radius: var(--radius-m);
+    padding: 16px;
+    margin-bottom: 20px;
+  }
+  .resume-card h3{ font-size: 14px; margin: 0 0 4px; color: var(--text-primary); }
+  .resume-card p{ font-size: 11.5px; color: var(--text-muted); margin: 0; }
+  .today-grid{ display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 10px; }
+  .mitzvah-card{
+    border: 1px solid var(--border-subtle);
+    background: var(--bg-surface-raised);
+    border-radius: var(--radius-m);
+    padding: 12px;
+  }
+  .mitzvah-card .num{
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 24px; height: 20px; border-radius: var(--radius-s);
+    background: var(--bg-hover); color: var(--text-muted);
+    font-size: 10px; font-weight: 700; margin-bottom: 8px;
+  }
+  .mitzvah-card h4{ margin: 0 0 3px; font-size: 12.5px; color: var(--text-primary); }
+  .mitzvah-card p{ margin: 0; font-size: 11px; color: var(--text-muted); }
+
+  /* Footer - full-bleed (32px horizontal padding, not margin), two quiet clusters */
+  .shell-footer{
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 32px;
+    background: var(--bg-app);
+    border-top: 1px solid var(--border-strong);
+  }
+  .status-chip{
+    display: inline-flex; align-items: center; gap: 6px;
+    border-radius: var(--radius-m);
+    border: 1px solid var(--border-subtle);
+    background: var(--bg-surface-raised);
+    padding: 3px 9px;
+    font-size: 10.5px;
+    color: var(--text-secondary);
+  }
+  .status-dot{ width: 6px; height: 6px; border-radius: 50%; background: var(--mitzvah-positive); }
+  .footer-pill{
+    display: flex; align-items: center; gap: 6px;
+    background: var(--bg-surface-raised);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-m);
+    padding: 2px 6px 2px 2px;
+    height: 24px;
+  }
+  .footer-pill .notebook-name{
+    height: 20px; display:flex; align-items:center; padding: 0 8px;
+    background: var(--bg-chrome); border-radius: var(--radius-s);
+    font-size: 11px; color: var(--text-primary);
+  }
+  .footer-pill .status-dot{ margin: 0 2px; }
+  .footer-pill .manage-btn{
+    width: 20px; height: 20px; display:flex; align-items:center; justify-content:center;
+    border-radius: var(--radius-s); color: var(--text-muted); font-size: 11px;
+  }
+  .footer-pill .footer-caption{ font-size: 10.5px; color: var(--text-muted); padding: 0 4px 0 2px; }
+</style>
+</head>
+<body>
+  <div class="app-shell">
+    <nav class="app-rail" aria-label="Primary">
+      <div class="rail-group">
+        <div class="rail-item is-active" title="Home">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="17" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <div class="rail-item" title="Learning text">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
+        <div class="rail-item" title="Taryag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><circle cx="3" cy="6" r="1" fill="currentColor" stroke="none"/><circle cx="3" cy="12" r="1" fill="currentColor" stroke="none"/><circle cx="3" cy="18" r="1" fill="currentColor" stroke="none"/></svg>
+        </div>
+      </div>
+      <div class="rail-group">
+        <div class="rail-item" title="Search Library">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
+        </div>
+        <div class="rail-item" title="User guide">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 5 0c0 1.5-2.5 2-2.5 3.5"/><line x1="12" y1="16.5" x2="12" y2="16.6"/></svg>
+        </div>
+        <div class="rail-item" title="Settings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.1-1.2l2-1.5-2-3.4-2.3.9a7 7 0 0 0-2-1.2L14 3h-4l-.6 2.6a7 7 0 0 0-2 1.2l-2.3-.9-2 3.4 2 1.5A7 7 0 0 0 5 12a7 7 0 0 0 .1 1.2l-2 1.5 2 3.4 2.3-.9a7 7 0 0 0 2 1.2L10 21h4l.6-2.6a7 7 0 0 0 2-1.2l2.3.9 2-3.4-2-1.5A7 7 0 0 0 19 12Z"/></svg>
+        </div>
+      </div>
+    </nav>
+
+    <div class="app-main">
+      <div class="shell-toolbar">
+        <div class="now-learning">
+          <div class="route-combo"><span class="num">421</span> · Lighting Shabbos candles <span class="caret">▾</span></div>
+          <div class="link-toggle" title="Route linked to this mitzvah">⇄</div>
+          <span class="hud-kicker">לומד עכשיו</span>
+        </div>
+
+        <div class="route-pills">
+          <div class="route-pill-group">
+            <div class="route-combo">Tur</div>
+            <div class="sep">‹</div>
+            <div class="route-combo">Orach Chaim</div>
+            <div class="sep">‹</div>
+            <div class="route-combo">Siman 263</div>
+          </div>
+          <span class="hud-kicker">Orach Chaim · Siman 263</span>
+        </div>
+
+        <div class="toolbar-spacer"></div>
+        <div class="toolbar-icon-btn" title="Quiet chrome">◱</div>
+      </div>
+
+      <div class="shell-stage">
+        <p class="stage-kicker">Today</p>
+        <div class="resume-card">
+          <div>
+            <h3>Continue: Mitzvah #421 — Lighting Shabbos candles</h3>
+            <p>Last open in Reader — Shulchan Aruch, Orach Chaim, siman 263</p>
+          </div>
+          <button class="mock-btn is-primary">Resume →</button>
+        </div>
+        <div class="today-grid">
+          <div class="mitzvah-card"><span class="num">3</span><h4>Tefillin</h4><p>Rambam · Hil. Tefillin, perek 4</p></div>
+          <div class="mitzvah-card"><span class="num">421</span><h4>Shabbos candles</h4><p>Tur · Orach Chaim, siman 263</p></div>
+          <div class="mitzvah-card"><span class="num">7</span><h4>Talmud Torah</h4><p>Bavli · Kiddushin, daf 29b</p></div>
+        </div>
+      </div>
+
+      <div class="shell-footer">
+        <div class="status-chip"><span class="status-dot"></span> Connected</div>
+        <div class="footer-pill">
+          <span class="notebook-name">Main notebook</span>
+          <span class="status-dot"></span>
+          <span class="manage-btn" title="Manage notebooks">☰</span>
+          <span class="footer-caption">Backed up 2m ago</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

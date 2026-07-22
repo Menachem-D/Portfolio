@@ -1,0 +1,193 @@
+/* Shared "app shell" styling for the TaryagNotes UI mockups.
+   Values match Resources/Styles/Colors.axaml / Tokens.axaml exactly —
+   these pages are a layout recreation with placeholder data, not a
+   screenshot, so they can be embedded live and stay crisp at any zoom.
+   Refreshed 2026-07-22 against the live palette + the "precision-driven
+   scholarly desktop" facelift (near-square 2px radius, not soft pills). */
+
+:root{
+  --bg-app: #111718;
+  --bg-chrome: #171D1E;
+  --bg-surface: #171D1E;
+  --bg-surface-raised: #1D2425;
+  --bg-hover: #202E30;
+  --bg-pressed: #101A1B;
+  --bg-selected: #263B3E;
+
+  --text-primary: #E7E1D6;
+  --text-secondary: #A69F92;
+  --text-muted: #83867F;
+
+  --border-subtle: #2B3536;
+  --border-strong: #465253;
+  --divider: #2B3536;
+  --border-active: #6B8F93;
+
+  --accent: #48666A;
+  --accent-hover: #55777B;
+  --accent-fg: #F3EEE4;
+
+  --paper: #F0E4CB;
+  --paper-alt: #E6D8BB;
+  --border-paper: #CDBD9D;
+  --text-on-paper: #2A2722;
+  --text-on-paper-secondary: #686055;
+  --text-on-paper-muted: #867B6F;
+  --reader-link: #8A5A0A;
+  --reader-selection: rgba(185, 133, 58, .4);
+
+  --editor-bg: #1D2425;
+  --editor-shell: #1D2425;
+
+  --mitzvah-positive: #6F956C;
+  --mitzvah-notes: #72889A;
+
+  /* Radius scale — near-square, not soft pills */
+  --radius-s: 2px;
+  --radius-m: 3px;
+  --radius-overlay: 4px;
+}
+
+*{ box-sizing: border-box; }
+
+html, body{
+  margin: 0;
+  height: 100%;
+  background: var(--bg-app);
+  color: var(--text-primary);
+  font-family: "Segoe UI", "Nirmala UI", Arial, "Noto Sans Hebrew", system-ui, sans-serif;
+  font-size: 13px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app-shell{
+  display: flex;
+  height: 100vh;
+  min-height: 480px;
+  overflow: hidden;
+}
+
+/* Left rail navigation, shared across all mockups. Matches the real app 1:1:
+   Height.NavDock (56px) square icon buttons, Radius.S (2px) corners, a top
+   cluster of mode switches and a bottom cluster of utility actions — no
+   text labels (the real rail is icon-only, tooltip on hover). */
+.app-rail{
+  flex: none;
+  width: 72px;
+  background: var(--bg-chrome);
+  border-right: 1px solid var(--divider);
+  display: flex;
+  flex-direction: column;
+  padding: 20px 8px;
+}
+.rail-group{ display: flex; flex-direction: column; gap: 4px; }
+.rail-group + .rail-group{ margin-top: auto; }
+.rail-item{
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-s);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  background: transparent;
+}
+.rail-item svg{ width: 22px; height: 22px; }
+.rail-item.is-active{
+  background: var(--accent);
+  color: var(--accent-fg);
+}
+
+.app-main{
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-topbar{
+  flex: none;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  background: var(--bg-chrome);
+  border-bottom: 1px solid var(--divider);
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+.app-topbar .crumb{ color: var(--text-muted); }
+.app-topbar .crumb strong{ color: var(--text-primary); font-weight: 600; }
+
+.app-body{
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  overflow: hidden;
+}
+
+.scroll-y{ overflow-y: auto; }
+
+/* Generic list-row look, reused for mitzvah rows / note rows / chapters */
+.row-list{ display: flex; flex-direction: column; }
+.list-row{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 14px;
+  border-bottom: 1px solid var(--divider);
+  color: var(--text-secondary);
+  cursor: default;
+}
+.list-row.is-selected{ background: var(--bg-selected); color: var(--text-primary); }
+.list-row .row-badge{
+  flex: none;
+  width: 26px;
+  height: 22px;
+  border-radius: var(--radius-m);
+  background: var(--bg-hover);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+}
+.list-row.is-selected .row-badge{ background: var(--accent); color: var(--accent-fg); }
+.list-row .row-title{ font-size: 12.5px; font-weight: 600; color: var(--text-primary); }
+.list-row .row-sub{ font-size: 11px; color: var(--text-muted); }
+
+.panel-heading{
+  padding: 10px 14px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--divider);
+}
+
+.chip{
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: var(--radius-m);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface-raised);
+  color: var(--text-secondary);
+  padding: 3px 9px;
+  font-size: 10.5px;
+  font-weight: 600;
+}
+
+.mock-btn{
+  border-radius: var(--radius-s);
+  border: 1px solid var(--border-strong);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  padding: 6px 12px;
+  font-size: 11.5px;
+  font-weight: 600;
+}
+.mock-btn.is-primary{ background: var(--accent); color: var(--accent-fg); border-color: var(--border-active); }

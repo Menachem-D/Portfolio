@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TaryagNotes — Learn (UI reference, placeholder data)</title>
+<link rel="stylesheet" href="mockup.css" />
+<style>
+  .learn-body{ display: flex; flex: 1; min-height: 0; }
+  .mitzvah-list{ flex: none; width: 240px; border-right: 1px solid var(--divider); background: var(--bg-surface); }
+  .notes-pane{ flex: 1; min-width: 0; display: flex; flex-direction: column; background: var(--bg-surface); }
+  .mitzvah-header{ padding: 14px 18px; border-bottom: 1px solid var(--divider); }
+  .mitzvah-header h2{ margin: 0 0 3px; font-size: 15px; }
+  .mitzvah-header span{ font-size: 11px; color: var(--text-muted); }
+
+  .note-list-mini{ padding: 10px 18px 0; display: flex; gap: 8px; flex-wrap: wrap; }
+
+  .composer-wrap{ flex: 1; min-height: 0; display: flex; padding: 14px 18px; gap: 14px; }
+  .composer-col{ flex: 1; min-width: 0; display: flex; flex-direction: column; }
+  .composer-col h5, .preview-col h5{
+    margin: 0 0 8px; font-size: 10.5px; font-weight: 700; letter-spacing: .06em;
+    text-transform: uppercase; color: var(--text-muted);
+  }
+  .composer-box{
+    flex: 1;
+    background: var(--editor-bg);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    padding: 12px;
+    font-family: "Cascadia Mono", Consolas, monospace;
+    font-size: 12px;
+    line-height: 1.65;
+    color: var(--text-secondary);
+    white-space: pre-wrap;
+  }
+  .composer-box .hl{ color: var(--text-primary); }
+  .preview-col{ flex: 1; min-width: 0; display: flex; flex-direction: column; }
+  .preview-box{
+    flex: 1;
+    background: var(--bg-surface-raised);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    padding: 14px;
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: var(--text-primary);
+  }
+  .rendered-quote{
+    border-right: 3px solid #2F7470;
+    padding: 2px 12px;
+    margin: 0 0 4px;
+  }
+  .rendered-source{ color: var(--text-muted); font-style: italic; font-size: 11px; padding-right: 12px; }
+  .tag-row{ margin-top: 10px; display: flex; gap: 6px; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+  <div class="app-shell">
+    <nav class="app-rail" aria-label="Primary">
+      <div class="rail-group">
+        <div class="rail-item" title="Home">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="17" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <div class="rail-item" title="Learning text">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
+        <div class="rail-item is-active" title="Taryag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><circle cx="3" cy="6" r="1" fill="currentColor" stroke="none"/><circle cx="3" cy="12" r="1" fill="currentColor" stroke="none"/><circle cx="3" cy="18" r="1" fill="currentColor" stroke="none"/></svg>
+        </div>
+      </div>
+      <div class="rail-group">
+        <div class="rail-item" title="Search Library">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
+        </div>
+        <div class="rail-item" title="User guide">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 5 0c0 1.5-2.5 2-2.5 3.5"/><line x1="12" y1="16.5" x2="12" y2="16.6"/></svg>
+        </div>
+        <div class="rail-item" title="Settings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.1-1.2l2-1.5-2-3.4-2.3.9a7 7 0 0 0-2-1.2L14 3h-4l-.6 2.6a7 7 0 0 0-2 1.2l-2.3-.9-2 3.4 2 1.5A7 7 0 0 0 5 12a7 7 0 0 0 .1 1.2l-2 1.5 2 3.4 2.3-.9a7 7 0 0 0 2 1.2L10 21h4l.6-2.6a7 7 0 0 0 2-1.2l2.3.9 2-3.4-2-1.5A7 7 0 0 0 19 12Z"/></svg>
+        </div>
+      </div>
+    </nav>
+
+    <div class="app-main">
+      <div class="app-topbar">
+        <span class="crumb"><strong>Learn</strong> · Mitzvah #3 · Tefillin</span>
+        <span class="chip">12 notes</span>
+      </div>
+
+      <div class="learn-body">
+        <aside class="mitzvah-list scroll-y">
+          <div class="panel-heading">613 mitzvos</div>
+          <div class="row-list">
+            <div class="list-row"><span class="row-badge">1</span><div><div class="row-title">Belief in G-d</div><div class="row-sub">Positive</div></div></div>
+            <div class="list-row"><span class="row-badge">2</span><div><div class="row-title">Unity of G-d</div><div class="row-sub">Positive</div></div></div>
+            <div class="list-row is-selected"><span class="row-badge">3</span><div><div class="row-title">Tefillin</div><div class="row-sub">Positive · 12 notes</div></div></div>
+            <div class="list-row"><span class="row-badge">4</span><div><div class="row-title">Tzitzis</div><div class="row-sub">Positive</div></div></div>
+            <div class="list-row"><span class="row-badge">5</span><div><div class="row-title">Mezuzah</div><div class="row-sub">Positive</div></div></div>
+            <div class="list-row"><span class="row-badge">6</span><div><div class="row-title">Hakhel</div><div class="row-sub">Positive</div></div></div>
+            <div class="list-row"><span class="row-badge">7</span><div><div class="row-title">Talmud Torah</div><div class="row-sub">Positive · 4 notes</div></div></div>
+          </div>
+        </aside>
+
+        <section class="notes-pane">
+          <div class="mitzvah-header">
+            <h2>Tefillin</h2>
+            <span>Mitzvah #3 · Positive · Rambam, Hil. Tefillin, perek 4</span>
+          </div>
+
+          <div class="note-list-mini">
+            <span class="chip">Note · הל' תפילין ד:א</span>
+            <span class="chip">Note · reasons for the shel yad</span>
+          </div>
+
+          <div class="composer-wrap">
+            <div class="composer-col">
+              <h5>Composer</h5>
+              <div class="composer-box">#tefillin #kavanah
+
+<span class="hl">"תפילין צריכין גוף נקי כאלישע בעל כנפים" (Rambam Hilchos Tefillin 4:1)</span>
+
+Worth comparing to the Gemara's own story about Eliyahu and Elisha —</div>
+            </div>
+            <div class="preview-col">
+              <h5>Live preview</h5>
+              <div class="preview-box">
+                <div class="rendered-quote">
+                  <p>תפילין צריכין גוף נקי כאלישע בעל כנפים</p>
+                </div>
+                <div class="rendered-source">Rambam Hilchos Tefillin 4:1</div>
+                <p style="margin-top:10px;">Worth comparing to the Gemara's own story about Eliyahu and Elisha —</p>
+                <div class="tag-row">
+                  <span class="chip">#tefillin</span>
+                  <span class="chip">#kavanah</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
