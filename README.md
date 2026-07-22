@@ -1,8 +1,9 @@
 # TaryagNotes — portfolio site
 
 Source for the public-facing portfolio page for **TaryagNotes**, a local-first desktop workspace for learning the
-613 mitzvos: a mitzvah browser routed into the primary sources, a structured reader, and a source-linked notes
-system (ha'aros) with a plain spaced-repetition review pass. Built with .NET + Avalonia, backed by a local SQLite
+613 mitzvos: a mitzvah browser cross-referenced across Chumash, Shas, Rambam, and Tur; a structured reader with
+citation autocomplete and daily learning (Daf Yomi, Rambam cycles) built in; and a source-linked notes system
+(ha'aros) with a plain spaced-repetition review pass. Built with .NET + Avalonia, backed by a local SQLite
 notebook — no account, no cloud sync required.
 
 **Live site:** https://menachem-d.github.io/Portfolio/ *(GitHub Pages, served from this repo)*
@@ -14,11 +15,12 @@ This is a static site — plain HTML/CSS, no build step, no framework:
 ```
 index.html          the portfolio page itself
 css/style.css        styling — palette and type pulled directly from the app's own design tokens
-mockup/               live HTML/CSS reconstructions of three real app screens, filled with placeholder data
+mockup/               live HTML/CSS reconstructions of four real app screens, filled with placeholder data
+  shell.html          the app shell — nav rail, toolbar, status bar
   today.html          the Today dashboard
   learn.html          the mitzvah browser + notes panel, showing the quote+source note convention
   reader.html         the Reader screen and its parchment reading surface
-  mockup.css          shared styling for the three mockup screens
+  mockup.css          shared styling for the four mockup screens
 assets/               favicon and resume PDF
 ```
 
